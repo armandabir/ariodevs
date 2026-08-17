@@ -1,0 +1,54 @@
+.Approch{
+    @apply md:h-640 h-900 relative;
+    .banner{
+        @apply w-11/12 h-3/5 mt-4 absolute md:w-4/5 md:h-2/3
+         bg-white rounded-2xl z-20 left-1/2 top-1/4 transform -translate-x-1/2 -translate-y-1/4 
+         bg-[url('./../../assets/full-shot-roofers.jpg')] bg-center bg-cover shadow-xl;
+
+        .slogan{
+          @apply w-10/12 h-3/4 mx-auto absolute left-1/2 -translate-x-1/2 
+          top-3/4 transform -translate-y-3/4 rounded-xl bg-black/40 backdrop-blur-sm;
+
+            .title{
+              @apply text-center font-iranSansBold md:text-4xl;
+            }
+
+            .logo{
+              @apply mx-auto -translate-y-1/2 rounded-2xl;
+            }
+
+            .steps{
+              @apply flex flex-row md:flex-col justify-around my-[2%];
+               
+              h3{
+                @apply md:w-1/6 p-4 text-center text-balance;
+                &:nth-child(3){
+                  @apply md:w-1/4;
+                }
+              
+              }
+            }
+        }
+
+        
+    }
+
+
+    .progress{
+      height: 90%;
+      
+      @apply w-1 md:w-4/6 md:h-1 mx-auto bg-white text-center flex flex-col md:flex-row justify-between ;
+    
+
+   
+
+      div{
+        @apply w-5 h-5 bg-orange-500 rounded-full border-2 border-white transform md:-translate-y-2 translate-x-2;
+
+        &:nth-child(3){
+          @apply md:-translate-x-2
+        }
+      }
+    }
+    
+}

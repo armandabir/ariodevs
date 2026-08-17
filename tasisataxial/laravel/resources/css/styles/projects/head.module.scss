@@ -1,0 +1,10 @@
+.head{
+    @apply relative h-500;
+
+    .imgContainer{
+        @apply absolute w-10/12 h-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 bg-white/50 z-30 backdrop-blur-sm rounded-xl;
+        img{
+            @apply w-full h-full object-fill p-5;
+        }
+    }
+}

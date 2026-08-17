@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ario-devs.com</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+ 
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      margin: 10px;
+      max-width: 900px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #334155;
+    }
+
+    .top-image img {
+     
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      mix-blend-mode: normal;
+      background: transparent;
+    }
+
+    .main-image img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      mix-blend-mode: normal;
+      background: transparent;
+    }
+
+    .loader {
+      margin: 20px auto;
+      width: 60px;
+      height: 60px;
+      border: 6px solid #e2e8f0;
+      border-top: 6px solid #2563eb;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style=" margin-top: 30px !important">
+      Laravel - React Development
+    </p>
+    
+    <br>
+    <hr>
+    <!-- Full stack image at top -->
+    <div class="top-image">
+      <img src="full-stack-development-lg3.jpg" alt="Full Stack Development">
+    </div>
+
+    <h1>🚧 Ario devs</h1>
+    <p>We work hard to build something awesome!</p>
+
+    <!-- Main construction illustration -->
+    <div class="main-image">
+      <img src="const.gif" alt="Construction Illustration">
+    </div>
+
+    <div class="loader"></div>
+
+    <footer>
+      &copy; 2026 Ario Devs | All rights reserved
+    </footer>
+  </div>
+</body>
+</html>

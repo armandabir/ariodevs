@@ -1,0 +1,46 @@
+.categories{ 
+    @apply flex flex-col md:flex-row w-full min-h-max mx-auto relative divide-none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: -1;
+    }
+
+    .catsMenu{
+        @apply flex flex-col border md:w-1/5 h-1/2 m-[2%] rounded-2xl border-white text-white overflow-hidden items-center;
+       
+
+        nav{
+            @apply w-full ;
+
+             h3{
+                 @apply bg-orange-500 h-16 text-center p-2;
+              }
+
+            ul{
+                @apply p-6;
+
+                li{
+                   @apply text-center p-2 border-b;
+                }
+            }
+        }
+       
+        
+        
+    }
+
+    .catsCards{
+        @apply flex flex-wrap gap-6 md:m-[2%] justify-items-center;
+
+        article{
+            @apply w-72;
+        }
+    }
+}

@@ -1,0 +1,259 @@
+{
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-808443ae.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-d7236a19.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-54cf6086.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-e3456d12.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-d2f05935.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-aa759986.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-30f6abf6.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-0ce9033c.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
+  },
+  "resources/assets/1.jpg": {
+    "file": "assets/1-75d909ab.jpg",
+    "src": "resources/assets/1.jpg"
+  },
+  "resources/assets/ASHRAE_0.png": {
+    "file": "assets/ASHRAE_0-069833b3.png",
+    "src": "resources/assets/ASHRAE_0.png"
+  },
+  "resources/assets/ASHRAE_2.png": {
+    "file": "assets/ASHRAE_2-b4cf2a6f.png",
+    "src": "resources/assets/ASHRAE_2.png"
+  },
+  "resources/assets/ASHRAE_3.png": {
+    "file": "assets/ASHRAE_3-4cbc039c.png",
+    "src": "resources/assets/ASHRAE_3.png"
+  },
+  "resources/assets/ASHRAE_4.png": {
+    "file": "assets/ASHRAE_4-b097e89a.png",
+    "src": "resources/assets/ASHRAE_4.png"
+  },
+  "resources/assets/ArrowLeft.png": {
+    "file": "assets/ArrowLeft-f58a6cd1.png",
+    "src": "resources/assets/ArrowLeft.png"
+  },
+  "resources/assets/Subtract.svg": {
+    "file": "assets/Subtract-1aa9e69b.svg",
+    "src": "resources/assets/Subtract.svg"
+  },
+  "resources/assets/about-us-bg-img.jpg": {
+    "file": "assets/about-us-bg-img-31f2f6ce.jpg",
+    "src": "resources/assets/about-us-bg-img.jpg"
+  },
+  "resources/assets/about/contact-support.png": {
+    "file": "assets/contact-support-7ae08a25.png",
+    "src": "resources/assets/about/contact-support.png"
+  },
+  "resources/assets/about/vector.png": {
+    "file": "assets/vector-372d2302.png",
+    "src": "resources/assets/about/vector.png"
+  },
+  "resources/assets/about/w3c.png": {
+    "file": "assets/w3c-bb829b82.png",
+    "src": "resources/assets/about/w3c.png"
+  },
+  "resources/assets/about/w3c2 1.png": {
+    "file": "assets/w3c2 1-54604f10.png",
+    "src": "resources/assets/about/w3c2 1.png"
+  },
+  "resources/assets/appsbg.png": {
+    "file": "assets/appsbg-98660120.png",
+    "src": "resources/assets/appsbg.png"
+  },
+  "resources/assets/bgMobileApps.png": {
+    "file": "assets/bgMobileApps-c70aa3a3.png",
+    "src": "resources/assets/bgMobileApps.png"
+  },
+  "resources/assets/bgwbMobile.png": {
+    "file": "assets/bgwbMobile-e57e721f.png",
+    "src": "resources/assets/bgwbMobile.png"
+  },
+  "resources/assets/blue-white-bg.png": {
+    "file": "assets/blue-white-bg-d05554cf.png",
+    "src": "resources/assets/blue-white-bg.png"
+  },
+  "resources/assets/bolt1.png": {
+    "file": "assets/bolt1-95811a8e.png",
+    "src": "resources/assets/bolt1.png"
+  },
+  "resources/assets/bolt2.png": {
+    "file": "assets/bolt2-0121e300.png",
+    "src": "resources/assets/bolt2.png"
+  },
+  "resources/assets/bolt3.png": {
+    "file": "assets/bolt3-d77ec59c.png",
+    "src": "resources/assets/bolt3.png"
+  },
+  "resources/assets/bolt4.png": {
+    "file": "assets/bolt4-d5d41200.png",
+    "src": "resources/assets/bolt4.png"
+  },
+  "resources/assets/cart.jpg": {
+    "file": "assets/cart-9944b1b9.jpg",
+    "src": "resources/assets/cart.jpg"
+  },
+  "resources/assets/cart/XCircle.png": {
+    "file": "assets/XCircle-2216571d.png",
+    "src": "resources/assets/cart/XCircle.png"
+  },
+  "resources/assets/checkmark.png": {
+    "file": "assets/checkmark-6ac5788a.png",
+    "src": "resources/assets/checkmark.png"
+  },
+  "resources/assets/footBg.jpg": {
+    "file": "assets/footBg-987e43e8.jpg",
+    "src": "resources/assets/footBg.jpg"
+  },
+  "resources/assets/footBgMobile.jpg": {
+    "file": "assets/footBgMobile-84d49d1c.jpg",
+    "src": "resources/assets/footBgMobile.jpg"
+  },
+  "resources/assets/footer/cert1.jpg": {
+    "file": "assets/cert1-badfc06c.jpg",
+    "src": "resources/assets/footer/cert1.jpg"
+  },
+  "resources/assets/footer/cert2.jpg": {
+    "file": "assets/cert2-44aff67d.jpg",
+    "src": "resources/assets/footer/cert2.jpg"
+  },
+  "resources/assets/footer/cert3.jpg": {
+    "file": "assets/cert3-1da8816d.jpg",
+    "src": "resources/assets/footer/cert3.jpg"
+  },
+  "resources/assets/full-shot-roofers.jpg": {
+    "file": "assets/full-shot-roofers-793a4624.jpg",
+    "src": "resources/assets/full-shot-roofers.jpg"
+  },
+  "resources/assets/logo.png": {
+    "file": "assets/logo-44c9c663.png",
+    "src": "resources/assets/logo.png"
+  },
+  "resources/assets/logo2.jpg": {
+    "file": "assets/logo2-184e670c.jpg",
+    "src": "resources/assets/logo2.jpg"
+  },
+  "resources/assets/mouse.png": {
+    "file": "assets/mouse-41a09fbf.png",
+    "src": "resources/assets/mouse.png"
+  },
+  "resources/assets/rectangle1.jpg": {
+    "file": "assets/rectangle1-8537a5bb.jpg",
+    "src": "resources/assets/rectangle1.jpg"
+  },
+  "resources/assets/revit.png": {
+    "file": "assets/revit-953c2a3d.png",
+    "src": "resources/assets/revit.png"
+  },
+  "resources/assets/section3bg.jpg": {
+    "file": "assets/section3bg-a17afc9b.jpg",
+    "src": "resources/assets/section3bg.jpg"
+  },
+  "resources/assets/services/rectangle1.jpg": {
+    "file": "assets/rectangle1-6595ada7.jpg",
+    "src": "resources/assets/services/rectangle1.jpg"
+  },
+  "resources/assets/services/rectangle2.jpg": {
+    "file": "assets/rectangle2-f6e9351d.jpg",
+    "src": "resources/assets/services/rectangle2.jpg"
+  },
+  "resources/assets/services/rectangle3.jpg": {
+    "file": "assets/rectangle3-fadf2dd4.jpg",
+    "src": "resources/assets/services/rectangle3.jpg"
+  },
+  "resources/assets/services/rectangle4.jpg": {
+    "file": "assets/rectangle4-31541181.jpg",
+    "src": "resources/assets/services/rectangle4.jpg"
+  },
+  "resources/assets/shopsection.png": {
+    "file": "assets/shopsection-a651828e.png",
+    "src": "resources/assets/shopsection.png"
+  },
+  "resources/css/index.css": {
+    "file": "assets/index-112a2c47.css",
+    "isEntry": true,
+    "src": "resources/css/index.css"
+  },
+  "resources/fonts/IRANSansFaNum.ttf": {
+    "file": "assets/IRANSansFaNum-413f480d.ttf",
+    "src": "resources/fonts/IRANSansFaNum.ttf"
+  },
+  "resources/fonts/IRANSansWeb_Bold.ttf": {
+    "file": "assets/IRANSansWeb_Bold-9e92cea5.ttf",
+    "src": "resources/fonts/IRANSansWeb_Bold.ttf"
+  },
+  "resources/js/index.css": {
+    "file": "assets/index-ef52ccfc.css",
+    "src": "resources/js/index.css"
+  },
+  "resources/js/index.jsx": {
+    "assets": [
+      "assets/blue-white-bg-d05554cf.png",
+      "assets/appsbg-98660120.png",
+      "assets/bgwbMobile-e57e721f.png",
+      "assets/logo2-184e670c.jpg",
+      "assets/ASHRAE_0-069833b3.png",
+      "assets/revit-953c2a3d.png",
+      "assets/ASHRAE_2-b4cf2a6f.png",
+      "assets/ASHRAE_3-4cbc039c.png",
+      "assets/ASHRAE_4-b097e89a.png",
+      "assets/ArrowLeft-f58a6cd1.png",
+      "assets/bolt1-95811a8e.png",
+      "assets/logo-44c9c663.png",
+      "assets/cert1-badfc06c.jpg",
+      "assets/cert2-44aff67d.jpg",
+      "assets/cert3-1da8816d.jpg",
+      "assets/mouse-41a09fbf.png",
+      "assets/contact-support-7ae08a25.png",
+      "assets/checkmark-6ac5788a.png",
+      "assets/XCircle-2216571d.png",
+      "assets/cart-9944b1b9.jpg",
+      "assets/full-shot-roofers-793a4624.jpg",
+      "assets/bgMobileApps-c70aa3a3.png",
+      "assets/about-us-bg-img-31f2f6ce.jpg",
+      "assets/rectangle1-8537a5bb.jpg",
+      "assets/footBgMobile-84d49d1c.jpg",
+      "assets/footBg-987e43e8.jpg",
+      "assets/section3bg-a17afc9b.jpg",
+      "assets/shopsection-a651828e.png",
+      "assets/Subtract-1aa9e69b.svg",
+      "assets/rectangle1-6595ada7.jpg",
+      "assets/rectangle2-f6e9351d.jpg",
+      "assets/rectangle3-fadf2dd4.jpg",
+      "assets/rectangle4-31541181.jpg"
+    ],
+    "css": [
+      "assets/index-ef52ccfc.css"
+    ],
+    "file": "assets/index-d856ccea.js",
+    "isEntry": true,
+    "src": "resources/js/index.jsx"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-2850da66.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}

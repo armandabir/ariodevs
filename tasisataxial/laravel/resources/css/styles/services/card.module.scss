@@ -1,0 +1,63 @@
+.card{
+    @apply flex md:flex-row flex-col gap-2 rounded-2xl relative overflow-hidden p-5 md:h-500 ;
+
+    &::before {
+        @apply absolute w-full h-full top-0 left-0 bg-black/80 -z-0;
+        content: ""
+    }
+
+    >div{
+      @apply z-10;   
+    }
+
+
+
+    .imgContainer{
+        @apply md:w-1/2 w-full;
+        img{
+            @apply rounded-xl w-full h-full object-cover;
+        }
+    }
+
+    .content{
+        @apply md:w-1/2 w-full p-5 ;
+
+        span{
+            @apply px-4 py-2 ml-3 border rounded-full 
+        }
+
+       .container{
+        @apply flex flex-col h-full;
+         h2{
+            @apply my-12 font-iranSansBold text-2xl;
+        }
+
+        p{
+            @apply text-justify;
+        }
+
+        button{
+            @apply md:w-1/4 w-4/5 h-12 text-center mt-auto md:mr-auto mx-auto bg-orange-400;
+        }
+       }
+    }
+}
+
+.bg1{
+    @apply bg-[url("./../../../assets/services/rectangle1.jpg")] object-center bg-cover bg-no-repeat;
+}
+
+.bg2{
+    @apply bg-[url("./../../../assets/services/rectangle2.jpg")] object-center bg-cover bg-no-repeat;
+}
+
+.bg3{
+    @apply bg-[url("./../../../assets/services/rectangle3.jpg")] object-center bg-cover bg-no-repeat;
+}
+
+.bg4{
+    @apply bg-[url("./../../../assets/services/rectangle4.jpg")] object-center bg-cover bg-no-repeat;
+}
+.order{
+      @apply order-last;
+}

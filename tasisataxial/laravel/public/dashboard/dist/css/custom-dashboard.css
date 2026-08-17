@@ -1,0 +1,22 @@
+.delete-icon{
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    font-size: 50px;
+    transform: translate(-50%,-50%);
+    color: red;
+    transition: .5s all;
+}
+
+.user-pic:hover .delete-icon{
+    opacity: 1;
+}
+
+.select2 span {
+    height: 100% !important;
+}
+
+
+.asterisk{
+    color: red;
+}

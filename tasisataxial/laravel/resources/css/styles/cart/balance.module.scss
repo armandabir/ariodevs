@@ -1,0 +1,40 @@
+.balance{
+    @apply flex flex-col p-5 border border-white rounded-2xl my-5 ;
+
+    .balanceNav{
+        @apply bg-gray-500 flex rounded-lg p-4 flex-wrap;
+        li{
+            @apply md:w-1/4 w-1/2 text-center;
+        }
+    }
+
+
+    .balanceInfo{
+    
+        li{
+            @apply p-4;
+        }
+        ul{
+            @apply flex p-2 flex-wrap;
+            border-bottom: 1px solid white;
+            .inputWrapper{
+                @apply flex;
+                span{
+                    @apply w-1/3 bg-white mx-1 rounded-md text-black p-1;
+                }
+
+                input{
+                    @apply text-black text-center w-full rounded-md;
+                }
+            }
+
+            li{
+                @apply md:w-1/4 w-1/2 text-center;
+                img{
+                    @apply mx-auto;
+                }
+              
+            }
+        }
+    }
+}

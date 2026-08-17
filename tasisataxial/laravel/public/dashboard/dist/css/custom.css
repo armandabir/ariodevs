@@ -1,0 +1,414 @@
+/* Add here all your CSS customizations */
+
+@keyframes loginhead {
+    from{
+        top: -20px;
+        opacity: 0;
+    }
+
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes loginfrom {
+    from{
+        top: -20px;
+        opacity: 0;
+    }
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOut {
+    0%{
+        opacity:0.2;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.2;
+    }
+}
+
+.topside{
+    width: 100%;
+    height: 100px;
+    background-color: #0e88cc;
+    border-radius: 0 0 50% 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    animation-name: loginhead;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+.topside .circleUser{
+    width: 130px;
+    height: 130px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -60%;
+    box-shadow: 0 0 10px #0000003b;
+}
+
+
+.circleUser img {
+    width: 100%;
+    margin-top: 5px;
+}
+
+
+.box-content{
+    animation-name: loginfrom;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+.space-1{
+    height: 100px;
+}
+
+.downPage{
+    position: absolute;
+    height: 400px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.custom-section-curved-top-2 {
+    /* position: absolute;
+   bottom: 100;
+    left: 0; */
+    position: relative;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  
+  .grayDiv{
+      /* position: absolute; */
+      background-color: #c6289f;
+       height: 100px;
+       width: 100%;  
+
+  }
+  .cicleGinger{
+    width: 130px;
+    height: 130px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #0000003b;
+}
+
+
+.cicleGinger img {
+    width: 100%;
+    margin-top: -12px;
+}
+
+
+.radioBt{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height:0;
+}
+
+.pack-box{
+    width: 350px;
+    height: 200px;
+    padding: 10px;
+    background-color: #f3f2f0;
+   
+}
+.pack-box div:nth-child(1){
+    flex: 60%;
+    position: relative;
+}
+.pack-box div:nth-child(2){
+    flex: 40%;
+}
+.pack-box img{
+    width: 100%;
+    height: auto;
+}
+
+.pack-box div{
+    font-size: 11px;
+}
+
+.pack-box .my-arrow{
+    width: 47px;
+    height: 55px;
+    position: absolute;
+    bottom: -5px;
+    right: 30%;
+}
+
+.border-pink{
+    border-color: pink !important;
+}
+
+
+.radioLabelpack{
+    width: 100%;
+}
+
+.radioLabel img{
+    cursor: pointer;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 30px;
+}
+
+
+.radioBt:checked + .card {
+    outline: 2px solid red;
+    animation-name: fadein;
+    animation-duration: 1s;
+
+
+}
+
+
+.radioLabel .pack-box{
+    cursor: pointer;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.radioLabelpack .pack-box{
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+.radioBt:checked + .pack-box {
+    outline: 2px solid red;
+    animation-name: fadein;
+    animation-duration: 1s;
+
+
+}
+
+.weight-box{
+    background-color: #0e88cc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.numBox{
+    background-color: white;
+    border-radius: 5px;
+   
+}
+.bodymass{
+    flex-wrap: wrap;
+}
+
+.circle{
+    position: relative;
+}
+
+.bodypic{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.bodymass>div {
+    /* width: 50%; */
+    flex: 50%;
+}
+
+.masses{
+    position: relative;
+    left: 90px;
+    height: 350px;
+}
+
+.masses div{
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+
+/* 
+.masses div{
+   flex: 50%;
+} */
+/* .bodymass img{
+    width: 100%;
+    height: auto;
+} */
+
+
+.masses div{
+    position: absolute;
+ 
+}
+
+
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    height:100px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+  }
+  
+  .card:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
+  
+  .card__link,
+  .card__exit,
+  .card__icon {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .card__link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+  }
+  
+  .card__link:hover::after {
+    width: 100%;
+  }
+  
+  .card__exit {
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  
+  .card__icon {
+    grid-row: 2/3;
+    font-size: 30px;
+  }
+  
+  h2{
+    font-size: 1.5rem !important;
+  }
+  .card__title {
+    display: inline-block;
+    font-weight: 100;
+    color: #fff;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  
+  .card__apply {
+    grid-row: 4/5;
+    align-self: center;
+  }
+  
+  /* CARD BACKGROUNDS */
+  
+  .card-1 {
+    background: radial-gradient(#04c9147a,#00b60f);
+  }
+  
+  .card-2 {
+    background: radial-gradient(#fa99b2,#ff002f);
+  }
+  
+  .card-3 {
+    background: radial-gradient(#4000ff73,#0153be);
+  }
+  
+  .card-4 {
+    background: radial-gradient(#ffc400,#ffc400);
+  }
+  
+  .card-5 {
+    background: radial-gradient(#c0a3e5,#cf04f8);
+  }
+  
+  .card-6 {
+    background: radial-gradient(#e5a3e2,#ff00bb);
+  }
+  /* RESPONSIVE */
+
+
+  
+  
+  @media (max-width: 1600px) {
+    .cards {
+      justify-content: center;
+    }
+  }
+
+@media (max-width:950px) {
+    .masses{
+       left: 12px;
+       top: 30px;
+       transform: rotate(-90deg);
+
+    }
+}
+    
+
+@media (max-width:500px) {
+    .masses{
+       left: 12px;
+       top: -70px;
+       transform: rotate(-90deg);
+
+    }
+
+    .bodymass{
+        height: 500px;
+    }
+
+    
+}

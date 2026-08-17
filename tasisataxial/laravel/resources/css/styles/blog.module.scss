@@ -1,0 +1,17 @@
+.Blog{
+    @apply md:h-500;
+
+    .container{
+        @apply flex flex-col h-screen md:flex-row md:w-10/12 md:h-5/6 mx-auto ;
+
+        .mynextBt{
+            @apply md:hidden text-black block rounded-none cursor-pointer absolute top-1/2 left-0 transform -translate-y-1/2 w-6 h-1/6 bg-gray-400/80 z-40;
+        }
+    
+    
+        .myprevBt{
+            @apply md:hidden text-black block rounded-none cursor-pointer absolute top-1/2 right-0 transform -translate-y-1/2 w-6 h-1/6 bg-gray-400/80 z-40;
+        }
+    }
+
+}

@@ -1,0 +1,7 @@
+.Apps{
+    @apply md:h-96 h-700 md:bg-[url("./../../assets/appsbg.png")] bg-[url("./../../assets/bgMobileApps.png")] bg-center bg-cover bg-no-repeat overflow-hidden;
+    
+    .container{
+        @apply grid md:grid-cols-5 grid-cols-2 md:my-0 my-[10vh] h-2/3 p-[8%];
+    }
+}

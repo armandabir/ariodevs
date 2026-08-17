@@ -1,0 +1,13 @@
+.productSlide{
+    @apply md:h-screen h-500 relative;
+
+    >img{
+        @apply object-cover h-full w-full absolute;
+    }
+
+    .btContainer{
+        @apply absolute md:w-32 md:h-4/6 w-full md:left-28 md:top-1/4 bottom-16 flex md:flex-col justify-around md:-translate-y-14;
+        
+    }
+    
+}

@@ -1,0 +1,13 @@
+.container {
+    @apply bg-[url('./../../assets/about-us-bg-img.jpg')] bg-no-repeat bg-cover;
+    @apply bg-mainBlue xl:h-640 h-auto overflow-hidden mt-[5%]  relative ;
+
+    .cards{
+        @apply w-11/12 my-[3%] mx-auto z-20 relative flex justify-center flex-wrap  ;
+    }
+
+
+    .bg1{
+        @apply bg-[url("./../../assets/rectangle1.jpg")] bg-cover bg-no-repeat;
+    }
+}

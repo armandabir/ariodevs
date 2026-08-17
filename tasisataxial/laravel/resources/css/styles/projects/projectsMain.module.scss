@@ -1,0 +1,40 @@
+.projects{
+    @apply min-h-h-1600 flex flex-col;
+
+    .content{
+        @apply p-10 text-justify inline-block ;
+    
+        img{
+            @apply w-full md:w-1/3 float-end h-full rounded-xl md:m-5 ;
+        }
+    }
+
+
+    figure{
+        width: calc(100vw - 70vw) !important;
+        height: 20rem !important;
+        float: inline-end !important;
+        margin: 0 1.5rem 1rem 0 !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            border-radius: 0.75rem !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        figure {
+            width: calc(100vw - 20vw) !important;
+            height: 12rem !important;
+            float: none !important;
+            margin: 1rem 0 !important;
+        }
+    }
+}

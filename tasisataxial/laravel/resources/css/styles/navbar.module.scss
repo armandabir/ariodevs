@@ -1,0 +1,86 @@
+
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+
+.navbar{
+    @apply fixed bottom-0 w-full md:top-0 md:grid md:grid-cols-5 xl:w-10/12 
+    md:left-1/2 md:transform md:-translate-x-1/2 md:p-2 backdrop-blur-sm z-50 md:bg-[#25252544] ;
+
+    height: 80px;
+     &::after{
+            @apply absolute bg-[#1b52b7] w-16 h-16 rounded-full -top-10 left-1/2 
+            -translate-x-1/2 md:hidden
+            text-white z-40 p-3 text-center;
+            font-family: "Font Awesome 5 Free";
+            content: '\f2a0';
+            font-weight: 900;
+            font-size: 2rem;
+            
+        }
+    >li{
+        @apply h-full;
+        div{
+            @apply h-full flex justify-center items-center;
+        }
+    }
+    .navMid{
+        @apply col-start-2 col-span-3;
+        ul{
+            @apply flex justify-between items-center xl:w-2/3 md:h-full  h-full mx-auto ;
+         
+         }      
+    }
+
+    .buttons{
+        @apply col-start-5 col-span-1;
+    }
+  
+
+    .mobileMenu{
+        @apply flex justify-between p-2 bg-white/90 h-full z-50 relative text-gray-600;
+        mask-image: url("./../../assets/Subtract.svg") ;
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        mask-position: 50%;
+        >li{
+            @apply flex justify-between w-1/2 mx-5 text-center;
+            ul{
+                @apply w-full flex justify-around items-center;
+                svg{
+                    @apply text-xl;
+                }
+
+            }
+        }
+
+     
+       
+    }
+
+    .callBt{
+        @apply absolute w-1/4 h-20 z-50 -top-10 left-1/2 transform -translate-x-1/2 bg-transparent cursor-pointer md:hidden;
+    }
+
+    .cartPopup{
+        @apply absolute md:top-full left-1/2 mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg border border-gray-200 bg-white px-3 py-2 text-[12px] font-medium text-gray-700 shadow-xl z-[60];
+        animation: fadeInOut 1.4s ease forwards;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -4px);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -4px);
+    }
+}

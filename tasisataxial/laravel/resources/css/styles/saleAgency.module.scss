@@ -1,0 +1,21 @@
+.container{
+    @apply md:h-640 h-screen xl:h-96 md:bg-[url("./../../assets/section3bg.jpg")]
+     bg-[url("./../../assets/section3-mobileBg.jpg")] bg-no-repeat bg-center bg-cover relative z-20  mb-[30%] md:m-0 ;
+    &::before{
+        @apply absolute inset-0 h-4/5 bg-gradient-to-b from-mainBlue from-20% via-transparent via-40% z-10;
+        content: "";
+    }
+    &::after{
+        @apply absolute inset-0 bg-gradient-to-t from-mainBlue from-5% via-transparent via-15% z-10;
+        content: "";
+    }
+
+    .mynextBt{
+        @apply md:hidden text-black block rounded-none cursor-pointer absolute top-2/3 left-0 transform -translate-y-2/3 w-6 h-1/6 bg-gray-400/80 z-40;
+    }
+
+
+    .myprevBt{
+        @apply md:hidden text-black block rounded-none cursor-pointer absolute top-2/3 right-0 transform -translate-y-2/3 w-6 h-1/6 bg-gray-400/80 z-40;
+    }
+}

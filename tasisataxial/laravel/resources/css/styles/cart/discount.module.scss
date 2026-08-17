@@ -1,0 +1,15 @@
+.discount{
+    @apply p-5 border border-white rounded-2xl;
+
+    .container{
+        @apply flex md:flex-row flex-col gap-x-6 p-6;
+
+        input{
+            @apply md:w-3/4 rounded-lg h-10 self-center w-full;
+        }
+
+        button {
+            @apply md:w-1/4 w-1/2 mx-auto my-3;
+        }
+    }
+}

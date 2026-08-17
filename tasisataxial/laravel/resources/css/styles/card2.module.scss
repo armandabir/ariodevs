@@ -1,0 +1,8 @@
+.card2{
+    @apply w-10/12 md:w-full mx-auto p-3 rounded-lg ;
+    background-color: #16294F;
+
+    img{
+        @apply w-full h-full object-cover;
+    }
+}
