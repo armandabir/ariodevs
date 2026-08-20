@@ -1,9 +1,26 @@
 <?php
 
-return [
+return array_map(static function (array $item): array {
+    unset($item['description']);
+
+    $contents = [
+        'این محصول با کیفیت مناسب و عملکرد قابل اعتماد، انتخابی کاربردی برای پروژه‌های ساختمانی است.',
+        'محصولی بادوام و کاربردی که برای استفاده در پروژه‌های مختلف عمرانی و ساختمانی پیشنهاد می‌شود.',
+        'این کالا با طراحی مناسب و کیفیت مطلوب، نیازهای روزمره فعالان حوزه ساخت‌وساز را برطرف می‌کند.',
+    ];
+
+    return $item + [
+        'slug' => trim(preg_replace('/[^\p{L}\p{N}]+/u', '-', $item['name']), '-'),
+        'pic' => 'products/default.jpg',
+        'price' => random_int(100000, 10000000),
+        'content' => $contents[array_rand($contents)],
+        'publish' => random_int(0, 1),
+        'cat_id' => random_int(1, 10),
+    ];
+}, [
 
     // Building Materials
-
+    
     [
         'name' => 'سیمان تیپ ۲',
         'description' => 'سیمان پرتلند تیپ ۲ مناسب برای انواع پروژه‌های ساختمانی و عمرانی.',
@@ -238,4 +255,4 @@ return [
         'description' => 'دستکش مقاوم مناسب برای محافظت از دست‌ها هنگام انجام عملیات ساختمانی.',
     ],
 
-];
+]);
