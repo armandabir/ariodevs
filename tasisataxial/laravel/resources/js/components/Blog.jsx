@@ -14,6 +14,7 @@ export default function Blog(){
     async function fetchAricles(cat=0) {
         const res =await fetch(`api/getArticles/${cat}`)
         const data = await res.json();
+        console.log(data);
         setData(data)
     }
 
