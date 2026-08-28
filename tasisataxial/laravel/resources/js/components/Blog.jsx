@@ -10,12 +10,16 @@ import { useEffect, useState } from "react";
 
 export default function Blog(){
     const [data,setData]=useState([])
-    
+    const [current_page,setCurrent_page]=useState(1);
+    const [last_page,setLast_page]=useState(1);
+
     async function fetchAricles(cat=0) {
-        const res =await fetch(`api/getArticles/${cat}`)
+        const res =await fetch(`api/getArticles/${cat}/?page=1`)
         const data = await res.json();
-        console.log(data);
-        setData(data)
+        setData(data.articles)
+        setCurrent_page(data.pagination.current_page)
+        setLast_page(data.pagination.last_page)
+        
     }
 
     function handleOnclick(){
@@ -23,7 +27,7 @@ export default function Blog(){
     }
 
       function handleCartClick(id){
-        window.location.href=`./article/${id}`    
+        window.location.href=`./article/${id}/?page=1`    
     }
     
 

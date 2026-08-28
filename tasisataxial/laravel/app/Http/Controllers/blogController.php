@@ -31,13 +31,13 @@ class blogController extends Controller
         }
         return response()->json([    
         'articles'=>$articles->items(),
+        'logPagination'=>$articles,
         'pagination'=>[
             'current_page'=>$articles->currentPage(),
             'last_page'=>$articles->lastPage(),
             'per_pager'=>$articles->perPage(),
             'total'=>$articles->total(), 
-        ]
-        
+            ]
         ]);
     }
 

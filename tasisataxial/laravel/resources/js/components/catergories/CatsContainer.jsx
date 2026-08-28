@@ -4,26 +4,32 @@ import Button from "../Button"
 import Card2 from "../Card2"
 import styles from "./../../../css/styles/categories/categories.module.scss"
 import Card3 from "../Card3"
+import Pagination from "../pagination"
+import { faInstalod } from "@fortawesome/free-brands-svg-icons"
 
 
 export default function CatsContainer({maincat}){
     const [cats,setCats]=useState([])
     const [data,setData]=useState([])
+    const [current_page,setCurrent_page]=useState(1);
+    const [last_page,setLast_page]=useState(1);
+    const [error,setError]=useState(null)
+    const [loading,setLoading]=useState(true)
 
 
     function handleCartClick(id){
 
          if(maincat==3){
-            window.location.href=`../projects/${id}`
+            window.location.href=`../projects/${id}/?page=1`
         }
 
 
         if(maincat==2){
-            window.location.href=`../product/${id}`
+            window.location.href=`../product/${id}/?page=1`
         }
 
         if(maincat==1){
-            window.location.href=`../article/${id}`    
+            window.location.href=`../article/${id}/?page=1`    
         }
     }
     
@@ -49,49 +55,58 @@ export default function CatsContainer({maincat}){
 
     async function fetchCats(maincat) {
         const res = await fetch(`../api/getcats/${maincat}`)
-        const data = await res.json();
-        setCats(data);
-       
+        // console.log( await res.json())
+        return await res.json()
     }  
 
     async function fetchProducts(cat=0) {
         const res =await fetch(`../api/getProducts/${cat}`)
-        const data = await res.json();
-        setData(data)
+        return await res.json()
     }
 
     async function fetchAricles(cat=0) {
         const res =await fetch(`../api/getArticles/${cat}`)
-        const data = await res.json();
-        setData(data)
+        return await res.json()
     }
 
 
         async function fetchProjects(cat=0) {
         const res =await fetch(`../api/getProjects/${cat}`)
-        const data = await res.json();
-        setData(data)
+        return await res.json()
     }
     
-    
+    async function fetchAll(maincat){
+        try{
+            const [cats,articles,projects,products] = await Promise.all([
+                fetchCats(maincat),
+                fetchAricles(0),
+                fetchProjects(0),
+                fetchProducts(0)
+            ]);
+
+            setCats(cats)
+
+            const result = maincat == 1 ? articles : maincat == 2 ? products : projects
+            setData(result.data || result)
+
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     useEffect(()=>{
-        fetchCats(maincat);
-        if(maincat==2){
-            fetchProducts(0)
-        }
-
-        if(maincat==1){
-            fetchAricles(0)
-        }
-
-          if(maincat==3){
-            fetchProjects(0)
-        }
+        fetchAll(maincat)
 
     },[maincat])
 
-    console.log(data)
 
+
+    if (loading) return <div>loading...</div>
+    if (error) return <div>{error.message}</div>
+    console.log(cats)
     return (
         <section className={styles.categories}>
             <div className={styles.catsMenu}>
@@ -106,10 +121,11 @@ export default function CatsContainer({maincat}){
             </div>
 
             <div className="flex flex-col items-start md:w-10/12 md:min-h-96">
+            
                 <div className={styles.catsCards}>
                    
                     {
-                        data.map((card)=>{
+                        (data.articles || data.products || data.projects).map((card)=>{
                             if(maincat==2){
                                 return <Card2 key={card.id} img={`/tasisataxial/storage/products/${JSON.parse(card.pic)[0]}`} tilte={card.name} initLikes={25} price={card.price} onclick={()=>handleCartClick(card.id)}/>
                             }
@@ -133,15 +149,12 @@ export default function CatsContainer({maincat}){
                       
 
                 </div>
-             
+                <Pagination current_page={data.pagination?.current_page || 1} last_page={data.pagination?.last_page || 1} cat={maincat} />
                 <Button className="w-1/3 bg-orange-400 my-5 mx-auto">مشاهده بیشتر</Button>
                 
             </div>
 
-            <BlueWhiteBg
-                className="md:h-4/5 -scale-y-100 w-full min-h-96 -z-10"
-            
-            />
+            <BlueWhiteBg className="md:h-4/5 -scale-y-100 w-full min-h-96 -z-10"/>
 
         </section>
     )
