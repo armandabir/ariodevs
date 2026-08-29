@@ -65,7 +65,7 @@ export default function CatsContainer({maincat}){
     }
 
     async function fetchAricles(cat=0) {
-        const res =await fetch(`../api/getArticles/${cat}`)
+        const res =await fetch(`../api/getArticles/${cat}/?page=${current_page}`)
         return await res.json()
     }
 
@@ -120,7 +120,7 @@ export default function CatsContainer({maincat}){
                 </nav>
             </div>
 
-            <div className="flex flex-col items-start md:w-10/12 md:min-h-96">
+            <div className="flex flex-col items-center md:w-10/12 md:min-h-96">
             
                 <div className={styles.catsCards}>
                    
@@ -149,9 +149,12 @@ export default function CatsContainer({maincat}){
                       
 
                 </div>
-                <Pagination current_page={data.pagination?.current_page || 1} last_page={data.pagination?.last_page || 1} cat={maincat} />
+
+                {data?.pagination && data.pagination.last_page > 1 && (
+                    <Pagination current_page={data.pagination?.current_page || 1} last_page={data.pagination?.last_page || 1} cat={maincat} />
+                )}
                 <Button className="w-1/3 bg-orange-400 my-5 mx-auto">مشاهده بیشتر</Button>
-                
+
             </div>
 
             <BlueWhiteBg className="md:h-4/5 -scale-y-100 w-full min-h-96 -z-10"/>
