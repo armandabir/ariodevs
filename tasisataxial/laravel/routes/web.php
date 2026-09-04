@@ -43,24 +43,24 @@ Route::get('/', function () {
 })->name("home");
 
 
-Route::get('/cats/{any}', function () {  
-    // dd(session()->all());
-    return view('index');
-})->name("cats");
+// Route::get('/cats/{any}/{cat?}/', function () {  
+//     // dd(session()->all());
+//     return view('index');
+// })->name("cats");
 
 
 
 
 
-Route::get('/product/{any}', function () {
-    $arman="test";
-    $names=['ali','rahmat','ziba'];
-    $result=[
-        'r1'=>$names,
-        'r2'=>$arman
-    ];
-    return view('index',['result'=>json_encode($result)]);
-});
+// Route::get('/product/{any}', function () {
+//     $arman="test";
+//     $names=['ali','rahmat','ziba'];
+//     $result=[
+//         'r1'=>$names,
+//         'r2'=>$arman
+//     ];
+//     return view('index',['result'=>json_encode($result)]);
+// });
 
 Auth::routes();
 

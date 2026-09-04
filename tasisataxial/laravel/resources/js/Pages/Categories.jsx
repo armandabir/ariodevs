@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 
 export default function Categories () {
-    const {cat}=useParams();
+    const {maincat, cat}=useParams();
 
     async function session() {
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -43,8 +43,8 @@ export default function Categories () {
     return (
         <>
             <Navbar/>
-            <Header maincat={cat}/>
-            <CatsContainer maincat={cat}/>
+            <Header maincat={maincat}/>
+            <CatsContainer maincat={maincat} cat={cat}/>
             <Footer/>
             <div className="h-20"></div>
         </>

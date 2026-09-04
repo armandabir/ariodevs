@@ -17,7 +17,7 @@ export default function Article(){
     }
 
     useEffect(()=>{
-            fetchAricle()
+        fetchAricle()
     },[id])
 
 

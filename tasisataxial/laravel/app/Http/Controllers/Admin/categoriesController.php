@@ -106,9 +106,8 @@ class categoriesController extends Controller
 
 
     public function getcats($maincat){
-
         $cats=[];
-
+        // return response()->json($maincat);
         if($maincat==2){
             $productcat = new category();
             // $cats=$productcat->getcats(0);

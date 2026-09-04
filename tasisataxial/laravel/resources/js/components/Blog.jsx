@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { useEffect, useState } from "react";
-
+import { storageUrlPath , apiFetch } from "../config/urls.js";
 export default function Blog(){
     const [data,setData]=useState([])
     const [current_page,setCurrent_page]=useState(1);
@@ -16,6 +16,7 @@ export default function Blog(){
     async function fetchAricles(cat=0) {
         const res =await fetch(`api/getArticles/${cat}/?page=1`)
         const data = await res.json();
+        
         setData(data.articles)
         setCurrent_page(data.pagination.current_page)
         setLast_page(data.pagination.last_page)
@@ -34,6 +35,7 @@ export default function Blog(){
     useEffect(()=>{
         fetchAricles()
     },[])
+
     return(
         <section className={styles.Blog}>
             <div className={styles.container}>
@@ -71,7 +73,7 @@ export default function Blog(){
                                 data.map((article)=> (
                                     <Card3 
                                         key={article.id}  
-                                        img={`/tasisataxial/storage/articles/${article.pic}`} 
+                                        img={storageUrlPath(`articles/${article.pic}`)} 
                                         tilte={article.title} 
                                         date={article.updated_at ? article.updated_at.split('T')[0] : ''} // Only date part
                                         onclick={()=>handleCartClick(article.id)}

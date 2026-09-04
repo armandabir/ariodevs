@@ -25,10 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-route::get('getcats/{cat}',[categoriesController::class,"getcats"]);
+route::get('getcats/{cat}/{subcat?}',[categoriesController::class,"getcats"]);
 route::get('getProducts/{cat}',[productController::class,"index"]);
 route::get('getProjects/{cat}',[projectController::class,"index"]);
-route::get("getArticles/{blog?}",[blogController::class,"index"])->name("blog");
+route::get("getArticles/{blog?}/{cat?}",[blogController::class,"index"])->name("blog");
 
 
 route::get('fetchProject/{id}',[projectController::class,"getproject"]);
