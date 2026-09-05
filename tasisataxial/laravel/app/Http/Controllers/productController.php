@@ -17,16 +17,36 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($cat)
+    public function index($maincat = null , $cat = 0)
     {
-        if($cat==0){
-            $products=product::where('publish',1)->get();
-        }else{
+   
+        $query = product::where('publish',1);
+        
+        if($cat !== null && $cat !=0 ){
+            $query->where('cat_id',$cat);
+            }
+            
+        $product=$query->paginate(6);
+        
+        // $cats=category::where("maincat_id",1)->get();
+        // if($category==0){
 
-            $products=product::where("cat_id",$cat)->where('publish',1)->get();
-        }
+        //     $articles=article::where("publish",1)->paginate(10);
 
-        return response()->json($products);
+        // }else{
+        //     $articles=article::where("cat_id",$category)->where('publish',1)->paginate(10);
+            
+        // }
+        return response()->json([    
+        'articles'=>$product->items(),
+        'logPagination'=>$product,
+        'pagination'=>[
+            'current_page'=>$product->currentPage(),
+            'last_page'=>$product->lastPage(),
+            'per_pager'=>$product->perPage(),
+            'total'=>$product->total(), 
+            ]
+        ]);
     }
 
     /**

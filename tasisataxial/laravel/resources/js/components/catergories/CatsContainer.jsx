@@ -52,7 +52,7 @@ export default function CatsContainer({maincat, cat}){
     async function fetchAricles(maincat=1,cat=0, current_page=1) {
         
         const res =await apiFetch(`getArticles/${maincat}/${cat}/?page=${current_page}`)
-        console.log( res)
+        console.log(res)
         return await res
         
     }
