@@ -94,16 +94,17 @@ export default function CatsContainer({maincat, cat}){
     }
 
     useEffect(()=>{
-        console.log("fetchAll called with maincat:", maincat, "cat:", selectedCat, "current_page:", current_page);
+        // console.log("fetchAll called with maincat:", maincat, "cat:", selectedCat, "current_page:", current_page);
         fetchAll(maincat, selectedCat, current_page)
 
     },[maincat,selectedCat,current_page])
 
-
+    
 
     if (loading) return <div>loading...</div>
     if (error) return <div>{error.message}</div>
-  
+    
+    console.log("Cats:", data);
     return (
         <section id="tag" className={styles.categories}>
             <div className={styles.catsMenu}>

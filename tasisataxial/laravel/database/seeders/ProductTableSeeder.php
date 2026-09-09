@@ -37,7 +37,7 @@ class ProductTableSeeder extends Seeder
 
          $items = [];
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $name = $names[array_rand($names)];
 
             $items[] = [

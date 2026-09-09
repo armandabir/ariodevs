@@ -1,10 +1,11 @@
 import { BlueWhiteBg } from "../BlueWhiteBg"
 import styles from "./../../../css/styles/projects/head.module.scss"
+import { storageUrlPath } from "../../config/urls";
 export default function Head({img,article}) {
     return (
         <div className={styles.head}>
             <div className={styles.imgContainer}>
-                {article ? (<img src={`../storage/articles/${img}`} alt="" />):
+                {article ? (<img src={storageUrlPath(`articles/${img}`)} alt="" />):
                 (<img src={img} alt="" />)
                     
                 }

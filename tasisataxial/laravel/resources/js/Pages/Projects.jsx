@@ -10,8 +10,9 @@ export default function Projects(){
      const {id}=useParams();
      const [project,setProject]=useState();
          async function fetchProject() {
-             const res = await fetch(`api/fetchProject/${id}`);
+             const res = await fetch(`/api/fetchProject/${id}`);
              const data = await res.json();
+             console.log("Fetched project data:", data);
              setProject(data);
            
          }

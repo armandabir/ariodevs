@@ -46,8 +46,10 @@ class ProductSeeder extends Seeder
         ];
 
          $items = [];
+        $catIds = [66, 65, 64, 61, 60, 59, 58, 57, 55, 56];
 
-        for ($i = 1; $i <= 8; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
+            
             $name = $names[array_rand($names)];
         
             
@@ -58,7 +60,7 @@ class ProductSeeder extends Seeder
                 'price' => random_int(10, 1000) * 10000,
                 'content' => $contents[array_rand($contents)],
                 'publish' => random_int(0, 1),
-                'cat_id' => random_int(1, 10),
+                'cat_id' => $catIds[array_rand($catIds)],
             ];
 
     

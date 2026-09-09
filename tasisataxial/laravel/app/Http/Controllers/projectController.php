@@ -20,18 +20,28 @@ class projectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-      public function index($category = null)
+      public function index($maincat = null , $cat = 0)
     {   
         // $cats=category::where("maincat_id",1)->get();
-        if($category==0){
-            $projects=project::where("publish",1)->get();
-        }else{
-            $projects=project::where("cat_id",$category)->where('publish',1)->get();
-            
+        $query = project::where('publish',1);
+        
+        if($cat !== null && $cat !=0 ){
+            $query->where('cat_id',$cat);
         }
-        return response()->json($projects);
-    }
+        $projects = $query->paginate();
 
+        return response()->json([    
+            'projects'=>$projects->items(),
+            'logPagination'=>$projects,
+            'pagination'=>[
+                'current_page'=>$projects->currentPage(),
+                'last_page'=>$projects->lastPage(),
+                'per_pager'=>$projects->perPage(),
+                'total'=>$projects->total(), 
+                ]
+            ]);
+    }
+        
     public function adminIndex(){
         $projects=project::all();
         return view("admin.projects.allprojects",compact(['projects']));
@@ -52,12 +62,7 @@ class projectController extends Controller
     public function getproject($id){
         $project=new project();
         $result=$project->where('id',$id)->first();
-        // $tags=$result->tags;
-        // $relatedArticles=[];
-        // foreach ($tags as $tag){
-        //     $relatedArticles=$tag->article;
-        // }
-
+        
         return response()->json($result);
     }
 
@@ -80,7 +85,8 @@ class projectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+
         $this->validate($request,['title'=>"required|min:3","pic"=>"required|mimes:jpg,jpeg,png,tif","content"=>"required|min:10"],
         ['name.required'=>"این فیلد اجباری است",
         'name.min'=>"حداقل 3 کاراکتر",

@@ -27,16 +27,7 @@ class blogController extends Controller
             }
             
         $articles=$query->paginate(6);
-        
-        // $cats=category::where("maincat_id",1)->get();
-        // if($category==0){
-
-        //     $articles=article::where("publish",1)->paginate(10);
-
-        // }else{
-        //     $articles=article::where("cat_id",$category)->where('publish',1)->paginate(10);
-            
-        // }
+    
         return response()->json([    
         'articles'=>$articles->items(),
         'logPagination'=>$articles,

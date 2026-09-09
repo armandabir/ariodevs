@@ -1,5 +1,6 @@
 import Button from "../Button"
 import styles from "./../../../css/styles/cart/buyinfo.module.scss"
+import Swal from "sweetalert2"
 export default function BuyInfo({items}){
     const totalPrice=items.reduce((price,item)=>{
         return price + item.price * item.qty;
@@ -19,7 +20,25 @@ export default function BuyInfo({items}){
         })
         .then(response => response.json())
         .then(data => {
-            window.location.href="/payment"
+            // window.location.href="/payment"
+           Swal.fire({
+                text: "امکان خرید محصول در حال حاضر وجود ندارد",
+                icon: "error",
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: "swal-confirm-btn"
+                },
+                didOpen: () => {
+                    const btn = document.querySelector(".swal2-confirm");
+                    if (btn) {
+                    btn.style.minHeight = "48px";
+                    btn.style.height = "48px";
+                    btn.style.padding = "0 1.5rem";
+                    btn.style.fontSize = "1rem";
+                    btn.style.borderRadius = "0.75rem";
+                    }
+                }
+            });
             console.log('Success:', data);
         })
         .catch(error => {

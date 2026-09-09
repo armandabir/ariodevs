@@ -3,6 +3,7 @@ import Head from "../projects/head"
 import styles from "./../../../css/styles/projects/projectsMain.module.scss"
 
 export default function Content({content}){
+    const fileName = String(content.pic || "").split(/[\\/]/).pop();
     return (
         <section className={styles.projects}>
                 <Head img={content.pic} article/>

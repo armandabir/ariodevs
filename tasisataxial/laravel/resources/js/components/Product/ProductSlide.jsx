@@ -2,13 +2,14 @@ import { useState } from "react"
 import styles from "./../../../css/styles/product/productSlide.module.scss"
 import TransitionSection from "../TransitionSection"
 import Button from "./Button"
+import { storageUrlPath } from "../../config/urls";
 export default function ProductSlide({items}){
    const [imgs,setImage]=useState(items);
 
 
     return(
        <section className={styles.productSlide}>
-            <img src={`/storage/products/${imgs[0]}`} alt=""/>
+            <img src={storageUrlPath(`products/${imgs[0]}`)} alt=""/>
             <div className={styles.btContainer}>
 
                   {

@@ -28,7 +28,7 @@ export default function Product(){
         const res = await fetch(`/api/fetchProduct/${id}`);
         const data = await res.json();
         setPorduct(data);
-        console.log("Test")
+        // console.log("Test")
     }
 
     useEffect(()=>{
