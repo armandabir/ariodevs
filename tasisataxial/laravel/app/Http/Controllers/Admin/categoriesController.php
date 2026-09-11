@@ -111,7 +111,8 @@ class categoriesController extends Controller
         if($maincat==2){
             $productcat = new category();
             // $cats=$productcat->getcats(0);
-            $cats=$productcat->where('maincat_id',$maincat)->where('parent_id',"!=","0")->get();
+            // $cats=$productcat->where('maincat_id',$maincat)->where('parent_id',"!=","0")->get();
+            $cats=$productcat->where('maincat_id',$maincat)->get();
         }else{
              $cats=category::where('maincat_id',$maincat)->get();
         }

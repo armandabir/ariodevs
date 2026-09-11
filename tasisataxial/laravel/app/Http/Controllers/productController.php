@@ -58,6 +58,7 @@ class productController extends Controller
     {
         $catTable= new category();
         $cats=$catTable->getcats(0);
+        // dd($cats);
         $tags=Tag::all();
        return view("admin.productAdd",compact(['cats','tags']));
     }

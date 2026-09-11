@@ -8,7 +8,7 @@ import Shop from "../components/Shop";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import { useEffect, useState } from "react";
-
+import {apiFetch} from "../config/urls.js";
 export default function Home(){
 
    
@@ -17,14 +17,14 @@ export default function Home(){
     const[error,setError]=useState(null)
 
     async function fetchSliderimgs() {
-        const res =await fetch('api/pages/listItems/1/1')
-        let data = await res.json();
+        const res =await apiFetch('/pages/listItems/1/1')
+        let data = await res
         return JSON.parse(data[0].pic)
     }
 
    async function fetchengCards() {
-            const res =await fetch('api/pages/listItems/1/2')
-            const data = await res.json();
+            const res =await apiFetch('/pages/listItems/1/2')
+            const data = await res;
 
             return data
             
@@ -33,9 +33,8 @@ export default function Home(){
 
 
    async function fetchbranches() {
-            const res =await fetch('api/pages/listItems/1/3')
-            const data = await res.json();
-            
+            const res =await apiFetch('/pages/listItems/1/3')
+            const data = await res;
             return data
 
       }

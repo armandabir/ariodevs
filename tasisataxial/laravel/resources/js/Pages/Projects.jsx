@@ -4,7 +4,7 @@ import Headers from "../Headers";
 import ProjectMain from "../components/projects/ProjectMain";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import {storageUrlPath} from "../config/urls.js"
 export default function Projects(){
 
      const {id}=useParams();
@@ -29,9 +29,9 @@ export default function Projects(){
                 <div>Loading...</div>
              ):(
                 <>
-        <Headers title={project.title} img={`./storage/projects/${project.pic}`} dark/>
+        <Headers title={project.title} img={storageUrlPath(`projects/${project.pic}`)} dark/>
         <ProjectMain project={{
-              "pic":`./storage/projects/${project.pic}`,
+              "pic": storageUrlPath(`projects/${project.pic}`),
               "content":
                 <>
                 {

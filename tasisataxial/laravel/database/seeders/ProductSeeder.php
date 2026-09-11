@@ -46,9 +46,9 @@ class ProductSeeder extends Seeder
         ];
 
          $items = [];
-        $catIds = [66, 65, 64, 61, 60, 59, 58, 57, 55, 56];
+        $catIds = [65,66];
 
-        for ($i = 1; $i <= 15; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             
             $name = $names[array_rand($names)];
         

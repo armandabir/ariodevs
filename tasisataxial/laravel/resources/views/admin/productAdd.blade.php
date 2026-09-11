@@ -14,7 +14,7 @@
                         <label for="cat_id">دسته</label>
                         <select name="cat_id" id="" class="form-control">
                             @foreach($cats as $key=>$cat)
-                                <option value="{{$cat['id']}}" data-parent_id="0" data-cat="{{$cat['id']}}" disabled>{{$key}}</option>
+                                <option value="{{$cat['id']}}" data-parent_id="0" data-cat="{{$cat['id']}}">{{$key}}</option>
                                 @if(count($cat['subcat'])>0)
                                     @foreach($cat['subcat'] as $subkey=>$subcat)
                                      <option value="{{$subcat['id']}}" data-parent_id="{{$cat['id']}}" data-cat="{{$subcat['id']}}">---{{$subkey}}</option>

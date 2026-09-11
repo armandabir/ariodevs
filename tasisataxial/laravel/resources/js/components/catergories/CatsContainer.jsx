@@ -13,12 +13,12 @@ export default function CatsContainer({maincat, cat}){
     const [cats,setCats]=useState([])
     const [data,setData]=useState([])
     const [selectedCat,setSelectedCat]=useState(cat || 0)
-    
     const [current_page,setCurrent_page]=useState(1);
     const [last_page,setLast_page]=useState(1);
     const [error,setError]=useState(null)
     const [loading,setLoading]=useState(true)
     const contentFetcher = maincat == 1 ? fetchAricles : maincat == 2 ? fetchProducts : fetchProjects
+    
     
     // 0 means all cats, 1 means maincat 1, 2 means maincat 2, 3 means maincat 3 
     function handleCartClick(id){
@@ -74,7 +74,7 @@ export default function CatsContainer({maincat, cat}){
     // 0 means all cats, 1 means maincat 1, 2 means maincat 2, 3 means maincat 3   
 
     async function fetchAll(maincat, cat=0, current_page=1){
-        
+        console.log(cat);
         try{
            
             const [cats, content] = await Promise.all([
@@ -104,7 +104,7 @@ export default function CatsContainer({maincat, cat}){
     if (loading) return <div>loading...</div>
     if (error) return <div>{error.message}</div>
     
-    console.log("Cats:", data);
+    // console.log("Cats:", data);
     return (
         <section id="tag" className={styles.categories}>
             <div className={styles.catsMenu}>
