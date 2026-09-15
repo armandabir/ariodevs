@@ -14,7 +14,7 @@ const root = document.getElementById('app')
 const data= JSON.parse(root.getAttribute('data-page'));
 export default function App(){
     return(
-       <BrowserRouter basename='/'>
+       <BrowserRouter basename='/tasisataxial'>
             <CartContextProvider>
                 <Routes>
                     <Route path='/' element={<Home/>}/>

@@ -1,9 +1,12 @@
 import styles from "./../../css/styles/shop.module.scss"
 import Button from "./Button"
+import { useNavigate } from "react-router-dom"
 
 export default function Shop(){
+    const navigate = useNavigate()
+
     function handleShopClick(){
-        window.location.href="/cats/2";
+        navigate("/cats/2");
     }
     return (
         <section className={styles.shop}>

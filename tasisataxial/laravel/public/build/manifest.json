@@ -111,6 +111,46 @@
     "file": "assets/bolt4-d5d41200.png",
     "src": "resources/assets/bolt4.png"
   },
+  "resources/assets/bunny/nunito-cyrillic-400-normal.woff": {
+    "file": "assets/nunito-cyrillic-400-normal-ff8e8bdd.woff",
+    "src": "resources/assets/bunny/nunito-cyrillic-400-normal.woff"
+  },
+  "resources/assets/bunny/nunito-cyrillic-400-normal.woff2": {
+    "file": "assets/nunito-cyrillic-400-normal-e44e669f.woff2",
+    "src": "resources/assets/bunny/nunito-cyrillic-400-normal.woff2"
+  },
+  "resources/assets/bunny/nunito-cyrillic-ext-400-normal.woff": {
+    "file": "assets/nunito-cyrillic-ext-400-normal-d48c37c9.woff",
+    "src": "resources/assets/bunny/nunito-cyrillic-ext-400-normal.woff"
+  },
+  "resources/assets/bunny/nunito-cyrillic-ext-400-normal.woff2": {
+    "file": "assets/nunito-cyrillic-ext-400-normal-20d73ae7.woff2",
+    "src": "resources/assets/bunny/nunito-cyrillic-ext-400-normal.woff2"
+  },
+  "resources/assets/bunny/nunito-latin-400-normal.woff": {
+    "file": "assets/nunito-latin-400-normal-b51e7635.woff",
+    "src": "resources/assets/bunny/nunito-latin-400-normal.woff"
+  },
+  "resources/assets/bunny/nunito-latin-400-normal.woff2": {
+    "file": "assets/nunito-latin-400-normal-a5906e15.woff2",
+    "src": "resources/assets/bunny/nunito-latin-400-normal.woff2"
+  },
+  "resources/assets/bunny/nunito-latin-ext-400-normal.woff": {
+    "file": "assets/nunito-latin-ext-400-normal-d7e2415e.woff",
+    "src": "resources/assets/bunny/nunito-latin-ext-400-normal.woff"
+  },
+  "resources/assets/bunny/nunito-latin-ext-400-normal.woff2": {
+    "file": "assets/nunito-latin-ext-400-normal-67250a41.woff2",
+    "src": "resources/assets/bunny/nunito-latin-ext-400-normal.woff2"
+  },
+  "resources/assets/bunny/nunito-vietnamese-400-normal.woff": {
+    "file": "assets/nunito-vietnamese-400-normal-9c01ea9f.woff",
+    "src": "resources/assets/bunny/nunito-vietnamese-400-normal.woff"
+  },
+  "resources/assets/bunny/nunito-vietnamese-400-normal.woff2": {
+    "file": "assets/nunito-vietnamese-400-normal-2a755616.woff2",
+    "src": "resources/assets/bunny/nunito-vietnamese-400-normal.woff2"
+  },
   "resources/assets/cart.jpg": {
     "file": "assets/cart-9944b1b9.jpg",
     "src": "resources/assets/cart.jpg"
@@ -192,7 +232,7 @@
     "src": "resources/assets/shopsection.png"
   },
   "resources/css/index.css": {
-    "file": "assets/index-112a2c47.css",
+    "file": "assets/index-9ff92c58.css",
     "isEntry": true,
     "src": "resources/css/index.css"
   },
@@ -205,7 +245,7 @@
     "src": "resources/fonts/IRANSansWeb_Bold.ttf"
   },
   "resources/js/index.css": {
-    "file": "assets/index-ef52ccfc.css",
+    "file": "assets/index-e5da205d.css",
     "src": "resources/js/index.css"
   },
   "resources/js/index.jsx": {
@@ -245,14 +285,14 @@
       "assets/rectangle4-31541181.jpg"
     ],
     "css": [
-      "assets/index-ef52ccfc.css"
+      "assets/index-e5da205d.css"
     ],
-    "file": "assets/index-d856ccea.js",
+    "file": "assets/index-dc2d0def.js",
     "isEntry": true,
     "src": "resources/js/index.jsx"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-2850da66.css",
+    "file": "assets/app-91c9d5bf.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

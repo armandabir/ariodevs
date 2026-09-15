@@ -20,19 +20,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
-route::get('getcats/{cat}/{subcat?}',[categoriesController::class,"getcats"]);
-route::get('getProducts/{cat}/{subcat?}',[productController::class,"index"]);
-route::get('getProjects/{cat}/{subcat?}',[projectController::class,"index"]);
-route::get("getArticles/{blog?}/{cat?}",[blogController::class,"index"])->name("blog");
 
+    route::get('getcats/{cat}/{subcat?}',[categoriesController::class,"getcats"]);
+    route::get('getProducts/{cat}/{subcat?}',[productController::class,"index"]);
+    route::get('getProjects/{cat}/{subcat?}',[projectController::class,"index"]);
+    route::get("getArticles/{blog?}/{cat?}",[blogController::class,"index"])->name("blog");
 
-route::get('fetchProject/{id}',[projectController::class,"getproject"]);
-route::get('fetchProduct/{id}',[productController::class,"getProduct"]);
-route::get("article/{id?}",[blogController::class,"getArticle"]);
+    route::get('fetchProject/{id}',[projectController::class,"getproject"]);
+    route::get('fetchProduct/{id}',[productController::class,"getProduct"]);
+    route::get("article/{id?}",[blogController::class,"getArticle"]);
 
-route::get('pages/listItems/{page_id}/{sect_id}',[HomeController::class,"listItems"]);
+    route::get('pages/listItems/{page_id}/{sect_id}',[HomeController::class,"listItems"]);

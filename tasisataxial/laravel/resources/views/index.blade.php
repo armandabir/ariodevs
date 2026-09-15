@@ -7,12 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>تاسیسات آکسیال</title>
 
-        <!-- Fonts -->
-        <link href="./../css/css-bunny-fonts.css" rel="stylesheet">
-    
-        
         @viteReactRefresh
-        @vite(['resources/css/index.css', 'resources/js/index.jsx'])
+        @vite(['resources/css/index.css', 'resources/css/css-bunny-fonts.css', 'resources/js/index.jsx'])
 
     </head>
 

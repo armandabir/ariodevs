@@ -8,8 +8,10 @@ import Pagination from "../pagination"
 import { faInstalod } from "@fortawesome/free-brands-svg-icons"
 import { set } from "lodash"
 import {apiFetch,storageUrlPath} from "../../config/urls.js"
+import { useNavigate } from "react-router-dom"
 
 export default function CatsContainer({maincat, cat}){
+    const navigate = useNavigate()
     const [cats,setCats]=useState([])
     const [data,setData]=useState([])
     const [selectedCat,setSelectedCat]=useState(cat || 0)
@@ -24,16 +26,16 @@ export default function CatsContainer({maincat, cat}){
     function handleCartClick(id){
 
          if(maincat==3){
-            window.location.href=`../projects/${id}/?page=1`
+            navigate(`/projects/${id}?page=1`)
         }
 
 
         if(maincat==2){
-            window.location.href=`../product/${id}/?page=1`
+            navigate(`/product/${id}?page=1`)
         }
 
         if(maincat==1){
-            window.location.href=`../article/${id}/?page=1`    
+            navigate(`/article/${id}?page=1`)
         }
     }
     

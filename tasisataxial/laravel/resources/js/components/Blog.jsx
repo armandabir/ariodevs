@@ -7,15 +7,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { storageUrlPath , apiFetch } from "../config/urls.js";
 export default function Blog(){
+    const navigate = useNavigate();
     const [data,setData]=useState([])
     const [current_page,setCurrent_page]=useState(1);
     const [last_page,setLast_page]=useState(1);
 
     async function fetchAricles(cat=0) {
-        const res =await fetch(`api/getArticles/${cat}/?page=1`)
-        const data = await res.json();
+        const res =await apiFetch(`getArticles/${cat}/?page=1`)
+        const data = await res;
         
         setData(data.articles)
         setCurrent_page(data.pagination.current_page)
@@ -24,11 +26,11 @@ export default function Blog(){
     }
 
     function handleOnclick(){
-        window.location.href="./cats/1"
+                navigate("/cats/1")
     }
 
       function handleCartClick(id){
-        window.location.href=`./article/${id}/?page=1`    
+                navigate(`/article/${id}?page=1`)
     }
     
 
