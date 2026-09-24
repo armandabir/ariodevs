@@ -32,7 +32,6 @@ class RouteServiceProvider extends ServiceProvider
             $routePrefix = trim((string) env('APP_ROUTE_PREFIX', ''), '/');
 
             Route::middleware('api')
-                ->prefix($routePrefix)
                 ->prefix($routePrefix.'/api')
                 ->group(base_path('routes/api.php'));
 

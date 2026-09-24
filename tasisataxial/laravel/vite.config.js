@@ -6,6 +6,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/index.css', 
+                'resources/css/css-bunny-fonts.css',
                 'resources/js/index.jsx',
                 // 'resources/js/app.js',
                 'resources/sass/app.scss',
@@ -17,7 +18,7 @@ export default defineConfig({
 
             react(),
     ],
-        base:'/tasisataxial',
+        base:'/',
 
       server: {
         host: '0.0.0.0', // Use localhost or your machine's IP address
