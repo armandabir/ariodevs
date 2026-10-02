@@ -1,0 +1,96 @@
+.modernFooter {
+  @apply relative pb-10;
+  border-top: 1px solid var(--border-color);
+}
+
+.hugeText {
+  @apply text-7xl leading-tight mb-5 font-black;
+  font-size: 4rem;
+  line-height: 1.1;
+}
+
+.footerGrid {
+  @apply grid grid-cols-1 gap-20 mb-20;
+
+  @media (min-width: 768px) {
+    @apply grid-cols-2;
+    gap: 80px;
+  }
+}
+
+.emailLink {
+  @apply text-4xl font-bold inline-block mt-7.5 pb-1;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent-1);
+
+  &:hover {
+    color: var(--accent-1);
+  }
+}
+
+.footerForm {
+  @apply p-10;
+}
+
+.inputContainer {
+  @apply relative mb-7.5;
+
+  input,
+  textarea {
+    @apply w-full bg-transparent border-b pb-4 text-base outline-none
+           transition-colors duration-300;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+
+    &:focus {
+      border-bottom-color: var(--accent-1);
+    }
+
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      @apply -top-2.5 text-xs;
+      top: -10px;
+      font-size: 0.8rem;
+      color: var(--accent-1);
+    }
+  }
+}
+
+.inputContainer label {
+  @apply absolute right-0 top-4 text-sm pointer-events-none transition-all duration-300;
+  color: var(--text-secondary);
+  top: 15px;
+}
+
+.footerBottom {
+  @apply flex justify-between items-center border-t pt-7.5;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footerGrid {
+    @apply flex-col grid-cols-1;
+  }
+
+  .hugeText {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerBottom {
+    @apply flex-col gap-5 text-center;
+  }
+
+  .footerForm {
+    @apply p-6;
+  }
+
+  .emailLink {
+    font-size: 1.5rem;
+  }
+}

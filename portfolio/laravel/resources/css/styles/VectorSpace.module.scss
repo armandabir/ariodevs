@@ -1,0 +1,32 @@
+/* Vector Space Box */
+.vectorBox {
+  @apply flex flex-col relative;
+  background: var(--bg-main) !important;
+  padding: 0 !important;
+}
+
+.vectorHeader {
+  @apply flex justify-between items-center p-4 absolute w-full top-0;
+  background: transparent;
+  z-index: 10;
+}
+
+.vectorContainer {
+  @apply flex-grow;
+  min-height: 220px;
+  background: radial-gradient(circle at center, var(--bg-main) 0%, var(--bg-main) 100%);
+  overflow: hidden;
+}
+
+.vectorCanvas {
+  @apply w-full h-full block;
+}
+
+/* Light theme overrides */
+body:not([data-theme="dark"]) .vectorBox {
+  background: #ffffff !important;
+}
+
+body:not([data-theme="dark"]) .vectorContainer {
+  background: radial-gradient(circle at center, #f8fafc 0%, #ffffff 100%) !important;
+}

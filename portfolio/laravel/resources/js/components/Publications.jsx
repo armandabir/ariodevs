@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../css/styles/Publications.module.scss';
 
 const publications = [
     {
@@ -35,18 +36,18 @@ export default function Publications() {
                 <h2 className="section-title reveal">مقالات و <span className="gradient-text">پژوهش‌ها</span></h2>
                 <p className="section-subtitle reveal text-muted">مشارکت‌های علمی در معتبرترین ژورنال‌ها و کنفرانس‌های بین‌المللی</p>
 
-                <div className="publications-list">
+                <div className={styles.publicationsList}>
                     {publications.map((pub) => (
-                        <div className={`publication-card reveal ${pub.delay}`} key={pub.title}>
-                            <i className={`${pub.icon} pub-icon`}></i>
-                            <div className="pub-content">
-                                <h3 className="pub-title">{pub.title}</h3>
-                                <div className="pub-meta">
+                        <div className={`${styles.publicationCard} reveal ${pub.delay}`} key={pub.title}>
+                            <i className={`${pub.icon} ${styles.pubIcon}`}></i>
+                            <div className={styles.pubContent}>
+                                <h3 className={styles.pubTitle}>{pub.title}</h3>
+                                <div className={styles.pubMeta}>
                                     <span className="en-text"><i className={pub.venueIcon || 'fas fa-book'}></i> {pub.venue}</span>
                                     <span><i className="far fa-calendar-alt"></i> {pub.date}</span>
                                 </div>
-                                <p className="pub-desc">{pub.desc}</p>
-                                <a href="./publication-lora.html" className="btn btn-glow mt-4" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>مشاهده مقاله <i className="fas fa-external-link-alt"></i></a>
+                                <p className={styles.pubDesc}>{pub.desc}</p>
+                                <a href="./publication-lora.html" className="btn btn-glow" style={{ padding: '8px 16px', fontSize: '0.85rem', marginTop: '1rem' }}>مشاهده مقاله <i className="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     ))}

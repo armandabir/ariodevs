@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import styles from '../css/styles/Laravel.module.scss';
 
 export default function Laravel() {
     const terminalRef = useRef(null);
@@ -79,16 +80,16 @@ export default function Laravel() {
     }, []);
 
     return (
-        <div className="bento-box bento-medium reveal terminal-box">
-            <div className="terminal-header">
-                <div className="term-dots">
-                    <span className="dot close"></span>
-                    <span className="dot min"></span>
-                    <span className="dot max"></span>
+        <div className={`bento-box bento-medium reveal ${styles.terminalBox}`}>
+            <div className={styles.terminalHeader}>
+                <div className={styles.termDots}>
+                    <span className={`${styles.dot} ${styles.close}`}></span>
+                    <span className={`${styles.dot} ${styles.min}`}></span>
+                    <span className={`${styles.dot} ${styles.max}`}></span>
                 </div>
-                <div className="term-title en-text">aria@gpu-server: ~/llm-finetune</div>
+                <div className={`${styles.termTitle} en-text`}>aria@gpu-server: ~/llm-finetune</div>
             </div>
-            <div className="terminal-body en-text" id="live-terminal" ref={terminalRef}></div>
+            <div className={`${styles.terminalBody} en-text`} id="live-terminal" ref={terminalRef}></div>
         </div>
     );
 }

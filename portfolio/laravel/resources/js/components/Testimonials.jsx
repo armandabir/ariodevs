@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../css/styles/Testimonials.module.scss';
 
 const testimonials = [
     {
@@ -25,12 +26,12 @@ export default function Testimonials() {
             <div className="container">
                 <h2 className="section-title reveal">اعتماد <span className="gradient-text">همکاران</span></h2>
 
-                <div className="testimonials-grid">
+                <div className={styles.testimonialsGrid}>
                     {testimonials.map((item) => (
-                        <div className={`testimonial-card glass-card reveal ${item.delay}`} key={item.name}>
-                            <i className="fas fa-quote-left quote-icon"></i>
-                            <p className="testimonial-text">{item.text}</p>
-                            <div className="client-info">
+                        <div className={`${styles.testimonialCard} glass-card reveal ${item.delay}`} key={item.name}>
+                            <i className={`fas fa-quote-left ${styles.quoteIcon}`}></i>
+                            <p className={styles.testimonialText}>{item.text}</p>
+                            <div className={styles.clientInfo}>
                                 <img src={item.image} alt={item.alt} />
                                 <div>
                                     <h4>{item.name}</h4>

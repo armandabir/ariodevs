@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import styles from '../css/styles/ComputerVision.module.scss';
 
 export default function ComputerVision() {
     const viewportRef = useRef(null);
@@ -75,17 +76,17 @@ export default function ComputerVision() {
     }, []);
 
     return (
-        <div className="bento-box bento-medium reveal cv-box">
-            <div className="cv-header">
-                <div className="cv-status">
-                    <span className="live-dot"></span>
+        <div className={`bento-box bento-medium reveal ${styles.cvBox}`}>
+            <div className={styles.cvHeader}>
+                <div className={styles.cvStatus}>
+                    <span className={styles.liveDot}></span>
                     <span className="en-text" style={{ fontSize: '0.8rem', color: '#ff5f56' }}>LIVE INFERENCE</span>
                 </div>
                 <div className="en-text" style={{ fontSize: '0.75rem', color: '#8b949e' }}>Model: YOLOv8-Nano</div>
             </div>
-            <div className="cv-viewport" id="cv-viewport" ref={viewportRef}>
-                <div className="cv-grid"></div>
-                <div className="scan-line"></div>
+            <div className={styles.cvViewport} id="cv-viewport" ref={viewportRef}>
+                <div className={styles.cvGrid}></div>
+                <div className={styles.scanLine}></div>
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import styles from '../css/styles/React.module.scss';
 
 export default function React() {
     const canvasRef = useRef(null);
@@ -152,12 +153,12 @@ export default function React() {
     }, []);
 
     return (
-        <div className="bento-box bento-medium reveal nn-box">
-            <div className="nn-header">
+        <div className={`bento-box bento-medium reveal ${styles.nnBox}`}>
+            <div className={styles.nnHeader}>
                 <h3>شبکه‌عصبی زنده</h3>
                 <p className="text-muted" style={{ fontSize: '0.85rem' }}>Data Processing</p>
             </div>
-            <div className="canvas-container">
+            <div className={styles.canvasContainer}>
                 <canvas id="neural-canvas" ref={canvasRef}></canvas>
             </div>
         </div>

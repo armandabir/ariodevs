@@ -1,0 +1,30 @@
+/* Neural Network Box Styles */
+.nnBox {
+  @apply flex flex-col p-6;
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(10, 10, 12, 0.95) 100%);
+}
+
+.nnHeader {
+  @apply mb-4;
+  z-index: 2;
+}
+
+.canvasContainer {
+  @apply flex-grow w-full rounded-2xl overflow-hidden;
+  min-height: 150px;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+}
+
+.neuralCanvas {
+  @apply absolute top-0 left-0 w-full h-full;
+  cursor: crosshair;
+}
+
+/* Light theme overrides */
+body:not([data-theme="dark"]) .nnBox {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%) !important;
+}
+
+body:not([data-theme="dark"]) .canvasContainer {
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%) !important;
+}

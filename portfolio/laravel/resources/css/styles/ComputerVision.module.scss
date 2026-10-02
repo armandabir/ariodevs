@@ -1,0 +1,123 @@
+/* Computer Vision Box Styles */
+.cvBox {
+  @apply flex flex-col overflow-hidden relative;
+  background: var(--bg-main) !important;
+  padding: 0 !important;
+}
+
+.cvHeader {
+  @apply flex justify-between items-center p-3 z-10;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cvStatus {
+  @apply flex items-center gap-2;
+}
+
+.liveDot {
+  @apply w-2 h-2 rounded-full;
+  background-color: #ff5f56;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 95, 86, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 95, 86, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 95, 86, 0);
+  }
+}
+
+.cvViewport {
+  @apply relative flex-grow overflow-hidden;
+  min-height: 200px;
+  background-color: var(--bg-main);
+}
+
+.cvGrid {
+  @apply absolute inset-0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.scanLine {
+  @apply absolute top-0 left-0 w-full h-0.5 z-5;
+  background: #00f2fe;
+  box-shadow: 0 0 10px #00f2fe, 0 20px 20px rgba(0, 242, 254, 0.2);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+.boundingBox {
+  @apply absolute border-2 z-2 transition-opacity duration-300;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.05);
+  animation: pop-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.bbLabel {
+  @apply absolute -top-5 -left-0.5 px-1.5 py-0.5 font-mono text-xs
+         font-bold whitespace-nowrap;
+  top: -20px;
+  left: -2px;
+  color: #000;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Light theme overrides */
+body:not([data-theme="dark"]) .cvBox {
+  background: #ffffff !important;
+}
+
+body:not([data-theme="dark"]) .cvHeader {
+  background: #f8fafc !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+body:not([data-theme="dark"]) .cvViewport {
+  background-color: #f0f4f8 !important;
+}
+
+body:not([data-theme="dark"]) .cvGrid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.15) 1px, transparent 1px) !important;
+}
+
+body:not([data-theme="dark"]) .boundingBox {
+  background: rgba(59, 130, 246, 0.05) !important;
+}

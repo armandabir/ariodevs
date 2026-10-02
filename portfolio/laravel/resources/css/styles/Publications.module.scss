@@ -1,0 +1,64 @@
+.publicationsList {
+  @apply flex flex-col gap-6 max-w-3xl mx-auto;
+}
+
+.publicationCard {
+  @apply flex gap-6 p-8.75 bg-card border rounded-3xl
+         transition-all duration-400 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+
+  &:hover {
+    @apply -translate-x-4;
+    border-color: var(--accent-1);
+    box-shadow: var(--glow-shadow);
+  }
+}
+
+.pubIcon {
+  @apply flex-shrink-0;
+  font-size: 3rem;
+  color: var(--accent-1);
+  opacity: 0.8;
+}
+
+.pubContent {
+  @apply flex-grow;
+}
+
+.pubTitle {
+  @apply text-xl font-bold mb-2;
+  color: var(--text-primary);
+}
+
+.pubMeta {
+  @apply text-sm mb-4 flex gap-4 items-center flex-wrap;
+  color: var(--accent-2);
+}
+
+.pubMeta span {
+  @apply px-3 py-1 rounded-full border text-xs;
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.pubDesc {
+  @apply text-sm leading-relaxed;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .publicationCard {
+    @apply flex-col gap-4 p-6;
+
+    &:hover {
+      @apply -translate-y-2.5;
+    }
+  }
+
+  .pubIcon {
+    font-size: 2.5rem;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import styles from '../css/styles/VectorSpace.module.scss';
 
 export default function VectorSpace() {
     const canvasRef = useRef(null);
@@ -136,12 +137,12 @@ export default function VectorSpace() {
     }, []);
 
     return (
-        <div className="bento-box bento-medium reveal vector-box">
-            <div className="vector-header">
+        <div className={`bento-box bento-medium reveal ${styles.vectorBox}`}>
+            <div className={styles.vectorHeader}>
                 <span className="en-text" style={{ color: '#a855f7', fontWeight: 'bold' }}>VECTOR DB</span>
                 <span className="en-text" style={{ fontSize: '0.75rem', color: '#8b949e' }}>Semantic Clustering</span>
             </div>
-            <div className="canvas-container" id="vector-container">
+            <div className={styles.vectorContainer} id="vector-container">
                 <canvas id="vector-canvas" ref={canvasRef}></canvas>
             </div>
         </div>

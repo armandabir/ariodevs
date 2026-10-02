@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../css/styles/Experience.module.scss';
 
 const experiences = [
     {
@@ -39,14 +40,14 @@ export default function Experience() {
             <div className="container">
                 <h2 className="section-title reveal">مسیر <span className="gradient-text">تکامل</span></h2>
 
-                <div className="timeline">
+                <div className={styles.timeline}>
                     {experiences.map((item) => (
-                        <div className="timeline-item reveal" key={item.title}>
-                            <div className="timeline-dot"></div>
-                            <div className="timeline-content glass-card">
-                                <span className="timeline-date">{item.date}</span>
-                                <h3 className="timeline-title">{item.title}</h3>
-                                <h4 className="timeline-company" style={{ color: 'var(--accent-1)', marginBottom: '10px' }}>{item.company}</h4>
+                        <div className={`${styles.timelineItem} reveal`} key={item.title}>
+                            <div className={styles.timelineDot}></div>
+                            <div className={`${styles.timelineContent} glass-card`}>
+                                <span className={styles.timelineDate}>{item.date}</span>
+                                <h3 className={styles.timelineTitle}>{item.title}</h3>
+                                <h4 className={styles.timelineCompany}>{item.company}</h4>
                                 <p>{item.desc}</p>
                             </div>
                         </div>

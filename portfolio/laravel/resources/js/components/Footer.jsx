@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styles from '../css/styles/Footer.module.scss';
 
 export default function Footer() {
     const formRef = useRef(null);
@@ -28,26 +29,26 @@ export default function Footer() {
     }
 
     return (
-        <footer id="contact" className="modern-footer section">
+        <footer id="contact" className={`${styles.modernFooter} section`}>
             <div className="container">
-                <div className="footer-grid">
+                <div className={styles.footerGrid}>
                     <div className="footer-text reveal">
-                        <h2 className="huge-text">آماده خلق <br /><span className="gradient-text">آینده</span> هستید؟</h2>
+                        <h2 className={styles.hugeText}>آماده خلق <br /><span className="gradient-text">آینده</span> هستید؟</h2>
                         <p>برای مشاوره، پروژه‌های فریلنسری یا یک فنجان قهوه مجازی، پیام دهید. من همیشه آماده شنیدن ایده‌های جدید هستم. معمولاً ظرف ۲۴ ساعت پاسخ می‌دهم.</p>
-                        <a href="mailto:hello@aria-ai.com" className="email-link en-text">hello@aria-ai.com</a>
+                        <a href="mailto:hello@aria-ai.com" className={`${styles.emailLink} en-text`}>hello@aria-ai.com</a>
                     </div>
 
-                    <div className="footer-form glass-card reveal reveal-delay-1">
+                    <div className={`${styles.footerForm} glass-card reveal reveal-delay-1`}>
                         <form id="contact-form" ref={formRef} onSubmit={handleSubmit}>
-                            <div className="input-container">
+                            <div className={styles.inputContainer}>
                                 <input type="text" id="name" required placeholder=" " />
                                 <label htmlFor="name">نام شما</label>
                             </div>
-                            <div className="input-container">
+                            <div className={styles.inputContainer}>
                                 <input type="email" id="email" required placeholder=" " />
                                 <label htmlFor="email">ایمیل شما</label>
                             </div>
-                            <div className="input-container">
+                            <div className={styles.inputContainer}>
                                 <textarea id="message" rows="4" required placeholder=" "></textarea>
                                 <label htmlFor="message">پروژه یا ایده شما...</label>
                             </div>
@@ -56,7 +57,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="footer-bottom">
+                <div className={styles.footerBottom}>
                     <p>&copy; ۱۴۰۴ طراحی شده با هوش و هنر | <span className="en-text">Aria.AI</span></p>
                     <div className="social-hero">
                         <a href="#" className="social-icon"><i className="fab fa-telegram-plane"></i></a>

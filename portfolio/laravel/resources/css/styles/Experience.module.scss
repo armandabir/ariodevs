@@ -1,0 +1,55 @@
+.timeline {
+  @apply relative max-w-2xl mx-auto pr-7.5;
+
+  &::before {
+    content: '';
+    @apply absolute top-0 right-0 w-0.5 h-full;
+    background: var(--border-color);
+  }
+}
+
+.timelineItem {
+  @apply relative mb-12 pr-10;
+
+  &::before {
+    content: '';
+    @apply absolute right-0 top-5 w-3.5 h-3.5 rounded-full;
+    background: var(--accent-1);
+    box-shadow: 0 0 15px var(--accent-1);
+    right: -6px;
+    top: 20px;
+  }
+}
+
+.timelineContent {
+  @apply p-7.5;
+}
+
+.timelineDate {
+  @apply block mb-2.5 text-sm font-semibold;
+  color: var(--accent-2);
+}
+
+.timelineTitle {
+  @apply text-lg font-bold mb-2.5;
+}
+
+.timelineCompany {
+  @apply font-bold mb-2.5;
+  color: var(--accent-1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    @apply pr-5;
+  }
+
+  .timelineItem {
+    @apply pr-7.5;
+  }
+
+  .timelineContent {
+    @apply p-5;
+  }
+}
