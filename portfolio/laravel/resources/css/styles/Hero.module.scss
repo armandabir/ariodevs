@@ -1,0 +1,231 @@
+.hero {
+  @apply min-h-screen flex items-center relative pt-32;
+}
+
+.glowBlob {
+  @apply absolute rounded-full blur-3xl -z-10 opacity-50;
+  animation: floatBlob 10s infinite alternate ease-in-out;
+}
+
+.blob1 {
+  @apply top-10 right-10;
+  width: 400px;
+  height: 400px;
+  background: var(--accent-1);
+}
+
+.blob2 {
+  @apply bottom-10 left-1.25;
+  width: 350px;
+  height: 350px;
+  background: var(--accent-2);
+  animation-delay: -5s;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(50px, 50px) scale(1.2);
+  }
+}
+
+.heroContent {
+  @apply flex items-center gap-15;
+}
+
+.heroText {
+  @apply flex-1;
+}
+
+.badge {
+  @apply inline-flex items-center gap-2.5 px-4 py-2 rounded-full
+         mb-5 text-xs font-semibold;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent-2);
+}
+
+.pulseDot {
+  @apply w-2 h-2 rounded-full;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+.name {
+  @apply mb-2.5;
+  font-size: 4.5rem;
+  line-height: 1.2;
+}
+
+.role {
+  @apply mb-6;
+  font-size: 2.5rem;
+  min-height: 60px;
+}
+
+.cursor {
+  color: var(--accent-1);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.bio {
+  @apply mb-10 max-w-xl;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+}
+
+.highlightBg {
+  @apply inline px-2 rounded;
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent-1);
+  font-weight: 600;
+}
+
+.heroButtons {
+  @apply flex items-center gap-7.5;
+}
+
+.socialHero {
+  @apply flex gap-4 flex-wrap;
+}
+
+.socialIcon {
+  @apply w-11.25 h-11.25 flex items-center justify-center
+         rounded-full border transition-all duration-300;
+  border-color: var(--border-color);
+  font-size: 1.2rem;
+
+  &:hover {
+    background: var(--accent-1);
+    color: #fff;
+    border-color: var(--accent-1);
+    @apply -translate-y-0.75;
+  }
+}
+
+.heroVisual {
+  @apply flex-1 relative flex justify-center;
+}
+
+.imageWrapper {
+  @apply relative;
+  width: 400px;
+  height: 400px;
+}
+
+.profileImg {
+  @apply w-full h-full object-cover rounded-full;
+  filter: grayscale(20%);
+  box-shadow: var(--glow-shadow);
+}
+
+.techFloat {
+  @apply absolute w-15 h-15 flex items-center justify-center
+         rounded-2xl border transition-all;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-color: var(--border-color);
+  font-size: 2rem;
+  color: var(--accent-1);
+  box-shadow: var(--box-shadow);
+  animation: float 4s ease-in-out infinite alternate;
+}
+
+.float1 {
+  @apply -top-5 -right-5;
+  animation-delay: 0s;
+}
+
+.float2 {
+  @apply bottom-10 -left-7.5;
+  animation-delay: 1s;
+}
+
+.float3 {
+  @apply -bottom-5 right-10;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .heroContent {
+    @apply flex-col text-center gap-10 pt-10;
+  }
+
+  .heroText {
+    @apply order-2;
+  }
+
+  .heroVisual {
+    @apply order-1;
+  }
+
+  .heroButtons {
+    @apply justify-center;
+  }
+
+  .bio {
+    @apply mx-auto;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .role {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .heroButtons {
+    @apply flex-col w-full;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroButtons {
+    @apply flex-col w-full;
+  }
+
+  .imageWrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .techFloat {
+    @apply w-11.25 h-11.25;
+    font-size: 1.2rem;
+  }
+}
