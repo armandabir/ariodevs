@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../css/styles/Projects.module.scss';
 
 const projects = [
     {
@@ -27,24 +28,24 @@ export default function Projects() {
             <div className="container">
                 <h2 className="section-title reveal">آثار <span className="gradient-text">برگزیده</span></h2>
 
-                <div className="modern-projects-grid">
+                <div className={styles.modernProjectsGrid}>
                     {projects.map((project) => (
-                        <div className={`modern-project-card reveal ${project.delay}`} key={project.name}>
-                            <div className="project-image-box">
+                        <div className={`${styles.modernProjectCard} reveal ${project.delay}`} key={project.name}>
+                            <div className={styles.projectImageBox}>
                                 <img src={project.image} alt={project.alt} />
-                                <div className="project-overlay">
-                                    <a href="#" className="project-btn round-btn"><i className="fas fa-arrow-up-right-from-square"></i></a>
+                                <div className={styles.projectOverlay}>
+                                    <a href="#" className={styles.roundBtn}><i className="fas fa-arrow-up-right-from-square"></i></a>
                                 </div>
                             </div>
-                            <div className="project-details">
-                                <div className="project-category en-text">{project.category}</div>
-                                <h3 className="project-name">{project.name}</h3>
-                                <p className="project-desc">{project.desc}</p>
-                                <div className="project-footer">
+                            <div className={styles.projectDetails}>
+                                <div className={`en-text`} style={{ color: 'var(--accent-2)', fontSize: '0.875rem' }}>{project.category}</div>
+                                <h3 className={styles.projectName}>{project.name}</h3>
+                                <p className={styles.projectDesc}>{project.desc}</p>
+                                <div className={styles.projectFooter}>
                                     {project.tech.map((t) => (
-                                        <div className="tech-pill en-text" key={t}>{t}</div>
+                                        <div className={`${styles.techPill} en-text`} key={t}>{t}</div>
                                     ))}
-                                    <a href="#" className="github-link"><i className="fab fa-github"></i> Source</a>
+                                    <a href="#" className={styles.githubLink}><i className="fab fa-github"></i> Source</a>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,112 @@
+.modernProjectsGrid {
+  @apply grid grid-cols-1 gap-10;
+
+  @media (min-width: 640px) {
+    @apply grid-cols-2;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+.modernProjectCard {
+  @apply bg-card border rounded-3xl p-4 transition-all duration-400;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+
+  &:hover {
+    @apply -translate-y-2.5;
+    box-shadow: var(--glow-shadow);
+    border-color: var(--accent-1);
+  }
+}
+
+.projectImageBox {
+  @apply relative w-full overflow-hidden rounded-2xl;
+  height: 280px;
+
+  img {
+    @apply w-full h-full object-cover transition-transform duration-600;
+  }
+}
+
+.modernProjectCard:hover .projectImageBox img {
+  @apply scale-105;
+}
+
+.projectOverlay {
+  @apply absolute inset-0 bg-black/40 opacity-0 flex items-center
+         justify-center transition-opacity duration-300;
+
+  &.active {
+    @apply opacity-100;
+  }
+}
+
+.modernProjectCard:hover .projectOverlay {
+  @apply opacity-100;
+}
+
+.roundBtn {
+  @apply w-15 h-15 rounded-full bg-white text-black
+         flex items-center justify-center text-2xl
+         transition-transform duration-400 scale-50;
+  font-size: 1.5rem;
+}
+
+.modernProjectCard:hover .roundBtn {
+  @apply scale-100;
+}
+
+.projectDetails {
+  @apply px-4 pt-6 pb-2.5;
+}
+
+.projectName {
+  @apply text-2xl mb-2.5;
+  font-size: 1.5rem;
+}
+
+.projectDesc {
+  @apply mb-6;
+  color: var(--text-secondary);
+}
+
+.projectFooter {
+  @apply flex items-center gap-2.5 border-t pt-5 flex-wrap;
+  border-top: 1px solid var(--border-color);
+}
+
+.techPill {
+  @apply px-3 py-1.25 rounded-full text-xs border;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-color);
+  font-family: var(--font-latin) !important;
+}
+
+.githubLink {
+  @apply mr-auto flex items-center gap-2 font-semibold;
+  direction: ltr;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modernProjectsGrid {
+    @apply grid-cols-1;
+  }
+
+  .modernProjectCard {
+    @apply mx-auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectName {
+    font-size: 1.2rem;
+  }
+
+  .techPill {
+    font-size: 0.7rem;
+  }
+}
