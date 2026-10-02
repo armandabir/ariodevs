@@ -22,7 +22,7 @@
 }
 
 .testimonialText {
-  @apply text-lg italic mb-8 relative z-1;
+  @apply text-lg italic mb-8 relative z-10;
   color: var(--text-primary);
   font-style: italic;
 }
