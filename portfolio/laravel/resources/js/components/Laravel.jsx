@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../css/styles/Laravel.module.scss';
+import styles from '../../css/styles/Laravel.module.scss';
 
 export default function Laravel() {
     const terminalRef = useRef(null);

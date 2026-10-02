@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../css/styles/ComputerVision.module.scss';
+import styles from '../../css/styles/ComputerVision.module.scss';
 
 export default function ComputerVision() {
     const viewportRef = useRef(null);

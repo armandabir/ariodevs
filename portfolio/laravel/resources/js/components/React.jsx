@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../css/styles/React.module.scss';
+import styles from '../../css/styles/React.module.scss';
 
 export default function React() {
     const canvasRef = useRef(null);

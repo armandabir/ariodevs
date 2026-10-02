@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/styles/Publications.module.scss';
+import styles from '../../css/styles/Publications.module.scss';
 
 const publications = [
     {

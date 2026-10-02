@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../css/styles/Hero.module.scss';
+import styles from '../../css/styles/Hero.module.scss';
 
 const textArray = ['برنامه نویس وب', 'مهندس نرم‌افزار', 'توسعه‌دهنده فول‌استک'];
 

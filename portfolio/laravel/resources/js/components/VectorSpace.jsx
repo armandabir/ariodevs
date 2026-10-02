@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../css/styles/VectorSpace.module.scss';
+import styles from '../../css/styles/VectorSpace.module.scss';
 
 export default function VectorSpace() {
     const canvasRef = useRef(null);

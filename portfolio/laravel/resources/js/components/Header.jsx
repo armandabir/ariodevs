@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../css/styles/Header.module.scss';
+import styles from '../../css/styles/Header.module.scss';
 
 export default function Header({ theme, onToggleTheme }) {
     const [menuOpen, setMenuOpen] = useState(false);
