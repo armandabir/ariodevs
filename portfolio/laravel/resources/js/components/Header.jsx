@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from '../css/styles/Header.module.scss';
 
 export default function Header({ theme, onToggleTheme }) {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -25,42 +26,42 @@ export default function Header({ theme, onToggleTheme }) {
 
     return (
         <>
-            <div className={`mobile-menu-overlay${menuOpen ? ' active' : ''}`} id="mobile-overlay" onClick={closeMenu}></div>
-            <aside className={`mobile-menu${menuOpen ? ' active' : ''}`} id="mobile-menu">
-                <button className="close-menu-btn" id="close-menu" onClick={closeMenu}>
+            <div className={`${styles.mobileMenuOverlay}${menuOpen ? ` ${styles.active}` : ''}`} id="mobile-overlay" onClick={closeMenu}></div>
+            <aside className={`${styles.mobileMenu}${menuOpen ? ` ${styles.active}` : ''}`} id="mobile-menu">
+                <button className={styles.closeMenuBtn} id="close-menu" onClick={closeMenu}>
                     <i className="fas fa-times"></i>
                 </button>
-                <div className="mobile-menu-content">
-                    <a href="#" className="logo mb-4">Aria<span className="gradient-text">.AI</span></a>
-                    <ul className="mobile-nav-links">
+                <div>
+                    <a href="#" className={styles.logo} style={{ marginBottom: '1.5rem', display: 'block' }}>Aria<span className="gradient-text">.AI</span></a>
+                    <ul className={styles.mobileNavLinks}>
                         {mobileNavItems.map((item) => (
                             <li key={item.href}>
-                                <a href={item.href} className="mobile-nav-item" onClick={closeMenu}>{item.label}</a>
+                                <a href={item.href} className={styles.mobileNavItem} onClick={closeMenu}>{item.label}</a>
                             </li>
                         ))}
                     </ul>
-                    <a href="#contact" className="btn btn-primary w-100 mt-4" onClick={closeMenu}>ارتباط با من</a>
+                    <a href="#contact" className={`${styles.btn} ${styles.btnPrimary}`} style={{ width: '100%', marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }} onClick={closeMenu}>ارتباط با من</a>
                 </div>
             </aside>
 
-            <header className="header">
-                <div className="container nav-container">
-                    <a href="#" className="logo">Aria<span className="gradient-text">.AI</span></a>
-                    <nav className="navbar">
-                        <ul className="nav-links">
+            <header className={styles.header}>
+                <div className={`container ${styles.navContainer}`}>
+                    <a href="#" className={styles.logo}>Aria<span className="gradient-text">.AI</span></a>
+                    <nav>
+                        <ul className={styles.navLinks}>
                             {navItems.map((item) => (
                                 <li key={item.href}>
-                                    <a href={item.href} className="nav-item">{item.label}</a>
+                                    <a href={item.href} className={styles.navItem}>{item.label}</a>
                                 </li>
                             ))}
                         </ul>
                     </nav>
-                    <div className="header-actions">
-                        <button id="theme-toggle" className="theme-btn" aria-label="تغییر تم" onClick={onToggleTheme}>
+                    <div className={styles.headerActions}>
+                        <button id="theme-toggle" className={styles.themeBtn} aria-label="تغییر تم" onClick={onToggleTheme}>
                             <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>
                         </button>
-                        <a href="#contact" className="btn btn-glow hidden-mobile">ارتباط با من</a>
-                        <button className="mobile-menu-btn" id="open-menu" onClick={() => setMenuOpen(true)}>
+                        <a href="#contact" className={`${styles.btn} ${styles.btnGlow} hidden-mobile`}>ارتباط با من</a>
+                        <button className={styles.mobileMenuBtn} id="open-menu" onClick={() => setMenuOpen(true)}>
                             <i className="fas fa-bars"></i>
                         </button>
                     </div>
