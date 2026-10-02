@@ -73,7 +73,7 @@
 }
 
 .boundingBox {
-  @apply absolute border-2 z-2 transition-opacity duration-300;
+  @apply absolute border-2 z-10 transition-opacity duration-300;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.05);
   animation: pop-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;

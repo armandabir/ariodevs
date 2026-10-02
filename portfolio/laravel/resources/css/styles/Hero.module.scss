@@ -3,7 +3,7 @@
 }
 
 .glowBlob {
-  @apply absolute rounded-full blur-3xl -z-10 opacity-50;
+  @apply absolute rounded-full blur-3xl opacity-50;
   animation: floatBlob 10s infinite alternate ease-in-out;
 }
 

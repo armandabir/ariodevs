@@ -81,7 +81,7 @@
 }
 
 .mobileMenuOverlay {
-  @apply fixed inset-0 z-9998 opacity-0 invisible transition-all duration-400;
+  @apply fixed inset-0 z-50 opacity-0 invisible transition-all duration-400;
   background: rgba(0, 0, 0, 0.5);
 
   &.active {
