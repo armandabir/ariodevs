@@ -30,7 +30,7 @@
 
   &::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-0.5 bg-gradient-to-r transition-all duration-300;
+    @apply absolute bottom-0 left-0 h-px bg-gradient-to-r transition-all duration-300;
     background: var(--gradient-brand);
     width: 0;
   }
@@ -68,7 +68,7 @@
 
 /* Mobile Menu */
 .mobileMenu {
-  @apply fixed top-0 right-0 w-75 h-screen overflow-y-auto
+  @apply fixed top-0 right-0 w-72 h-screen overflow-y-auto
          z-9999 p-10 transition-all duration-400 ease-out;
   right: -300px;
   background: var(--bg-card);

@@ -49,7 +49,7 @@
 }
 
 .scanLine {
-  @apply absolute top-0 left-0 w-full h-0.5 z-5;
+  @apply absolute top-0 left-0 w-full h-px z-5;
   background: #00f2fe;
   box-shadow: 0 0 10px #00f2fe, 0 20px 20px rgba(0, 242, 254, 0.2);
   animation: scan 3s linear infinite;
