@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>آریا راد | متخصص هوش مصنوعی و یادگیری عمیق</title>
+    <link rel="icon" type="image/png" href="./assets/images/snake.png">
+    
+    <link rel="stylesheet" href="./assets/css/vazirmatn.css" />
+    <link rel="stylesheet" href="./assets/css/poppins.css" />
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-theme="dark">
+
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="noise-bg"></div>
+
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <aside class="mobile-menu" id="mobile-menu">
+        <button class="close-menu-btn" id="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-menu-content">
+            <a href="#" class="logo mb-4">Aria<span class="gradient-text">.AI</span></a>
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="mobile-nav-item">خانه</a></li>
+                <li><a href="#about" class="mobile-nav-item">درباره من</a></li>
+                <li><a href="#services" class="mobile-nav-item">خدمات</a></li>
+                <li><a href="#skills" class="mobile-nav-item">مهارت‌ها</a></li>
+                <li><a href="#experience" class="mobile-nav-item">سوابق</a></li>
+                <li><a href="#publications" class="mobile-nav-item">مقالات</a></li>
+                <li><a href="#projects" class="mobile-nav-item">پروژه‌ها</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100 mt-4">ارتباط با من</a>
+        </div>
+    </aside>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Aria<span class="gradient-text">.AI</span></a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-item">خانه</a></li>
+                    <li><a href="#about" class="nav-item">درباره من</a></li>
+                    <li><a href="#experience" class="nav-item">سوابق</a></li>
+                    <li><a href="#publications" class="nav-item">مقالات</a></li>
+                    <li><a href="#projects" class="nav-item">پروژه‌ها</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="تغییر تم">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="#contact" class="btn btn-glow hidden-mobile">ارتباط با من</a>
+                <button class="mobile-menu-btn" id="open-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (بدون تغییر) -->
+    <section id="home" class="hero">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+        <div class="container hero-content">
+            <div class="hero-text reveal">
+                <div class="badge">در دسترس برای پروژه‌های فریلنسری <span class="pulse-dot"></span></div>
+                <h1 class="name">من <span class="gradient-text">آریا راد</span> هستم</h1>
+                <h2 class="role">یک <span id="typed-text" class="typed-text"></span><span class="cursor">|</span></h2>
+                <p class="bio">
+                    من به ماشین‌ها یاد می‌دهم که ببینند، بفهمند و خلق کنند. با بیش از ۵ سال تجربه در مرزهای هوش مصنوعی، تمرکز من روی توسعه سیستم‌های هوشمند با استفاده از 
+                    <span class="en-text highlight-bg">LLMs</span>، 
+                    <span class="en-text highlight-bg">Computer Vision</span> و 
+                    <span class="en-text highlight-bg">MLOps</span> است.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary btn-large">
+                        کاوش پروژه‌ها <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <div class="social-hero">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-kaggle"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal reveal-delay-1">
+                <div class="image-wrapper">
+                    <img src="./assets/images/image(6).jpg" alt="Aro devs Engineer" class="profile-img">
+                    <div class="tech-float float-1"><i class="fab fa-python"></i></div>
+                    <div class="tech-float float-2"><i class="fas fa-brain"></i></div>
+                    <div class="tech-float float-3"><i class="fas fa-microchip"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Box About Section (کاملاً بازطراحی شده برای چینش بی‌نقص) -->
+    <section id="about" class="section bento-section">
+        <div class="container">
+            <h2 class="section-title reveal">کشف <span class="gradient-text">دنیای من</span></h2>
+            
+            <!-- Grid: 4 Columns. -->
+            <div class="bento-grid">
+
+                <!-- ردیف ۱ و ۲ -->
+                <!-- بلوک بزرگ: معرفی (عرض ۲، ارتفاع ۲) -->
+                <div class="bento-box bento-large reveal">
+                    <i class="fas fa-quote-right bento-icon-bg"></i>
+                    <h3>تلفیق داده‌ها و هنر</h3>
+                    <p>بیش از ۵ سال است که در مرزهای هوش مصنوعی قدم می‌زنم. من معتقدم کدهای تمیز و معماری شبکه‌های عصبی عمیق، هنر دنیای مدرن هستند. هدف من ساخت محصولاتی است که زندگی انسان‌ها را هوشمندتر کند. از آزمایشگاه‌های تحقیقاتی تا محیط‌های Production واقعی، همیشه دنبال راه‌حل‌هایی بوده‌ام که هم از نظر علمی محکم باشند و هم از نظر مهندسی قابل اتکا.</p>
+                </div>
+                
+                <!-- بلوک متوسط: ابزارها (عرض ۲، ارتفاع ۱) -->
+                <div class="bento-box bento-medium reveal reveal-delay-1 tech-stack-box">
+                    <h3>ابزارهای کلیدی</h3>
+                    <div class="tech-tags mt-4">
+                        <span>PyTorch</span>
+                        <span>TensorFlow</span>
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>Docker</span>
+                        <span>FastAPI</span>
+                    </div>
+                </div>
+
+                <!-- بلوک‌های کوچک آماری (عرض ۱، ارتفاع ۱) -->
+                <div class="bento-box bento-small reveal stat-box">
+                    <h2 class="stat-number en-text">۴۰+</h2>
+                    <p>پروژه</p>
+                </div>
+                <div class="bento-box bento-small reveal stat-box">
+                    <h2 class="stat-number en-text">۵+</h2>
+                    <p>سال تجربه</p>
+                </div>
+
+                <!-- ردیف ۳ و ۴ -->
+                <!-- بلوک بزرگ: تحصیلات (عرض ۲، ارتفاع ۲) -->
+                <div class="bento-box bento-large reveal edu-box">
+                    <i class="fas fa-graduation-cap bento-icon"></i>
+                    <h3>مسیر آکادمیک</h3>
+                    <div class="mb-4">
+                        <h4 style="color: var(--accent-1);">کارشناسی ارشد هوش مصنوعی</h4>
+                        <p class="edu-uni font-bold">دانشگاه صنعتی شریف</p>
+                        <p class="text-muted" style="font-size: 0.85rem;">پایان‌نامه: بهینه‌سازی مدل‌های زبانی بزرگ با LoRA.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-2);">کارشناسی مهندسی کامپیوتر</h4>
+                        <p class="edu-uni font-bold">دانشگاه صنعتی اصفهان</p>
+                        <p class="text-muted" style="font-size: 0.85rem;">پروژه پایانی: تشخیص ناهنجاری در ترافیک شبکه با استفاده از یادگیری ماشین.</p>
+                    </div>
+                </div>
+
+                <!-- بلوک متوسط: موقعیت مکانی (عرض ۲، ارتفاع ۱) -->
+                <div class="bento-box bento-medium reveal map-box">
+                    <div class="map-overlay">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>تهران، ایران<br><span class="en-text text-sm">Remote Worldwide</span></p>
+                    </div>
+                </div>
+
+                <!-- دو بلوک کوچک آماری برای تکمیل گرید (عرض ۱، ارتفاع ۱) -->
+                <div class="bento-box bento-small reveal stat-box">
+                    <h2 class="stat-number en-text">۲۰+</h2>
+                    <p>مشتری راضی</p>
+                </div>
+                <div class="bento-box bento-small reveal stat-box">
+                    <h2 class="stat-number en-text">۱۵+</h2>
+                    <p>مدل دیپلوی شده</p>
+                </div>
+
+                <!-- ردیف ۵ -->
+                <!-- Live Computer Vision (عرض ۲) -->
+                <div class="bento-box bento-medium reveal cv-box">
+                    <div class="cv-header">
+                        <div class="cv-status">
+                            <span class="live-dot"></span>
+                            <span class="en-text" style="font-size: 0.8rem; color: #ff5f56;">LIVE INFERENCE</span>
+                        </div>
+                        <div class="en-text" style="font-size: 0.75rem; color: #8b949e;">Model: YOLOv8-Nano</div>
+                    </div>
+                    <div class="cv-viewport" id="cv-viewport">
+                        <div class="cv-grid"></div>
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+
+                <!-- Neural Network (عرض ۲) -->
+                <div class="bento-box bento-medium reveal nn-box">
+                    <div class="nn-header">
+                        <h3>شبکه‌عصبی زنده</h3>
+                        <p class="text-muted" style="font-size: 0.85rem;">Data Processing</p>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="neural-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- ردیف ۶ -->
+                <!-- Terminal (عرض ۲) -->
+                <div class="bento-box bento-medium reveal terminal-box">
+                    <div class="terminal-header">
+                        <div class="term-dots">
+                            <span class="dot close"></span><span class="dot min"></span><span class="dot max"></span>
+                        </div>
+                        <div class="term-title en-text">aria@gpu-server: ~/llm-finetune</div>
+                    </div>
+                    <div class="terminal-body en-text" id="live-terminal">
+                        <!-- لاگ‌های جاوااسکریپت -->
+                    </div>
+                </div>
+
+                <!-- Vector Space (عرض ۲) -->
+                <div class="bento-box bento-medium reveal vector-box">
+                    <div class="vector-header">
+                        <span class="en-text" style="color: #a855f7; font-weight: bold;">VECTOR DB</span>
+                        <span class="en-text" style="font-size: 0.75rem; color: #8b949e;">Semantic Clustering</span>
+                    </div>
+                    <div class="canvas-container" id="vector-container">
+                        <canvas id="vector-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- ردیف ۷ -->
+                <!-- خارج از کد (عرض ۲) -->
+                <div class="bento-box bento-medium reveal">
+                    <i class="fas fa-heart bento-icon-bg"></i>
+                    <h3>خارج از کد</h3>
+                    <p class="text-muted" style="margin-bottom: 15px; font-size: 0.9rem;">وقتی پشت لپ‌تاپ نیستم...</p>
+                    <div class="tech-tags">
+                        <span><i class="fas fa-book-open text-muted"></i> فلسفه ذهن</span>
+                        <span><i class="fas fa-guitar text-muted"></i> گیتار</span>
+                        <span><i class="fas fa-mountain text-muted"></i> کوهنوردی</span>
+                        <span><i class="fas fa-chess-knight text-muted"></i> شطرنج</span>
+                    </div>
+                </div>
+
+                <!-- فلسفه کاری (عرض ۲) -->
+                <div class="bento-box bento-medium reveal">
+                    <i class="fas fa-lightbulb bento-icon-bg"></i>
+                    <h3>فلسفه کاری من</h3>
+                    <p class="text-muted" style="font-size: 0.95rem; line-height: 1.8;">"هوش مصنوعی خوب، هوشی است که انسان را قوی‌تر کند، نه جایگزین او شود. من برای این هدف کد می‌نویسم."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services و Skills (بدون تغییر ماند تا حجم کد بیش از حد نشود) -->
+
+    <!-- Experience Timeline (با افزودن ۳ آیتم جدید و اصلاح تراز) -->
+    <section id="experience" class="section timeline-section">
+        <div class="container">
+            <h2 class="section-title reveal">مسیر <span class="gradient-text">تکامل</span></h2>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-date">۱۴۰۲ - تاکنون</span>
+                        <h3 class="timeline-title">Senior AI Engineer</h3>
+                        <h4 class="timeline-company" style="color: var(--accent-1); margin-bottom: 10px;">TechVision AI Lab</h4>
+                        <p>رهبری تیم ۵ نفره برای توسعه یک مدل بینایی ماشین صنعتی. کاهش خطای تولید به میزان ۲۲٪ با استقرار روی لبه (Edge AI). طراحی معماری کامل Pipeline از جمع‌آوری داده تا استقرار روی دستگاه‌های Jetson Nano.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-date">۱۴۰۰ - ۱۴۰۲</span>
+                        <h3 class="timeline-title">Machine Learning Engineer</h3>
+                        <h4 class="timeline-company" style="color: var(--accent-1); margin-bottom: 10px;">AI Innovators Co</h4>
+                        <p>طراحی و آموزش مدل‌های پردازش زبان طبیعی (NLP) برای تحلیل احساسات مشتریان. یکپارچه‌سازی مدل‌ها با بک‌اند میکروسرویس از طریق FastAPI و Dockerization.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-date">۱۳۹۸ - ۱۴۰۰</span>
+                        <h3 class="timeline-title">Data Scientist</h3>
+                        <h4 class="timeline-company" style="color: var(--accent-1); margin-bottom: 10px;">DataPulse Inc</h4>
+                        <p>طراحی سیستم Recommendation برای فروشگاه‌های آنلاین و پردازش بیش از ۱۰ میلیون رکورد در روز با PySpark. افزایش ۲۵٪ نرخ تبدیل کاربر به خریدار در اولین ماه استقرار.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-date">۱۳۹۷ - ۱۳۹۸</span>
+                        <h3 class="timeline-title">Junior Python Developer</h3>
+                        <h4 class="timeline-company" style="color: var(--accent-1); margin-bottom: 10px;">WebTech Studio</h4>
+                        <p>توسعه خزنده‌های وب (Web Scrapers) پیشرفته برای جمع‌آوری داده‌های ساختاریافته. اتوماسیون فرآیندهای دیتابیس و طراحی داشبوردهای تحلیلی با Pandas و Matplotlib.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-date">۱۳۹۶ - ۱۳۹۷</span>
+                        <h3 class="timeline-title">Research Assistant</h3>
+                        <h4 class="timeline-company" style="color: var(--accent-1); margin-bottom: 10px;">Sharif University Lab</h4>
+                        <p>مشارکت در پژوهش‌های مرتبط با شبکه‌های عصبی کانولوشنال (CNN). جمع‌آوری و پاکسازی دیتاسِت‌های تصویری برای مقالات علمی.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Publications / مقالات -->
+    <section id="publications" class="section publications-section">
+        <div class="container">
+            <h2 class="section-title reveal">مقالات و <span class="gradient-text">پژوهش‌ها</span></h2>
+            <p class="section-subtitle reveal text-muted">مشارکت‌های علمی در معتبرترین ژورنال‌ها و کنفرانس‌های بین‌المللی</p>
+            
+            <div class="publications-list">
+                
+                <div class="publication-card reveal">
+                    <i class="fas fa-file-pdf pub-icon"></i>
+                    <div class="pub-content">
+                        <h3 class="pub-title">بهینه‌سازی مدل‌های زبانی بزرگ با استفاده از تطبیق‌پذیری رتبه-پایین (LoRA) برای دستگاه‌های لبه</h3>
+                        <div class="pub-meta">
+                            <span class="en-text"><i class="fas fa-book"></i> نشریه تراکنش‌های شبکه‌های عصبی IEEE</span>
+                            <span><i class="far fa-calendar-alt"></i> آبان ۱۴۰۴</span>
+                        </div>
+                        <p class="pub-desc">این مقاله روشی نوین برای کاهش مصرف حافظه در هنگام Fine-tune کردن مدل‌های زبانی با پارامتر بالا روی دستگاه‌های لبه (IoT) پیشنهاد می‌دهد که باعث کاهش ۶۰ درصدی مصرف VRAM می‌شود.</p>
+                        <a href="./publication-lora.html" class="btn btn-glow mt-4" style="padding: 8px 16px; font-size: 0.85rem;">مشاهده مقاله <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="publication-card reveal reveal-delay-1">
+                    <i class="fas fa-file-alt pub-icon"></i>
+                    <div class="pub-content">
+                        <h3 class="pub-title">تشخیص بلادرنگ ناهنجاری در تولید صنعتی با استفاده از ترانسفورمرهای بینایی</h3>
+                        <div class="pub-meta">
+                            <span class="en-text"><i class="fas fa-globe"></i> کنفرانس بین‌المللی CVPR ۱۴۰۳ </span>
+                            <span><i class="far fa-calendar-alt"></i> خرداد ۱۴۰۳</span>
+                        </div>
+                        <p class="pub-desc">معرفی یک معماری هیبریدی بر پایه ViT و CNN برای تشخیص بلادرنگ نقص‌های تولیدی در خطوط مونتاژ با نرخ فریم بالا و دقت ۹۹.۲ درصد.</p>
+                        <a href="./publication-lora.html" class="btn btn-glow mt-4" style="padding: 8px 16px; font-size: 0.85rem;">مشاهده مقاله <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="publication-card reveal reveal-delay-2">
+                    <i class="fas fa-newspaper pub-icon"></i>
+                    <div class="pub-content">
+                        <h3 class="pub-title">یادگیری تقویتی عمیق برای کنترل پویای چراغ‌های راهنمایی</h3>
+                        <div class="pub-meta">
+                            <span class="en-text"><i class="fas fa-book"></i> ژورنال اینترنت اشیاء IEEE</span>
+                            <span><i class="far fa-calendar-alt"></i> دی ۱۴۰۱</span>
+                        </div>
+                        <p class="pub-desc">یک چارچوب مبتنی بر یادگیری تقویتی عمیق (DQN) برای زمان‌بندی هوشمند چراغ‌های راهنمایی شهری که منجر به کاهش ۳۰ درصدی زمان انتظار در تقاطع‌های شلوغ شد.</p>
+                        <a href="./publication-lora.html" class="btn btn-glow mt-4" style="padding: 8px 16px; font-size: 0.85rem;">مشاهده مقاله <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title reveal">آثار <span class="gradient-text">برگزیده</span></h2>
+            
+            <div class="modern-projects-grid">
+                <div class="modern-project-card reveal">
+                    <div class="project-image-box">
+                        <img src="./assets/images/pic_asar.jpg" alt="AI Chatbot">
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn round-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-category en-text">NLP & LLM</div>
+                        <h3 class="project-name">ParsLLM: دستیار هوشمند سازمانی</h3>
+                        <p class="project-desc">Fine-tune کردن مدل Llama-3 روی دیتاسِت‌های اختصاصی بانکی برای پاسخگویی به مشتریان با پیاده‌سازی معماری RAG. کاهش ۴۰٪ در زمان پاسخ‌دهی اپراتورهای انسانی.</p>
+                        <div class="project-footer">
+                            <div class="tech-pill en-text">PyTorch</div>
+                            <div class="tech-pill en-text">LangChain</div>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modern-project-card reveal reveal-delay-1">
+                    <div class="project-image-box">
+                        <img src="./assets/images/pic_asar.jpg" alt="Computer Vision">
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn round-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-category en-text">Computer Vision</div>
+                        <h3 class="project-name">سیستم تشخیص تومور مغزی</h3>
+                        <p class="project-desc">مدل Image Segmentation با استفاده از معماری U-Net برای تشخیص دقیق مرز تومورها در تصاویر MRI. دقت ۹۷٪ روی دیتاسِت BraTS2023 و تأیید شده توسط متخصصان رادیولوژی.</p>
+                        <div class="project-footer">
+                            <div class="tech-pill en-text">TensorFlow</div>
+                            <div class="tech-pill en-text">OpenCV</div>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title reveal">اعتماد <span class="gradient-text">همکاران</span></h2>
+            
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card glass-card reveal">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"آریا یک درک فوق‌العاده از الگوریتم‌های پیچیده دارد. کدهای او بسیار تمیز است و مدلی که برای خط تولید ما آموزش داد، فراتر از انتظار عمل کرد. همکاری با او یک تجربه حرفه‌ای واقعی بود."</p>
+                    <div class="client-info">
+                        <img src="./assets/images/image.jpg" alt="Client 1">
+                        <div>
+                            <h4>مهندس احمدی</h4>
+                            <span class="text-muted">مدیر فنی TechVision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-card reveal reveal-delay-1">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"سیستم توصیه‌گری که آریا برای پلتفرم ما ساخت، نرخ تبدیل کاربر به خریدار را ظرف یک ماه ۲۵٪ افزایش داد. علاوه بر مهارت فنی، توانایی توضیح مفاهیم پیچیده به تیم غیرفنی ما واقعاً ارزشمند بود."</p>
+                    <div class="client-info">
+                        <img src="./assets/images/image(1).jpg" alt="Client 2">
+                        <div>
+                            <h4>حسین محمدی</h4>
+                            <span class="text-muted">مدیر محصول DataPulse</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="modern-footer section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-text reveal">
+                    <h2 class="huge-text">آماده خلق <br><span class="gradient-text">آینده</span> هستید؟</h2>
+                    <p>برای مشاوره، پروژه‌های فریلنسری یا یک فنجان قهوه مجازی، پیام دهید. من همیشه آماده شنیدن ایده‌های جدید هستم. معمولاً ظرف ۲۴ ساعت پاسخ می‌دهم.</p>
+                    <a href="mailto:hello@aria-ai.com" class="email-link en-text">hello@aria-ai.com</a>
+                </div>
+                
+                <div class="footer-form glass-card reveal reveal-delay-1">
+                    <form id="contact-form">
+                        <div class="input-container">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">نام شما</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">ایمیل شما</label>
+                        </div>
+                        <div class="input-container">
+                            <textarea id="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">پروژه یا ایده شما...</label>
+                        </div>
+                        <button type="submit" class="btn btn-glow w-100">ارسال درخواست <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; ۱۴۰۴ طراحی شده با هوش و هنر | <span class="en-text">Aria.AI</span></p>
+                <div class="social-hero">
+                    <a href="#" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

@@ -18,7 +18,7 @@ export default defineConfig({
 
             react(),
     ],
-        base:'/',
+        base:'/build/',
 
       server: {
         host: '0.0.0.0', // Use localhost or your machine's IP address

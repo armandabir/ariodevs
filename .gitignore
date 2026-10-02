@@ -3,3 +3,6 @@ vendor/
 .env
 *.rar
 *.zip
+
+# Keep local Claude skill packs out of the repository.
+**/.claude/skills/

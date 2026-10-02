@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راهنمای جامع قالب‌های پورتفولیو</title>
+    <link rel="stylesheet" href="../assets/css/vazirmatn.css" />
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --sidebar-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --alert-bg: #eff6ff;
+            --alert-border: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        aside {
+            width: 320px;
+            background-color: var(--sidebar-bg);
+            border-left: 1px solid var(--border-color);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        aside h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        aside ul li.section-title {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            display: block;
+            padding-right: 0.5rem;
+            border-right: 2px solid transparent;
+        }
+
+        aside ul li a:hover {
+            color: var(--primary);
+            border-right: 2px solid var(--primary);
+        }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1000px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        section h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        ul.feature-list {
+            margin-right: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul.feature-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        code.inline {
+            background-color: #e2e8f0;
+            color: #ef4444;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .alert {
+            background-color: var(--alert-bg);
+            border-right: 4px solid var(--alert-border);
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .alert.warning {
+            --alert-bg: #fffbeb;
+            --alert-border: #f59e0b;
+        }
+
+        .alert.danger {
+            --alert-bg: #fef2f2;
+            --alert-border: #ef4444;
+        }
+
+        .template-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .badge-t1 { background-color: #dbeafe; color: #1e3a8a; }
+        .badge-t2 { background-color: #f3e8ff; color: #581c87; }
+        .badge-t3 { background-color: #1a2e1a; color: #4ade80; border: 1px solid #4ade80; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <h2>فهرست مطالب</h2>
+        <ul>
+            <li><a href="#intro">معرفی و ساختار فایل‌ها</a></li>
+            
+            <li class="section-title">شخصی‌سازی عمومی</li>
+            <li><a href="#general-info">ویرایش اطلاعات پایه</a></li>
+
+            <li class="section-title">قالب اول (بنتو باکس)</li>
+            <li><a href="#t1-hero">بخش هدر و Hero</a></li>
+            <li><a href="#t1-bento">ویرایش بنتو باکس‌ها</a></li>
+            <li><a href="#t1-live">مدل‌های زنده و بوم‌ها</a></li>
+
+            <li class="section-title">قالب دوم (سایدبار)</li>
+            <li><a href="#t2-sidebar">ویرایش منوی سایدبار</a></li>
+            <li><a href="#t2-grid">ویرایش گرید پروژه‌ها</a></li>
+
+            <li class="section-title">قالب سوم (سایبر/ترمینال)</li>
+            <li><a href="#t3-hero">تنظیمات پروفایل و لوگو</a></li>
+            <li><a href="#t3-skills">ویرایش مهارت‌ها (فرمت JSON)</a></li>
+            <li><a href="#t3-experience">سوابق (فرمت Git History)</a></li>
+            <li><a href="#t3-glitch">عناوین گلیچ (Glitch)</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <header>
+            <h1>راهنمای جامع قالب‌های پورتفولیو</h1>
+            <p>آموزش راه‌اندازی، ویرایش و شخصی‌سازی ۳ نسخه مختلف از وب‌سایت شخصی شما</p>
+        </header>
+
+        <section id="intro">
+            <h2>معرفی و ساختار فایل‌ها</h2>
+            <p>این مجموعه شامل ۳ قالب متفاوت با طراحی‌های مدرن و اختصاصی برای متخصصین هوش مصنوعی و برنامه‌نویسان است:</p>
+            
+            <ul class="feature-list">
+                <li><code class="inline">index.html</code> : <strong>قالب اول</strong> - طراحی مدرن با استفاده از Grid (بنتو باکس).</li>
+                <li><code class="inline">index2.html</code> : <strong>قالب دوم</strong> - طراحی توسعه‌دهنده با منوی سایدبار ثابت.</li>
+                <li><code class="inline">index3.html</code> : <strong>قالب سوم</strong> - طراحی سایبرپانک و ترمینال هکری (بسیار خاص).</li>
+            </ul>
+        </section>
+
+        <!-- ==========================================
+             بخش تنظیمات عمومی 
+        =========================================== -->
+        <section id="general-info">
+            <h2>ویرایش اطلاعات پایه (مشترک در تمام قالب‌ها)</h2>
+            <p>برای تغییر لینک شبکه‌های اجتماعی، آیکون‌های FontAwesome قرار داده شده‌اند. صفت <code>href="#"</code> را تغییر دهید:</p>
+            <pre>
+&lt;a href="https://github.com/YourUsername" class="social-icon"&gt;
+    &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+&lt;/a&gt;
+            </pre>
+        </section>
+
+        <!-- ==========================================
+             قالب اول: بنتو باکس 
+        =========================================== -->
+        <section id="t1-hero">
+            <span class="template-badge badge-t1">مخصوص قالب اول (index.html)</span>
+            <h2>ویرایش ساختار قالب اول</h2>
+            <p>در فایل <code>index.html</code> بخش <code>&lt;section id="home"&gt;</code> را پیدا کنید. برای تغییر تصویر پروفایل و نام:</p>
+            <pre>
+&lt;h1 class="name"&gt;من &lt;span class="gradient-text"&gt;آریا راد&lt;/span&gt; هستم&lt;/h1&gt;
+&lt;img src="./assets/images/عکس_شما.jpg" alt="نام شما" class="profile-img"&gt;
+            </pre>
+        </section>
+
+        <section id="t1-bento">
+            <span class="template-badge badge-t1">مخصوص قالب اول (index.html)</span>
+            <h2>مدیریت بنتو باکس‌ها (Bento Grid)</h2>
+            <p>بخش "درباره من" در قالب اول به صورت شبکه‌ای از باکس‌ها طراحی شده است. کلاس‌های کنترلی:</p>
+            <ul class="feature-list">
+                <li><code class="inline">bento-large</code> : باکس بزرگ (۲ ستون و ۲ ردیف).</li>
+                <li><code class="inline">bento-medium</code> : باکس متوسط (۲ ستون و ۱ ردیف).</li>
+                <li><code class="inline">bento-small</code> : باکس کوچک (۱ ستون و ۱ ردیف).</li>
+            </ul>
+        </section>
+
+        <section id="t1-live">
+            <span class="template-badge badge-t1">مخصوص قالب اول (index.html)</span>
+            <h2>مدل‌های زنده (ترمینال و شبکه‌های عصبی)</h2>
+            <p>برای ویرایش انیمیشن‌ها و متن‌های زنده قالب اول، باید فایل <code>main.js</code> را باز کرده و آرایه‌های متنی یا متغیرهای مربوط به Canvas را ویرایش کنید.</p>
+        </section>
+
+        <!-- ==========================================
+             قالب دوم: سایدبار توسعه‌دهنده
+        =========================================== -->
+        <section id="t2-sidebar">
+            <span class="template-badge badge-t2">مخصوص قالب دوم (index2.html)</span>
+            <h2>ویرایش منوی سایدبار و ساختار توسعه‌دهنده</h2>
+            <p>قالب دوم بر اساس طراحی IDE ساخته شده است. برای ویرایش منوی کناری، <code>&lt;nav class="sidebar"&gt;</code> را پیدا کنید:</p>
+            <pre>
+&lt;ul class="nav-menu"&gt;
+    &lt;li&gt;&lt;a href="#home" class="active"&gt;&lt;i class="fas fa-terminal"&gt;&lt;/i&gt; &lt;span&gt;شروع&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+            </pre>
+        </section>
+
+        <section id="t2-grid">
+            <span class="template-badge badge-t2">مخصوص قالب دوم (index2.html)</span>
+            <h2>ویرایش پروژه‌ها (کارت‌های پوشه‌ای)</h2>
+            <p>پروژه‌ها شبیه پوشه‌های سیستم‌عامل طراحی شده‌اند. برای افزودن پروژه جدید:</p>
+            <pre>
+&lt;div class="project-card reveal"&gt;
+    &lt;div class="project-header"&gt;
+        &lt;div class="folder-icon"&gt;&lt;i class="far fa-folder-open"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h3 class="project-title"&gt;نام پروژه&lt;/h3&gt;
+&lt;/div&gt;
+            </pre>
+        </section>
+
+        <!-- ==========================================
+             قالب سوم: سایبر / ترمینال
+        =========================================== -->
+        <section id="t3-hero">
+            <span class="template-badge badge-t3">مخصوص قالب سوم (index3.html)</span>
+            <h2>تنظیمات پروفایل و لوگوی ترمینال</h2>
+            <p>قالب سوم دارای استایل هکری و سایبرپانک است. لوگوی بالای صفحه به شکل خط فرمان طراحی شده است:</p>
+            <pre>
+&lt;!-- تغییر لوگوی هدر --&gt;
+&lt;a href="#" class="logo"&gt;root@aria&lt;span class="cursor-blink"&gt;_&lt;/span&gt;&lt;/a&gt;
+            </pre>
+            
+            <h3>اطلاعات پنل سایبری (Hero Section)</h3>
+            <p>در بخش اول صفحه، یک پنل اطلاعات هویتی قرار دارد. مقادیر زیر را با اطلاعات خود جایگزین کنید:</p>
+            <pre>
+&lt;div class="data-row"&gt;&lt;span class="label"&gt;شناسه:&lt;/span&gt; USR-9982&lt;/div&gt;
+&lt;div class="data-row"&gt;&lt;span class="label"&gt;نقش:&lt;/span&gt; متخصص یادگیری عمیق&lt;/div&gt;
+            </pre>
+        </section>
+
+        <section id="t3-skills">
+            <span class="template-badge badge-t3">مخصوص قالب سوم (index3.html)</span>
+            <h2>ویرایش مهارت‌ها (ساختار JSON)</h2>
+            <p>در قالب سوم، بخش مهارت‌ها و اطلاعات پایه به صورت کدهای واقعی <code>JSON</code> نمایش داده می‌شود. برای ویرایش آن، کلاس <code>json-code</code> را پیدا کرده و مقادیر داخل کوتیشن‌ها (<code>""</code>) را تغییر دهید:</p>
+            <pre>
+&lt;pre class="json-code fa-text"&gt;
+{
+  &lt;span class="string"&gt;"نام"&lt;/span&gt;: &lt;span class="string"&gt;"آریا راد"&lt;/span&gt;,
+  &lt;span class="string"&gt;"تخصص_اصلی"&lt;/span&gt;: [&lt;span class="string"&gt;"مدل‌های زبانی"&lt;/span&gt;, &lt;span class="string"&gt;"MLOps"&lt;/span&gt;]
+}
+&lt;/pre&gt;
+            </pre>
+        </section>
+
+        <section id="t3-experience">
+            <span class="template-badge badge-t3">مخصوص قالب سوم (index3.html)</span>
+            <h2>سوابق کاری (فرمت Git History)</h2>
+            <p>بخش سوابق در قالب سوم شبیه به تاریخچه کامیت‌های گیت (Git Commit Log) طراحی شده است. برای اضافه کردن سابقه جدید، یک بلاک <code>&lt;div class="commit"&gt;</code> کپی کنید:</p>
+            <pre>
+&lt;div class="commit"&gt;
+    &lt;div class="commit-hash"&gt;commit &lt;span class="hash-color"&gt;f9e8d7c&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="commit-author"&gt;نویسنده: Aria &amp;lt;ایمیل-شرکت@domain.com&amp;gt;&lt;/div&gt;
+    &lt;div class="commit-date"&gt;تاریخ: ۲۰۲۱ - ۲۰۲۳&lt;/div&gt;
+    &lt;div class="commit-msg"&gt;ویژگی: عنوان شغل یا دستاورد شما&lt;/div&gt;
+    &lt;p class="commit-desc fa-text"&gt;توضیحات کامل در مورد وظایف...&lt;/p&gt;
+&lt;/div&gt;
+            </pre>
+            <div class="alert">
+                <strong>نکته:</strong> برای زیبایی بیشتر، به جای <code>f9e8d7c</code> می‌توانید از عبارات تصادفی هش شده (مثل <code>a1b2c3d</code>) استفاده کنید تا حس ترمینال واقعی‌تر شود.
+            </div>
+        </section>
+
+        <section id="t3-glitch">
+            <span class="template-badge badge-t3">مخصوص قالب سوم (index3.html)</span>
+            <h2>عناوین دارای افکت گلیچ (Glitch Titles)</h2>
+            <p>عناوین بخش‌ها در قالب سوم دارای افکت لرزش و گلیچ هستند. اگر می‌خواهید متنی مثل "معماری_سیستم" را تغییر دهید، <strong>حتماً</strong> باید صفت <code>data-text</code> را نیز همزمان با متن داخلی تغییر دهید:</p>
+            
+            <div class="alert danger">
+                <strong>مهم:</strong> اگر متن داخل تگ و متن <code>data-text</code> یکسان نباشند، افکت گلیچ به درستی کار نخواهد کرد!
+            </div>
+
+            <pre>
+&lt;!-- روش صحیح تغییر عنوان --&gt;
+&lt;div class="glitch-title" data-text="درباره_من"&gt;درباره_من&lt;/div&gt;
+            </pre>
+
+            <h3>فرم تماس ترمینالی</h3>
+            <p>فرم تماس در انتهای صفحه سوم نیز شبیه خط فرمان طراحی شده است (<code>cmd-label</code>). برای تغییر متون راهنمای فرم:</p>
+            <pre>
+&lt;span class="cmd-label en-text"&gt;نام_کاربری:~$&lt;/span&gt;
+&lt;input type="text" class="cmd-input fa-text" placeholder="نام شما..."&gt;
+            </pre>
+        </section>
+
+    </main>
+
+</body>
+</html>

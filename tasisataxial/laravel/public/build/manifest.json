@@ -232,12 +232,12 @@
     "src": "resources/assets/shopsection.png"
   },
   "resources/css/css-bunny-fonts.css": {
-    "file": "assets/css-bunny-fonts-50ca230d.css",
+    "file": "assets/css-bunny-fonts-26f6822b.css",
     "isEntry": true,
     "src": "resources/css/css-bunny-fonts.css"
   },
   "resources/css/index.css": {
-    "file": "assets/index-7fc2d760.css",
+    "file": "assets/index-e281e27c.css",
     "isEntry": true,
     "src": "resources/css/index.css"
   },
@@ -370,7 +370,7 @@
     "src": "resources/fonts/bunny-fonts/nunito-vietnamese-700-normal.woff2"
   },
   "resources/js/index.css": {
-    "file": "assets/index-568ef2b7.css",
+    "file": "assets/index-cd1ae4d8.css",
     "src": "resources/js/index.css"
   },
   "resources/js/index.jsx": {
@@ -410,14 +410,14 @@
       "assets/rectangle4-31541181.jpg"
     ],
     "css": [
-      "assets/index-568ef2b7.css"
+      "assets/index-cd1ae4d8.css"
     ],
-    "file": "assets/index-b688ec84.js",
+    "file": "assets/index-99f67d1a.js",
     "isEntry": true,
     "src": "resources/js/index.jsx"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-06e31761.css",
+    "file": "assets/app-48bb9c73.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
