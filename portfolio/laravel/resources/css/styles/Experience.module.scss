@@ -1,5 +1,5 @@
 .timeline {
-  @apply relative max-w-2xl mx-auto pr-7.5;
+  @apply relative max-w-2xl mx-auto pr-8;
 
   &::before {
     content: '';
@@ -22,7 +22,7 @@
 }
 
 .timelineContent {
-  @apply p-7.5;
+  @apply p-8;
 }
 
 .timelineDate {
@@ -46,7 +46,7 @@
   }
 
   .timelineItem {
-    @apply pr-7.5;
+    @apply pr-8;
   }
 
   .timelineContent {

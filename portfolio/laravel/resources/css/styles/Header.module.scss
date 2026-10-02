@@ -7,7 +7,7 @@
 }
 
 .navContainer {
-  @apply flex justify-between items-center py-5 px-7.5;
+  @apply flex justify-between items-center py-5 px-8;
   height: 70px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .navLinks {
-  @apply flex gap-7.5;
+  @apply flex gap-8;
 }
 
 .navItem {

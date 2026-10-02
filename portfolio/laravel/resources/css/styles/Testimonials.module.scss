@@ -1,5 +1,5 @@
 .testimonialsGrid {
-  @apply grid grid-cols-1 gap-7.5;
+  @apply grid grid-cols-1 gap-8;
 
   @media (min-width: 640px) {
     @apply grid-cols-2;
@@ -15,14 +15,14 @@
 }
 
 .quoteIcon {
-  @apply absolute top-7.5 right-7.5;
+  @apply absolute top-8 right-6;
   font-size: 3rem;
   color: var(--accent-1);
   opacity: 0.2;
 }
 
 .testimonialText {
-  @apply text-lg italic mb-7.5 relative z-1;
+  @apply text-lg italic mb-8 relative z-1;
   color: var(--text-primary);
   font-style: italic;
 }

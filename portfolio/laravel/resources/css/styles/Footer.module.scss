@@ -19,7 +19,7 @@
 }
 
 .emailLink {
-  @apply text-4xl font-bold inline-block mt-7.5 pb-1;
+  @apply text-4xl font-bold inline-block mt-8 pb-1;
   color: var(--text-primary);
   border-bottom: 2px solid var(--accent-1);
 
@@ -33,7 +33,7 @@
 }
 
 .inputContainer {
-  @apply relative mb-7.5;
+  @apply relative mb-8;
 
   input,
   textarea {
@@ -65,7 +65,7 @@
 }
 
 .footerBottom {
-  @apply flex justify-between items-center border-t pt-7.5;
+  @apply flex justify-between items-center border-t pt-8;
   border-top: 1px solid var(--border-color);
   color: var(--text-secondary);
 }
