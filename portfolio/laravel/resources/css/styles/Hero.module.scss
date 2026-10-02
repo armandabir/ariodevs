@@ -32,7 +32,7 @@
 }
 
 .heroContent {
-  @apply flex items-center gap-15;
+  @apply flex items-center gap-12;
 }
 
 .heroText {
@@ -110,7 +110,7 @@
 }
 
 .socialIcon {
-  @apply w-11.25 h-11.25 flex items-center justify-center
+  @apply w-12 h-12 flex items-center justify-center
          rounded-full border transition-all duration-300;
   border-color: var(--border-color);
   font-size: 1.2rem;
@@ -140,7 +140,7 @@
 }
 
 .techFloat {
-  @apply absolute w-15 h-15 flex items-center justify-center
+  @apply absolute w-14 h-14 flex items-center justify-center
          rounded-2xl border transition-all;
   background: var(--bg-card);
   backdrop-filter: blur(10px);
@@ -225,7 +225,7 @@
   }
 
   .techFloat {
-    @apply w-11.25 h-11.25;
+    @apply w-12 h-12;
     font-size: 1.2rem;
   }
 }

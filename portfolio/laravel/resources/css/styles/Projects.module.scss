@@ -49,7 +49,7 @@
 }
 
 .roundBtn {
-  @apply w-15 h-15 rounded-full bg-white text-black
+  @apply w-14 h-14 rounded-full bg-white text-black
          flex items-center justify-center text-2xl
          transition-transform duration-400 scale-50;
   font-size: 1.5rem;
