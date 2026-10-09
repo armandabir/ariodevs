@@ -80,8 +80,9 @@
 }
 
 .bbLabel {
-  @apply absolute -top-5 -left-0.5 px-1.5 py-0.5 font-mono text-xs
+  @apply absolute -top-5 -left-0.5 px-1.5 py-0.5 text-xs
          font-bold whitespace-nowrap;
+  font-family: var(--font-code);
   top: -20px;
   left: -2px;
   color: #000;

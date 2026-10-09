@@ -32,7 +32,8 @@
 }
 
 .termTitle {
-  @apply text-xs font-family-mono;
+  @apply text-xs;
+  font-family: var(--font-code);
   color: #8b949e;
 }
 

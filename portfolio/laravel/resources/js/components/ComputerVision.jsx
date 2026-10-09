@@ -12,11 +12,11 @@ export default function ComputerVision() {
         let stopped = false;
 
         const cocoClasses = [
-            { name: 'person', color: '#00ff00' },
-            { name: 'vehicle', color: '#00f2fe' },
-            { name: 'traffic light', color: '#ffbd2e' },
-            { name: 'laptop', color: '#d2a8ff' },
-            { name: 'cup', color: '#ff7b72' },
+            { name: 'Web APPs', color: '#00ff00' },
+            { name: 'Online Shopping', color: '#00f2fe' },
+            { name: 'Management Systems', color: '#ffbd2e' },
+            { name: 'Laravel', color: '#d2a8ff' },
+            { name: 'React', color: '#ff7b72' },
         ];
 
         function createBoundingBox() {
@@ -82,7 +82,7 @@ export default function ComputerVision() {
                     <span className={styles.liveDot}></span>
                     <span className="en-text" style={{ fontSize: '0.8rem', color: '#ff5f56' }}>LIVE INFERENCE</span>
                 </div>
-                <div className="en-text" style={{ fontSize: '0.75rem', color: '#8b949e' }}>Model: YOLOv8-Nano</div>
+                <div className="en-text" style={{ fontSize: '0.75rem', color: '#8b949e' }}>Full-Stack Web Development</div>
             </div>
             <div className={styles.cvViewport} id="cv-viewport" ref={viewportRef}>
                 <div className={styles.cvGrid}></div>

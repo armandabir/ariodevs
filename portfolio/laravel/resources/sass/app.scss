@@ -1,2 +1,15 @@
-// Bootstrap
+// Bootstrap: no default link underline
+$link-decoration: none;
+$link-hover-decoration: none;
+
 @import 'bootstrap/scss/bootstrap';
+
+// Safety net in case anything re-adds an underline
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none !important;
+}

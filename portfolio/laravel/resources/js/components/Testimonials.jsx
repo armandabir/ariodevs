@@ -3,7 +3,7 @@ import styles from '../../css/styles/Testimonials.module.scss';
 
 const testimonials = [
     {
-        text: '"آریا یک درک فوق‌العاده از الگوریتم‌های پیچیده دارد. کدهای او بسیار تمیز است و مدلی که برای خط تولید ما آموزش داد، فراتر از انتظار عمل کرد. همکاری با او یک تجربه حرفه‌ای واقعی بود."',
+        text: '"آریو یک درک فوق‌العاده از الگوریتم‌های پیچیده دارد. کدهای او بسیار تمیز است و مدلی که برای خط تولید ما آموزش داد، فراتر از انتظار عمل کرد. همکاری با او یک تجربه حرفه‌ای واقعی بود."',
         image: '/assets/images/image.jpg',
         alt: 'Client 1',
         name: 'مهندس احمدی',
@@ -11,7 +11,7 @@ const testimonials = [
         delay: '',
     },
     {
-        text: '"سیستم توصیه‌گری که آریا برای پلتفرم ما ساخت، نرخ تبدیل کاربر به خریدار را ظرف یک ماه ۲۵٪ افزایش داد. علاوه بر مهارت فنی، توانایی توضیح مفاهیم پیچیده به تیم غیرفنی ما واقعاً ارزشمند بود."',
+        text: '"سیستم توصیه‌گری که آریو برای پلتفرم ما ساخت، نرخ تبدیل کاربر به خریدار را ظرف یک ماه ۲۵٪ افزایش داد. علاوه بر مهارت فنی، توانایی توضیح مفاهیم پیچیده به تیم غیرفنی ما واقعاً ارزشمند بود."',
         image: '/assets/images/image(1).jpg',
         alt: 'Client 2',
         name: 'حسین محمدی',
@@ -32,10 +32,10 @@ export default function Testimonials() {
                             <i className={`fas fa-quote-left ${styles.quoteIcon}`}></i>
                             <p className={styles.testimonialText}>{item.text}</p>
                             <div className={styles.clientInfo}>
-                                <img src={item.image} alt={item.alt} />
+                                <i className="fas fa-user" aria-hidden="true"></i>
                                 <div>
                                     <h4>{item.name}</h4>
-                                    <span className="text-muted">{item.role}</span>
+                                    <span className="text-gray-500">{item.role}</span>
                                 </div>
                             </div>
                         </div>

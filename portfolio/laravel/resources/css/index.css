@@ -22,7 +22,7 @@
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --border-color: rgba(15, 23, 42, 0.1);
-
+    --text-inverse: #ffffff80;
     /* Brand Colors (AI Vibe: Cyan & Purple) */
     --accent-1: #3b82f6;
     --accent-2: #8b5cf6;
@@ -91,8 +91,16 @@ button, input, textarea, select, a {
 .font-bold { font-weight: 700; }
 
 a {
-    text-decoration: none;
     color: inherit;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none !important;
 }
 
 ul { list-style: none; }
@@ -238,7 +246,7 @@ ul { list-style: none; }
     padding: 12px 28px; border-radius: 30px; font-weight: 600; font-size: 1rem;
     transition: all 0.3s ease; border: none; position: relative; overflow: hidden; cursor: pointer;
 }
-.btn-glow { background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-color); }
+.btn-glow { background: var(--bg-main); color: var(--text-inverse); border: 1px solid var(--border-color); }
 .btn-glow:hover { border-color: var(--accent-1); box-shadow: var(--glow-shadow); }
 .btn-primary { background: var(--gradient-brand); color: #fff; box-shadow: var(--glow-shadow); }
 .btn-primary:hover { transform: translateY(-3px) scale(1.02); }
@@ -292,6 +300,8 @@ ul { list-style: none; }
 .bento-box h3 { font-size: 1.5rem; margin-bottom: 15px; }
 .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
 .tech-tags span { padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.85rem; font-family: var(--font-latin) !important; }
+.tech-tags span { color: var(--text-primary); }
+.tech-tags span i { color: var(--accent-1); opacity: 1; }
 .stat-box { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .stat-number { font-size: 4rem; font-weight: 800; color: var(--accent-1); line-height: 1; }
 .map-box { padding: 0; background: url('https://via.placeholder.com/600x300/1e293b/334155?text=Map') center/cover; }

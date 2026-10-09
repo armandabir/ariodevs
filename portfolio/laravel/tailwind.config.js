@@ -35,7 +35,34 @@ module.exports = {
 
       boxShadow:{
         "myinShadow":"inset 0 0 4px 4px rgb(0 0 0 / 1.00)"
-      }
+      },
+
+      spacing: {
+        '0.75': '0.1875rem',
+        '1.25': '0.3125rem',
+        '3.75': '0.9375rem',
+        '8.75': '2.1875rem',
+        '12.5': '3.125rem',
+      },
+
+      transitionDuration: {
+        '400': '400ms',
+        '600': '600ms',
+      },
+
+      zIndex: {
+        '5': '5',
+        '1000': '1000',
+        '9999': '9999',
+      },
+
+      scale: {
+        '102': '1.02',
+      },
+
+      backgroundColor: {
+        'card': 'var(--bg-card)',
+      },
 
 
     },

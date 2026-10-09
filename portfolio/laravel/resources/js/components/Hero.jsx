@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../../css/styles/Hero.module.scss';
 
-const textArray = ['برنامه نویس وب', 'مهندس نرم‌افزار', 'توسعه‌دهنده فول‌استک'];
+const textArray = ['برنامه نویس وب سایت', 'مهندس نرم‌افزار', 'توسعه‌دهنده فول‌استک'];
 
 export default function Hero() {
     const typedTextRef = useRef(null);
@@ -52,8 +52,7 @@ export default function Hero() {
 
     return (
         <section id="home" className={styles.hero}>
-            <div className={`${styles.glowBlob} ${styles.blob1}`}></div>
-            <div className={`${styles.glowBlob} ${styles.blob2}`}></div>
+
             <div className={`container ${styles.heroContent}`}>
                 <div className={`${styles.heroText} reveal`}>
                     <div className={styles.badge}>در دسترس برای پروژه‌های فریلنسری <span className={styles.pulseDot}></span></div>
@@ -61,13 +60,13 @@ export default function Hero() {
                     <h2 className={styles.role}>یک <span id="typed-text" className="typed-text" ref={typedTextRef}></span><span className={styles.cursor}>|</span></h2>
                     <p className={styles.bio}>
                         من با بیش از 7 سال تجربه در برنامه‌نویسی و توسعه نرم‌افزار، تمرکز من روی طراحی و ساخت سیستم‌های هوشمند {' '}بر پایه
-                        <span className={`en-text ${styles.highlightBg}`}>LARAVEL</span>،{' '}
+                        <span className={`en-text ${styles.highlightBg}`} style={{ color: '#ff2d20', backgroundColor: 'rgba(255, 45, 32, 0.12)' }}>LARAVEL</span>،{' '}
                         <span className={`en-text ${styles.highlightBg}`}>REACT</span> و{' '}
-                        <span className={`en-text ${styles.highlightBg}`}>AI</span> است.
+                        <span className={`en-text ${styles.highlightBg}`} style={{ color: '#f5f8fb', backgroundColor: 'rgba(245, 248, 251, 0.14)' }}>AI</span> است.
                     </p>
                     <div className={styles.heroButtons}>
-                        <a href="#projects" className={`${styles.btn} btn-primary btn-large`}>
-                            کاوش پروژه‌ها <i className="fas fa-arrow-left"></i>
+                        <a href="#projects" className={`${styles.btn} btn-primary btn-large p-1  outline outline-1 outline-offset-4 outline-white/50  `}>
+                            کاوش پروژه‌ها <i className="fas fa-arrow-down"></i>
                         </a>
                         <div className={styles.socialHero}>
                             <a href="#" className={styles.socialIcon}><i className="fab fa-github"></i></a>
@@ -80,9 +79,9 @@ export default function Hero() {
                 <div className={`${styles.heroVisual} reveal reveal-delay-1`}>
                     <div className={styles.imageWrapper}>
                         <img src="/assets/images/image(6).jpg" alt="Aro devs Engineer" className={styles.profileImg} />
-                        <div className={`${styles.techFloat} ${styles.float1}`}><i className="fab fa-laravel"></i></div>
+                        <div className={`${styles.techFloat} ${styles.float1}`}><i className="fab fa-laravel" style={{ color: '#ff2d20' }}></i></div>
                         <div className={`${styles.techFloat} ${styles.float2}`}><i className="fab fa-react"></i></div>
-                        <div className={`${styles.techFloat} ${styles.float3}`}><i className="fa-solid fa-globe-www" aria-label="World Wide Web" title="WWW"></i></div>
+                        <div className={`${styles.techFloat} ${styles.float3}`}><i className="fa-solid fa-globe-www" style={{ color: '#f5f8fb' }} aria-label="World Wide Web" title="WWW"></i></div>
                     </div>
                 </div>
             </div>

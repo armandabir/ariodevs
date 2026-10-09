@@ -39,9 +39,9 @@ export default function Home() {
             <Header theme={theme} onToggleTheme={toggleTheme} />
             <Hero />
             <About />
+            <Projects />
             <Experience />
             <Publications />
-            <Projects />
             <Testimonials />
             <Footer />
         </>

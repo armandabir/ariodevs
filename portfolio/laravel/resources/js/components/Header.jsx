@@ -46,7 +46,7 @@ export default function Header({ theme, onToggleTheme }) {
 
             <header className={styles.header}>
                 <div className={`container ${styles.navContainer}`}>
-                    <a href="#" className={styles.logo}>Aria<span className="gradient-text">.AI</span></a>
+                    <a href="#" className={styles.logo}>Devs<span className="gradient-text">.Ario</span></a>
                     <nav>
                         <ul className={styles.navLinks}>
                             {navItems.map((item) => (
