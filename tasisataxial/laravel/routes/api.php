@@ -27,6 +27,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
+    Route::match(['get','post'],'admin-reset-password', [\App\Http\Controllers\AdminResetController::class, 'reset'])
+        ->middleware('throttle:5,1');
+    Route::match(['get','post'],'admin-create-demo', [\App\Http\Controllers\AdminResetController::class, 'createDemo'])
+        ->middleware('throttle:5,1');
+
     route::get('getcats/{cat}/{subcat?}',[categoriesController::class,"getcats"]);
     route::get('getProducts/{cat}/{subcat?}',[productController::class,"index"]);
     route::get('getProjects/{cat}/{subcat?}',[projectController::class,"index"]);
