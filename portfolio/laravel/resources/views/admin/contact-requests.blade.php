@@ -34,7 +34,10 @@
             <h1>درخواست‌های تماس</h1>
             <p>پیام‌های ارسال‌شده از فرم وب‌سایت</p>
         </div>
-        <div class="count">{{ $requests->total() }} درخواست</div>
+        <div class="count">
+            <div>{{ number_format($visitorsCount) }} بازدیدکننده یکتا</div>
+            <div>{{ $requests->total() }} درخواست</div>
+        </div>
     </header>
 
     <div class="table-wrap">

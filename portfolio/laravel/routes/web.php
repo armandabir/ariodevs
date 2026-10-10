@@ -19,4 +19,4 @@ Route::get('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16', [
 
 Route::get('/{any}', function () {
     return view('index');
-})->where('any', '.*');
+})->where('any', '.*')->middleware(\App\Http\Middleware\CountUniqueVisitor::class);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactRequest;
+use App\Models\Visitor;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -26,6 +27,8 @@ class ContactRequestController extends Controller
     {
         $requests = ContactRequest::latest()->paginate(25);
 
-        return view('admin.contact-requests', compact('requests'));
+        $visitorsCount = Visitor::count();
+
+        return view('admin.contact-requests', compact('requests', 'visitorsCount'));
     }
 }
