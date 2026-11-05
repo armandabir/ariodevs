@@ -62,8 +62,12 @@ export default function Publications() {
     return (
         <section id="publications" className="section publications-section">
             <div className="container">
-                <h2 className="section-title reveal">مقالات و <span className="gradient-text">راهنماها</span></h2>
-                <p className="section-subtitle reveal text-muted">منابع منتخب فارسی درباره توسعه وب، فرانت‌اند، بک‌اند و بهینه‌سازی سایت</p>
+                <div className="section-tag mb-4">
+                    <span>04 / MEMORY CARTRIDGE</span>
+                    <span>ARTICLES & INSIGHTS</span>
+                </div>
+                <h2 className="section-title reveal">مقالات <span className="gradient-text"> طراحی سایت</span></h2>
+                <p className="section-subtitle reveal">منابع منتخب فارسی درباره توسعه وب، فرانت‌اند، بک‌اند و بهینه‌سازی سایت</p>
 
                 <div className={styles.publicationsList}>
                     {publications.map((pub) => (

@@ -1,5 +1,19 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import styles from '../../css/styles/ComputerVision.module.scss';
+
+const cardMotionProps = {
+    whileHover: {
+        x: -4,
+        y: -4,
+        transition: { type: 'spring', stiffness: 400, damping: 25 }
+    },
+    whileTap: {
+        x: 2,
+        y: 2,
+        transition: { type: 'spring', stiffness: 500, damping: 30 }
+    }
+};
 
 export default function ComputerVision() {
     const viewportRef = useRef(null);
@@ -76,7 +90,10 @@ export default function ComputerVision() {
     }, []);
 
     return (
-        <div className={`bento-box bento-medium reveal ${styles.cvBox}`}>
+        <motion.div
+            className={`bento-box bento-medium reveal ${styles.cvBox}`}
+            {...cardMotionProps}
+        >
             <div className={styles.cvHeader}>
                 <div className={styles.cvStatus}>
                     <span className={styles.liveDot}></span>
@@ -88,6 +105,6 @@ export default function ComputerVision() {
                 <div className={styles.cvGrid}></div>
                 <div className={styles.scanLine}></div>
             </div>
-        </div>
+        </motion.div>
     );
 }

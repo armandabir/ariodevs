@@ -1,128 +1,176 @@
 .modernFooter {
-  @apply relative pb-10;
-  border-top: 1px solid var(--border-color);
+  position: relative;
+  padding-bottom: 40px;
+  border-top: 2px solid var(--border-color);
 }
 
 .hugeText {
-  @apply text-7xl leading-tight mb-5 font-black;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
-}
-
-
-/* Bootstrap (loaded last in builds) also styles .btn, so override its variables and raise specificity */
-.pubBtn.pubBtn {
-  @apply mt-4;
-  --bs-btn-color: var(--text-secondary);
-  --bs-btn-border-color: var(--border-color);
-  --bs-btn-hover-color: var(--text-primary);
-  --bs-btn-hover-border-color: var(--accent-1);
-  --bs-btn-active-color: var(--text-primary);
-  --bs-btn-active-border-color: var(--accent-1);
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-
-  &:hover,
-  &:focus-visible,
-  &:active {
-    color: var(--text-primary);
-    border-color: var(--accent-1);
-  }
+  margin-bottom: 20px;
+  font-weight: 900;
+  color: var(--text-primary);
 }
 
 .footerGrid {
-  @apply grid grid-cols-1 gap-20 mb-20;
-
-  @media (min-width: 768px) {
-    @apply grid-cols-2;
-    gap: 80px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  margin-bottom: 70px;
 }
 
 .emailLink {
-  @apply text-4xl font-bold inline-block mt-8 pb-1;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--accent-1);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--teal);
+  display: inline-block;
+  margin-top: 28px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+  font-family: var(--font-latin) !important;
+  text-decoration: none !important;
+  transition: color 0.15s, border-color 0.15s;
 
   &:hover {
-    color: var(--accent-1);
+    color: var(--red);
+    border-bottom-color: var(--red);
   }
 }
 
+[data-theme="dark"] .emailLink {
+  color: var(--lime);
+}
+
 .footerForm {
-  @apply p-10;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--border-color);
 }
 
 .inputContainer {
-  @apply relative mb-8;
+  position: relative;
+  margin-bottom: 28px;
 
   input,
   textarea {
-    @apply w-full bg-transparent border-b pb-4 text-base outline-none
-           transition-colors duration-300;
+    width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 14px 0;
     color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-ui);
+    outline: none;
+    transition: border-color 0.2s;
 
     &:focus {
-      border-bottom-color: var(--accent-1);
+      border-bottom-color: var(--teal);
     }
 
     &:focus ~ label,
     &:not(:placeholder-shown) ~ label {
-      @apply -top-2.5 text-xs;
       top: -10px;
       font-size: 0.8rem;
-      color: var(--accent-1);
+      color: var(--teal);
+      font-weight: 700;
     }
   }
 }
 
+[data-theme="dark"] .inputContainer input:focus,
+[data-theme="dark"] .inputContainer textarea:focus {
+  border-bottom-color: var(--lime);
+}
+
+[data-theme="dark"] .inputContainer input:focus ~ label,
+[data-theme="dark"] .inputContainer input:not(:placeholder-shown) ~ label,
+[data-theme="dark"] .inputContainer textarea:focus ~ label,
+[data-theme="dark"] .inputContainer textarea:not(:placeholder-shown) ~ label {
+  color: var(--lime);
+}
+
 .inputContainer label {
-  @apply absolute right-0 top-4 text-sm pointer-events-none transition-all duration-300;
+  position: absolute;
+  right: 0;
+  top: 14px;
   color: var(--text-secondary);
-  top: 15px;
+  pointer-events: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
 }
 
 .formStatus {
-  @apply mb-5 text-sm;
-  color: #10b981;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 2px solid var(--teal);
+  background: var(--paper);
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .formStatusError {
-  color: #ef4444;
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.pubBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--olive);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--border-color);
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+
+  &:hover {
+    background: var(--lime);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-color);
+    color: var(--ink);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .footerBottom {
-  @apply flex justify-between items-center border-t pt-8;
-  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--border-color);
+  padding-top: 28px;
   color: var(--text-secondary);
+  font-family: var(--font-latin) !important;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
   .footerGrid {
-    @apply flex-col grid-cols-1;
-  }
-
-  .hugeText {
-    font-size: 3rem;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
   .footerBottom {
-    @apply flex-col gap-5 text-center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
   .footerForm {
-    @apply p-6;
-  }
-
-  .emailLink {
-    font-size: 1.5rem;
+    padding: 24px;
   }
 }

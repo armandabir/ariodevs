@@ -1,86 +1,110 @@
 .publicationsList {
-  @apply flex flex-col gap-6 max-w-3xl mx-auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .publicationCard {
-  @apply flex gap-6 p-8.75 bg-card border rounded-3xl transition-all duration-400;
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  gap: 24px;
+  padding: 30px;
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(16px);
+  border: 2px solid var(--border-color);
+  box-shadow: 5px 5px 0 var(--border-color);
+  transition: transform 0.15s, box-shadow 0.15s;
 
   &:hover {
-    @apply -translate-x-4;
-    border-color: var(--accent-1);
-    box-shadow: var(--glow-shadow);
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--teal);
   }
 }
 
+[data-theme="dark"] .publicationCard:hover {
+  box-shadow: 8px 8px 0 var(--lime);
+}
+
 .pubIcon {
-  @apply flex-shrink-0;
-  font-size: 3rem;
-  color: var(--accent-1);
-  opacity: 0.8;
+  flex-shrink: 0;
+  font-size: 2.4rem;
+  color: var(--teal);
+}
+
+[data-theme="dark"] .pubIcon {
+  color: var(--lime);
 }
 
 .pubContent {
-  @apply flex-grow;
+  flex-grow: 1;
 }
 
 .pubTitle {
-  @apply text-xl font-bold mb-2;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 8px;
   color: var(--text-primary);
 }
 
 .pubMeta {
-  @apply text-sm mb-4 flex gap-4 items-center flex-wrap;
-  color: var(--accent-2);
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--font-latin) !important;
+
+  span {
+    padding: 3px 10px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
 }
 
-.pubMeta span {
-  @apply px-3 py-1 rounded-full border text-xs;
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.2);
+[data-theme="dark"] .pubMeta span {
+  background: #20251b;
+  color: #f1eee5;
 }
 
 .pubDesc {
-  @apply text-sm leading-relaxed;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text-secondary);
 }
 
-/* Bootstrap (loaded last in builds) also styles .btn, so override its variables and raise specificity */
 .pubBtn.pubBtn {
-  @apply mt-4;
-  --bs-btn-color: var(--text-secondary);
-  --bs-btn-border-color: var(--border-color);
-  --bs-btn-hover-color: var(--text-primary);
-  --bs-btn-hover-border-color: var(--accent-1);
-  --bs-btn-active-color: var(--text-primary);
-  --bs-btn-active-border-color: var(--accent-1);
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 16px;
+  background: var(--olive);
+  border: 2px solid var(--border-color);
+  box-shadow: 3px 3px 0 var(--border-color);
+  color: var(--ink);
   font-size: 0.85rem;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  text-decoration: none !important;
 
-  &:hover,
-  &:focus-visible,
-  &:active {
-    color: var(--text-primary);
-    border-color: var(--accent-1);
+  &:hover {
+    background: var(--lime);
+    color: var(--ink);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--border-color);
   }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .publicationCard {
-    @apply flex-col gap-4 p-6;
-
-    &:hover {
-      @apply -translate-y-2.5;
-    }
-  }
-
-  .pubIcon {
-    font-size: 2.5rem;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px;
   }
 }

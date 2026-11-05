@@ -1,42 +1,79 @@
 .timeline {
-  @apply relative max-w-2xl mx-auto pr-8;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-right: 32px;
 
   &::before {
     content: '';
-    @apply absolute top-0 right-0 w-px h-full;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
     background: var(--border-color);
   }
 }
 
 .timelineItem {
-  @apply relative mb-12 pr-10;
+  position: relative;
+  margin-bottom: 36px;
+  padding-right: 35px;
+}
 
-  &::before {
-    content: '';
-    @apply absolute right-0 top-5 w-3.5 h-3.5 rounded-full;
-    background: var(--accent-1);
-    box-shadow: 0 0 15px var(--accent-1);
-    right: -6px;
-    top: 20px;
-  }
+.timelineDot {
+  position: absolute;
+  right: -7px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  background: var(--red);
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0 var(--border-color);
 }
 
 .timelineContent {
-  @apply p-8;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--border-color);
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--teal);
+  }
+}
+
+[data-theme="dark"] .timelineContent:hover {
+  box-shadow: 6px 6px 0 var(--lime);
 }
 
 .timelineDate {
-  @apply block mb-2.5 text-sm font-semibold;
-  color: var(--accent-2);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--teal);
+  font-family: var(--font-latin) !important;
+}
+
+[data-theme="dark"] .timelineDate {
+  color: var(--lime);
 }
 
 .timelineTitle {
-  @apply text-lg font-bold mb-2.5;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text-primary);
 }
 
 .timelineCompany {
-  @apply font-bold mb-2.5;
-  color: var(--accent-1);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
 }
 
 /* Responsive */

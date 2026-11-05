@@ -1,5 +1,19 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import styles from '../../css/styles/Laravel.module.scss';
+
+const cardMotionProps = {
+    whileHover: {
+        x: -4,
+        y: -4,
+        transition: { type: 'spring', stiffness: 400, damping: 25 }
+    },
+    whileTap: {
+        x: 2,
+        y: 2,
+        transition: { type: 'spring', stiffness: 500, damping: 30 }
+    }
+};
 
 export default function Laravel() {
     const terminalRef = useRef(null);
@@ -80,7 +94,10 @@ export default function Laravel() {
     }, []);
 
     return (
-        <div className={`bento-box bento-medium reveal ${styles.terminalBox}`}>
+        <motion.div
+            className={`bento-box bento-medium reveal ${styles.terminalBox}`}
+            {...cardMotionProps}
+        >
             <div className={styles.terminalHeader}>
                 <div className={styles.termDots}>
                     <span className={`${styles.dot} ${styles.close}`}></span>
@@ -90,6 +107,6 @@ export default function Laravel() {
                 <div className={`${styles.termTitle} en-text`}>aria@gpu-server: ~/llm-finetune</div>
             </div>
             <div className={`${styles.terminalBody} en-text`} id="live-terminal" ref={terminalRef}></div>
-        </div>
+        </motion.div>
     );
 }

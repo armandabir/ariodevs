@@ -11,20 +11,39 @@
 }
 
 .testimonialCard {
-  @apply p-10 relative;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  box-shadow: 5px 5px 0 var(--border-color);
+  padding: 32px;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--teal);
+  }
 }
 
 .quoteIcon {
-  @apply absolute top-8 right-6;
-  font-size: 3rem;
-  color: var(--accent-1);
-  opacity: 0.2;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 2.5rem;
+  color: var(--teal);
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .quoteIcon {
+  color: var(--lime);
 }
 
 .testimonialText {
-  @apply text-lg italic mb-8 relative z-10;
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--text-primary);
-  font-style: italic;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .clientInfo {

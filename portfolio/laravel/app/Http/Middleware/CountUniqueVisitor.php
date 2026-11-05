@@ -11,7 +11,10 @@ use Illuminate\Support\Str;
 
 class CountUniqueVisitor
 {
-    private const COOKIE = 'visitor_id';
+    public const COOKIE = 'visitor_id';
+
+    // A refresh within this window is not counted as another visit.
+    private const VISIT_WINDOW_MINUTES = 30;
 
     public function handle(Request $request, Closure $next)
     {
@@ -30,10 +33,25 @@ class CountUniqueVisitor
             $id = (string) Str::uuid();
         }
 
-        try {
-            Visitor::firstOrCreate(['token' => hash('sha256', $id)]);
-        } catch (QueryException $e) {
-            // A concurrent request already stored this visitor.
+        $token = hash('sha256', $id);
+        $visitor = Visitor::where('token', $token)->first();
+
+        if ($visitor) {
+            if (! $visitor->last_seen_at || $visitor->last_seen_at->diffInMinutes(now()) >= self::VISIT_WINDOW_MINUTES) {
+                $visitor->visits++;
+            }
+            $visitor->last_seen_at = now();
+            $visitor->save();
+        } else {
+            try {
+                Visitor::create([
+                    'token' => $token,
+                    'ip' => $request->ip(),
+                    'last_seen_at' => now(),
+                ]);
+            } catch (QueryException $e) {
+                // A concurrent request already stored this visitor.
+            }
         }
 
         // Remember the visitor for one year (minutes).

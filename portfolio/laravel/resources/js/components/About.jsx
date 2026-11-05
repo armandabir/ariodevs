@@ -1,22 +1,48 @@
-import React from './React';
+import React from 'react';
+import { motion } from 'motion/react';
+import ReactComponent from './React';
 import Laravel from './Laravel';
 import ComputerVision from './ComputerVision';
 import VectorSpace from './VectorSpace';
+import styles from '../../css/styles/About.module.scss';
+
+const cardMotionProps = {
+    whileHover: {
+        x: -4,
+        y: -4,
+        transition: { type: 'spring', stiffness: 400, damping: 25 }
+    },
+    whileTap: {
+        x: 2,
+        y: 2,
+        transition: { type: 'spring', stiffness: 500, damping: 30 }
+    }
+};
 
 export default function About() {
     return (
-        <section id="about" className="section bento-section">
+        <section id="about" className={`section bento-section ${styles.bentoSection}`}>
             <div className="container">
+                <div className="section-tag mb-4">
+                    <span>01 / PLAYER PROFILE</span>
+                    <span>READY &nbsp;↗</span>
+                </div>
                 <h2 className="section-title reveal">کشف <span className="gradient-text">دنیای من</span></h2>
 
                 <div className="bento-grid">
-                    <div className="bento-box bento-large reveal">
+                    <motion.div
+                        className={`bento-box bento-large reveal ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <i className="fas fa-quote-right bento-icon-bg"></i>
                         <h3>از اطلاعات تا تجربه‌ی دیجیتال</h3>
                         <p className="text-justify">توسعه‌دهنده فول‌استک وب با ۷ سال تجربه حرفه‌ای. دارای مدرک کارشناسی در مهندسی نرم‌افزار و مهارت بالا در جاوااسکریپت (ES6+)، پی‌اچ‌پی، ری‌اکت و لاراول. تسلط پیشرفته بر زبان انگلیسی برای همکاری در سطح جهانی. سابقه‌ی موفق در اجرای پروژه‌های متعدد فول‌استک، از جمله فروشگاه آنلاین، وب‌سایت‌های شرکتی برای معرفی کسب‌وکار، و سیستم‌های گزارش‌دهی، که نیازهای پیچیده‌ی کسب‌وکار را از سمت کلاینت تا سمت سرور پاسخ داده‌اند.</p>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-medium reveal reveal-delay-1 tech-stack-box">
+                    <motion.div
+                        className={`bento-box bento-medium reveal reveal-delay-1 tech-stack-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h3>ابزارهای کلیدی</h3>
                         <div className="tech-tags mt-4">
                             <span>PHP</span>
@@ -26,18 +52,27 @@ export default function About() {
                             <span>React</span>
                             <span>Tailwind CSS</span>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-small reveal stat-box">
+                    <motion.div
+                        className={`bento-box bento-small reveal stat-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h2 className="stat-number en-text">10+</h2>
                         <p>پروژه</p>
-                    </div>
-                    <div className="bento-box bento-small reveal stat-box">
+                    </motion.div>
+                    <motion.div
+                        className={`bento-box bento-small reveal stat-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h2 className="stat-number en-text">7+</h2>
                         <p>سال تجربه</p>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-large reveal edu-box">
+                    <motion.div
+                        className={`bento-box bento-large reveal edu-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h3>مسیر آکادمیک</h3>
                         <div className="mb-4">
                             <h4 style={{ color: 'var(--accent-1)' }}>کارشناسی کامپیوتر نرم افزار</h4>
@@ -47,7 +82,7 @@ export default function About() {
                         <div>
                             <h4 style={{ color: 'var(--accent-2)' }}>مدارک فنی</h4>
                             <p className="edu-uni font-bold">مجتمع فنی تهران</p>
-                            <div className="flex flex-col md:flex-row gap-4">
+                            <div className="flex flex-col-reverse md:flex-row gap-4">
 
                                 <ul dir="ltr" className="flex-1 text-sm list-disc pl-5 text-left">
                                     <li>Cisco CCNA</li>
@@ -64,30 +99,40 @@ export default function About() {
 
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-medium reveal map-box">
+                    <motion.div
+                        className={`bento-box bento-medium reveal map-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <div className="map-overlay">
                             <i className="fas fa-map-marker-alt"></i>
                             <p>تهران، ایران<br /><span className="en-text text-sm">Remote Worldwide</span></p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-small reveal stat-box">
+                    <motion.div
+                        className={`bento-box bento-small reveal stat-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h2 className="stat-number en-text">10+</h2>
                         <p>مشتری راضی</p>
-                    </div>
-                    <div className="bento-box bento-small reveal stat-box">
+                    </motion.div>
+                    <motion.div
+                        className={`bento-box bento-small reveal stat-box ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <h2 className="stat-number en-text">6+</h2>
                         <p>پروژه وب سایت دیپلوی شده</p>
-                    </div>
+                    </motion.div>
 
                     <ComputerVision />
-                    <React />
-                    <Laravel />
-                    <VectorSpace />
+                    <ReactComponent />
 
-                    <div className="bento-box bento-medium reveal">
+                    <motion.div
+                        className={`bento-box bento-medium reveal ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <i className="fas fa-heart bento-icon-bg"></i>
                         <h3>خارج از کد</h3>
                         <p className="" style={{ marginBottom: '15px', fontSize: '0.9rem' }}>وقتی پشت لپ‌تاپ نیستم...</p>
@@ -97,13 +142,16 @@ export default function About() {
                             <span><i className="fas fa-bicycle"></i> دوچرخه سواری</span>
                             <span><i className="fas fa-microchip"></i> تکنولوژی</span>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bento-box bento-medium reveal">
+                    <motion.div
+                        className={`bento-box bento-medium reveal ${styles.bentoInteractive}`}
+                        {...cardMotionProps}
+                    >
                         <i className="fas fa-lightbulb bento-icon-bg"></i>
                         <h3>فلسفه کاری من</h3>
                         <p className="" style={{ fontSize: '0.95rem', lineHeight: 1.8 }}>کد خوب فقط کار نمی‌کند؛ ساده، قابل‌فهم و آماده‌ی رشد است.</p>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

@@ -11,6 +11,7 @@ class ContactRequest extends Model
 
     protected $fillable = [
         'name',
+        'phone',
         'email',
         'message',
     ];

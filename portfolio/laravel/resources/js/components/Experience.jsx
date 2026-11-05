@@ -38,6 +38,10 @@ export default function Experience() {
     return (
         <section id="experience" className="section timeline-section">
             <div className="container">
+                <div className="section-tag mb-4">
+                    <span>03 / ADVENTURE LOG</span>
+                    <span>EXP POINTS</span>
+                </div>
                 <h2 className="section-title reveal">مسیر <span className="gradient-text">تکامل</span></h2>
 
                 <div className={styles.timeline}>

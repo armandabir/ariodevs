@@ -48,6 +48,10 @@ export default function Projects() {
     return (
         <section id="projects" className="section projects-section">
             <div className="container">
+                <div className="section-tag mb-4">
+                    <span>02 / SELECT YOUR LEVEL</span>
+                    <span>{projects.length} ITEMS FOUND</span>
+                </div>
                 <h2 className="section-title reveal">پروژه‌های  <span className="gradient-text">برگزیده</span></h2>
 
                 <div className={styles.modernProjectsGrid}>

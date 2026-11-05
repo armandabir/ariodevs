@@ -22,9 +22,9 @@
 
 /* Light theme overrides */
 body:not([data-theme="dark"]) .nnBox {
-  background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%) !important;
+  background: var(--bg-card) !important;
 }
 
 body:not([data-theme="dark"]) .canvasContainer {
-  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%) !important;
+  background: radial-gradient(circle at center, rgba(0, 143, 146, 0.08) 0%, transparent 70%) !important;
 }

@@ -112,21 +112,21 @@ samp {
 
 /* Light theme overrides */
 body:not([data-theme="dark"]) .terminalBox {
-  background: #ffffff !important;
+  background: var(--bg-card) !important;
   border-color: var(--border-color) !important;
 }
 
 body:not([data-theme="dark"]) .terminalHeader {
-  background: #f8fafc !important;
+  background: var(--paper) !important;
   border-bottom: 1px solid var(--border-color) !important;
 }
 
 body:not([data-theme="dark"]) .terminalBody {
-  color: #334155 !important;
+  color: var(--text-primary) !important;
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
 }
 
 body:not([data-theme="dark"]) .termCursor {
-  background-color: #334155 !important;
+  background-color: var(--text-primary) !important;
 }

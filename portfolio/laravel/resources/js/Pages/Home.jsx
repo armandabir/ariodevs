@@ -11,7 +11,7 @@ import useScrollEffects from '../lib/useScrollEffects';
 
 export default function Home() {
     const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('modern-portfolio-theme') || 'dark';
+        return localStorage.getItem('modern-portfolio-theme') || 'light';
     });
 
     useEffect(() => {

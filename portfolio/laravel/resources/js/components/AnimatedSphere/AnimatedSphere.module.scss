@@ -1,0 +1,42 @@
+.sphereBackground {
+    @apply absolute inset-0 w-full h-full overflow-hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.canvasWrapper {
+    @apply absolute inset-0 w-full h-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.ambientGlow {
+    @apply absolute rounded-full blur-3xl pointer-events-none;
+    width: 650px;
+    height: 650px;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(249, 115, 22, 0.12) 40%, rgba(99, 102, 241, 0.08) 65%, transparent 75%);
+}
+
+.fallbackSphere {
+    @apply absolute rounded-full opacity-30 pointer-events-none;
+    width: 450px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 35% 35%, #fbbf24 0%, #f97316 45%, #080808 90%);
+    filter: blur(20px);
+}
+
+@media (max-width: 992px) {
+    .ambientGlow {
+        left: 50%;
+        width: 450px;
+        height: 450px;
+    }
+}

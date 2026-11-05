@@ -1,28 +1,29 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import styles from '../../css/styles/Hero.module.scss';
 
-const textArray = ['برنامه نویس وب سایت', 'مهندس نرم‌افزار', 'توسعه‌دهنده فول‌استک'];
+const roles = ['FULL-STACK DEVELOPER', 'AI & SOFTWARE ENGINEER', 'LARAVEL & REACT CRAFTSMAN'];
 
 export default function Hero() {
     const typedTextRef = useRef(null);
 
     useEffect(() => {
-        const typedTextSpan = typedTextRef.current;
-        if (!typedTextSpan) return;
+        const typedSpan = typedTextRef.current;
+        if (!typedSpan) return;
 
-        const typingDelay = 100;
-        const erasingDelay = 50;
-        const newTextDelay = 2000;
-        let textArrayIndex = 0;
-        let charIndex = 0;
+        const typingDelay = 90;
+        const erasingDelay = 45;
+        const newTextDelay = 2200;
+        let roleIdx = 0;
+        let charIdx = 0;
         let timeoutId;
         let stopped = false;
 
         function type() {
             if (stopped) return;
-            if (charIndex < textArray[textArrayIndex].length) {
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
+            if (charIdx < roles[roleIdx].length) {
+                typedSpan.textContent += roles[roleIdx].charAt(charIdx);
+                charIdx++;
                 timeoutId = setTimeout(type, typingDelay);
             } else {
                 timeoutId = setTimeout(erase, newTextDelay);
@@ -31,18 +32,17 @@ export default function Hero() {
 
         function erase() {
             if (stopped) return;
-            if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                charIndex--;
+            if (charIdx > 0) {
+                typedSpan.textContent = roles[roleIdx].substring(0, charIdx - 1);
+                charIdx--;
                 timeoutId = setTimeout(erase, erasingDelay);
             } else {
-                textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                timeoutId = setTimeout(type, typingDelay + 1100);
+                roleIdx = (roleIdx + 1) % roles.length;
+                timeoutId = setTimeout(type, typingDelay + 400);
             }
         }
 
-        timeoutId = setTimeout(type, newTextDelay + 250);
+        timeoutId = setTimeout(type, 800);
 
         return () => {
             stopped = true;
@@ -51,40 +51,96 @@ export default function Hero() {
     }, []);
 
     return (
-        <section id="home" className={styles.hero}>
+        <section id="home" className={styles.hero} aria-labelledby="hero-title">
+            {/* Background live video */}
+            <video
+                className={styles.heroVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/assets/retro/main-background.jpg"
+                aria-hidden="true"
+            >
+                <source src="/assets/retro/hero section-background live.mp4" type="video/mp4" />
+            </video>
 
-            <div className={`container ${styles.heroContent}`}>
-                <div className={`${styles.heroText} reveal`}>
-                    <div className={styles.badge}>در دسترس برای پروژه‌های فریلنسری <span className={styles.pulseDot}></span></div>
-                    <h1 className={styles.name}>من <span className="gradient-text">آرمان دبیرمقدم</span> هستم</h1>
-                    <h2 className={styles.role}>یک <span id="typed-text" className="typed-text" ref={typedTextRef}></span><span className={styles.cursor}>|</span></h2>
-                    <p className={styles.bio}>
-                        من با بیش از 7 سال تجربه در برنامه‌نویسی و توسعه نرم‌افزار، تمرکز من روی طراحی و ساخت سیستم‌های هوشمند {' '}بر پایه
-                        <span className={`en-text ${styles.highlightBg}`} style={{ color: '#ff2d20', backgroundColor: 'rgba(255, 45, 32, 0.12)' }}>LARAVEL</span>،{' '}
-                        <span className={`en-text ${styles.highlightBg}`}>REACT</span> و{' '}
-                        <span className={`en-text ${styles.highlightBg}`} style={{ color: '#f5f8fb', backgroundColor: 'rgba(245, 248, 251, 0.14)' }}>AI</span> است.
-                    </p>
-                    <div className={styles.heroButtons}>
-                        <a href="#projects" className={`${styles.btn} btn-primary btn-large p-1  outline outline-1 outline-offset-4 outline-white/50  `}>
-                            کاوش پروژه‌ها <i className="fas fa-arrow-down"></i>
-                        </a>
-                        <div className={styles.socialHero}>
-                            <a href="#" className={styles.socialIcon}><i className="fab fa-github"></i></a>
-                            <a href="#" className={styles.socialIcon}><i className="fab fa-linkedin-in"></i></a>
-                            <a href="#" className={styles.socialIcon}><i className="fab fa-kaggle"></i></a>
-                        </div>
-                    </div>
+            {/* Shading overlay */}
+            <div className={styles.heroShade} aria-hidden="true"></div>
+
+            {/* Top meta strip */}
+            <div className={styles.heroInfo}>
+                <span className={styles.metaLabel}>ARIODEVS / INDEPENDENT WEB DEVELOPER</span>
+                <span className={styles.liveBadge}>
+                    <i className={styles.liveDot}></i> OPEN TO SELECT PROJECTS
+                </span>
+            </div>
+
+            {/* Center arcade display */}
+            <div className={styles.heroMain}>
+                <div className={styles.heroKicker}>
+                    <span className={styles.pixelHeart}>♥</span> PRESS START TO EXPLORE <span className={styles.pixelHeart}>♥</span>
                 </div>
 
-                <div className={`${styles.heroVisual} reveal reveal-delay-1`}>
-                    <div className={styles.imageWrapper}>
-                        <img src="/assets/images/image(6).jpg" alt="Aro devs Engineer" className={styles.profileImg} />
-                        <div className={`${styles.techFloat} ${styles.float1}`}><i className="fab fa-laravel" style={{ color: '#ff2d20' }}></i></div>
-                        <div className={`${styles.techFloat} ${styles.float2}`}><i className="fab fa-react"></i></div>
-                        <div className={`${styles.techFloat} ${styles.float3}`}><i className="fa-solid fa-globe-www" style={{ color: '#f5f8fb' }} aria-label="World Wide Web" title="WWW"></i></div>
+                <h1 id="hero-title" className={styles.title}>
+                    PLAYFUL<br />
+                    <span>BY DESIGN</span>
+                    <b className={styles.regMark}>®</b>
+                </h1>
+
+                <div className={styles.typeRow}>
+                    <span className={styles.typeRole} ref={typedTextRef}></span>
+                    <span className={styles.cursor}>_</span>
+                </div>
+
+                <p className={styles.heroDesc}>
+                    تجربه‌های وب متمایز و حساب‌شده با روحی از بازی‌های نوستالژیک.<br />
+                    طراحی‌شده با دقت، ساخته‌شده با لاراول، ریکت و هوش مصنوعی.
+                </p>
+
+                <div className={styles.heroActions}>
+                    <a className={styles.startButton} href="#about">
+                        <motion.span
+                            className={styles.btnIcon}
+                            animate={{ opacity: [1, 0.01, 1] }}
+                            transition={{ duration: 1.2, repeat: Infinity, ease: 'steps(1, end)' }}
+                        >
+                            ▶
+                        </motion.span>
+                        <motion.span
+                            className="w-full"
+                            animate={{ opacity: [1, 0.65, 1] }}
+                            transition={{ duration: 1.2, repeat: Infinity, ease: 'steps(1, end)' }}
+                        >
+                            PRESS START
+                        </motion.span>
+                        <span className={styles.btnArrow}>↘</span>
+                    </a>
+
+                    <div className={styles.socialStrip}>
+                        <a href="https://github.com/armandabir" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
+                            <i className="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
+                            <i className="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:ario.dabir@gmail.com" className={styles.socialBtn} aria-label="Email">
+                            <i className="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
+            {/* Bottom info strip */}
+            <div className={styles.heroBottom}>
+                <span>SCROLL TO CONTINUE <b className={styles.bottomArrow}>↓</b></span>
+                <span>EST. MMXX · DIGITAL GOODS</span>
+            </div>
+
+            {/* Retro decorative glyphs */}
+            <span className={`${styles.heroCorner} ${styles.cornerA}`} aria-hidden="true">✳</span>
+            <span className={`${styles.heroCorner} ${styles.cornerB}`} aria-hidden="true">✳</span>
         </section>
     );
 }

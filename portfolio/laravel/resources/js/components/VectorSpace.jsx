@@ -1,5 +1,19 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import styles from '../../css/styles/VectorSpace.module.scss';
+
+const cardMotionProps = {
+    whileHover: {
+        x: -4,
+        y: -4,
+        transition: { type: 'spring', stiffness: 400, damping: 25 }
+    },
+    whileTap: {
+        x: 2,
+        y: 2,
+        transition: { type: 'spring', stiffness: 500, damping: 30 }
+    }
+};
 
 export default function VectorSpace() {
     const canvasRef = useRef(null);
@@ -137,7 +151,10 @@ export default function VectorSpace() {
     }, []);
 
     return (
-        <div className={`bento-box bento-medium reveal ${styles.vectorBox}`}>
+        <motion.div
+            className={`bento-box bento-medium reveal ${styles.vectorBox}`}
+            {...cardMotionProps}
+        >
             <div className={styles.vectorHeader}>
                 <span className="en-text" style={{ color: '#a855f7', fontWeight: 'bold' }}>VECTOR DB</span>
                 <span className="en-text" style={{ fontSize: '0.75rem', color: '#8b949e' }}>Semantic Clustering</span>
@@ -145,6 +162,6 @@ export default function VectorSpace() {
             <div className={styles.vectorContainer} id="vector-container">
                 <canvas id="vector-canvas" ref={canvasRef}></canvas>
             </div>
-        </div>
+        </motion.div>
     );
 }

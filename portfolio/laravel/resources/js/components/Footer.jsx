@@ -17,6 +17,7 @@ export default function Footer() {
             await axios.post('/contact-requests', {
                 name: formData.get('name'),
                 email: formData.get('email'),
+                phone: formData.get('phone'),
                 message: formData.get('message'),
             }, {
                 headers: {
@@ -28,7 +29,7 @@ export default function Footer() {
             setStatus({ type: 'success', message: 'پیام شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیرم.' });
         } catch (error) {
             const message = error.response?.status === 422
-                ? 'لطفاً نام، ایمیل معتبر و پیام خود را بررسی کنید.'
+                ? 'لطفاً نام، شماره تماس معتبر و پیام خود را بررسی کنید.'
                 : 'ارسال پیام انجام نشد. لطفاً دوباره تلاش کنید.';
             setStatus({ type: 'error', message });
         } finally {
@@ -39,6 +40,10 @@ export default function Footer() {
     return (
         <footer id="contact" className={`${styles.modernFooter} section`}>
             <div className="container">
+                <div className="section-tag mb-4">
+                    <span>06 / GAME ON · LET’S TALK</span>
+                    <span>CO-OP MODE</span>
+                </div>
                 <div className={styles.footerGrid}>
                     <div className="footer-text reveal">
                         <h2 className={styles.hugeText}>آماده خلق <br /><span className="gradient-text">آینده</span> هستید؟</h2>
@@ -53,8 +58,12 @@ export default function Footer() {
                                 <label htmlFor="name">نام شما</label>
                             </div>
                             <div className={styles.inputContainer}>
-                                <input type="email" id="email" name="email" maxLength="255" required placeholder=" " />
-                                <label htmlFor="email">ایمیل شما</label>
+                                <input type="tel" id="phone" name="phone" maxLength="30" required placeholder=" " dir="ltr" inputMode="tel" autoComplete="tel" />
+                                <label htmlFor="phone">شماره تماس</label>
+                            </div>
+                            <div className={styles.inputContainer}>
+                                <input type="email" id="email" name="email" maxLength="255" placeholder=" " />
+                                <label htmlFor="email">ایمیل شما (اختیاری)</label>
                             </div>
                             <div className={styles.inputContainer}>
                                 <textarea id="message" name="message" rows="4" maxLength="5000" required placeholder=" "></textarea>

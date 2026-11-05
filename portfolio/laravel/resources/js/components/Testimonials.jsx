@@ -24,6 +24,10 @@ export default function Testimonials() {
     return (
         <section id="testimonials" className="section testimonials-section">
             <div className="container">
+                <div className="section-tag mb-4">
+                    <span>05 / HIGH SCORES & REPUTATION</span>
+                    <span>CLIENT FEEDBACK</span>
+                </div>
                 <h2 className="section-title reveal">اعتماد <span className="gradient-text">همکاران</span></h2>
 
                 <div className={styles.testimonialsGrid}>

@@ -24,9 +24,9 @@
 
 /* Light theme overrides */
 body:not([data-theme="dark"]) .vectorBox {
-  background: #ffffff !important;
+  background: var(--bg-card) !important;
 }
 
 body:not([data-theme="dark"]) .vectorContainer {
-  background: radial-gradient(circle at center, #f8fafc 0%, #ffffff 100%) !important;
+  background: radial-gradient(circle at center, var(--paper) 0%, var(--bg-card) 100%) !important;
 }

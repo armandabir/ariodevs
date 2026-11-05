@@ -15,7 +15,11 @@ use App\Http\Controllers\ContactRequestController;
 */
 
 Route::post('/contact-requests', [ContactRequestController::class, 'store'])->middleware('throttle:5,1');
+Route::post('/visitor-location', [\App\Http\Controllers\VisitorLocationController::class, 'store'])->middleware('throttle:10,1');
 Route::get('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16', [ContactRequestController::class, 'index']);
+Route::delete('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16/{contactRequest}', [ContactRequestController::class, 'destroy'])
+    ->whereNumber('contactRequest')
+    ->name('contact-requests.destroy');
 
 Route::get('/{any}', function () {
     return view('index');
