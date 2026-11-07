@@ -1,16 +1,17 @@
 .hero {
    position: relative;
-  min-height: min(780px, calc(100svh - 40px));
+  min-height: min(880px, calc(100svh - 20px));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  background: #10130f;
-  color: #ebe4dc;
-  border: 2px solid var(--border-color);
-  margin-top: 24px;
-  margin-bottom: 40px;
-  box-shadow: 6px 6px 0 var(--border-color);
+  background: linear-gradient(100deg, #353677 0%, #5e3382 55%, #b53498 100%);
+  color: #ffffff;
+  border: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 88px;
+  box-shadow: none;
 }
 
 .heroVideo,
@@ -23,12 +24,24 @@
 }
 
 .heroVideo {
-  opacity: 0.65;
+  opacity: 0.18;
+  mix-blend-mode: luminosity;
 }
 
 .heroShade {
-  background: linear-gradient(90deg, rgba(8, 12, 9, 0.75), rgba(8, 12, 9, 0.25) 75%),
-              linear-gradient(0deg, rgba(8, 12, 9, 0.6), transparent 25%, rgba(8, 12, 9, 0.35));
+  background: linear-gradient(100deg, rgba(53, 54, 119, 0.55), rgba(181, 52, 152, 0.15));
+}
+
+.heroPixelBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 130%;
+  pointer-events: none;
+  z-index: 1;
+  background: var(--page-bg);
+  -webkit-mask: url('/assets/retro/top-section.svg') right bottom / 100% 100% no-repeat;
+  mask: url('/assets/retro/top-section.svg') right bottom / 100% 100% no-repeat;
 }
 
 .heroInfo,
@@ -86,7 +99,7 @@
 .heroMain {
   position: relative;
   z-index: 2;
-  padding: 40px clamp(24px, 8vw, 116px) 50px;
+  padding: 40px clamp(24px, 8vw, 116px) 120px;
   direction: ltr;
   text-align: left;
 }
@@ -108,8 +121,34 @@
   font-style: normal;
 }
 
+.heroTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.characterBox {
+  flex-shrink: 0;
+  width: clamp(140px, 15vw, 210px);
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  transform-origin: center center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
 .title {
-  font-size: clamp(52px, 11vw, 150px);
+  font-size: clamp(52px, 6vw, 150px);
   line-height: 0.82;
   letter-spacing: -0.06em;
   margin: 22px 0 20px;
@@ -157,26 +196,113 @@
   50% { opacity: 0; }
 }
 
-.heroDesc {
-  font-size: 15px;
-  color: #e3e1d7;
-  margin: 0 0 28px;
-  line-height: 1.7;
-  max-width: 620px;
+.heroLower {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr ; 
+  justify-items: end;
+  column-gap: auto;
+  width: 100%;
+}
+
+.heroRight {
+  grid-area: 1 / 3;
+  width: 100%;
   direction: rtl;
   text-align: right;
   font-family: var(--font-ui);
 }
 
 .heroActions {
+  grid-area: 1 / 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  width: 100%;
-  margin-top: 12px;
+  gap: 25px;
+  width: 300px;
+  margin-top: 0;
+  
 }
+
+
+.heroProfileBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  color: #23244a;
+  background: rgba(253, 253, 253, 0.82);
+  border: 2px solid #23244a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profilePulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 3px rgba(199, 255, 0, 0.25);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.heroProfileName {
+  margin: 0 0 8px;
+  color: #f1eee5;
+  font-size: clamp(28px, 3vw, 32px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.heroProfileName span {
+  color: var(--lime);
+}
+
+.heroProfileRole {
+  margin: 0 0 18px;
+  color: var(--teal);
+  font-size: clamp(18px, 2.3vw, 30px);
+  font-weight: 700;
+}
+
+.heroProfileRole span {
+  color: #f1eee5;
+}
+
+.heroProfileBio {
+  max-width: 620px;
+  margin: 0 0 70px;
+  color: #23244a;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.heroProfileBio strong {
+  display: inline-block;
+  margin: 0 4px;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-family: var(--font-latin) !important;
+  direction: ltr;
+}
+
+.laravelTag {
+  color: #ff2d20;
+  background: rgba(255, 45, 32, 0.12);
+}
+
+.reactTag {
+  color: #3f8fd8;
+  background: rgba(63, 143, 216, 0.15);
+}
+
+.aiTag {
+  color: #f5f8fb;
+  background: rgba(35, 36, 74, 0.7);
+}
+
 
 .startButton {
   display: inline-flex;
@@ -226,11 +352,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: #f1eee5;
+  background: #ffffff;
+  border: 2px solid #23244a;
+  color: #23244a;
   font-size: 1.1rem;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 0 #23244a;
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
   text-decoration: none !important;
 
@@ -243,8 +369,9 @@
 }
 
 .heroBottom {
-  border-top: 1px solid rgba(233, 229, 219, 0.25);
-  color: #d8d6ce;
+  border-top: 0;
+  color: var(--text-primary);
+  z-index: 3;
 }
 
 .bottomArrow {
@@ -280,6 +407,15 @@
     min-height: auto;
   }
 
+  .heroTitleRow {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .characterBox {
+    width: clamp(100px, 20vw, 150px);
+  }
+
   .title {
     font-size: clamp(42px, 12vw, 84px);
     line-height: 0.9;
@@ -287,6 +423,32 @@
 
   .heroMain {
     padding: 30px 20px;
+  }
+
+  .heroLower {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    justify-items: stretch;
+  }
+
+  .heroRight {
+    grid-area: auto;
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+  }
+
+  .heroActions {
+    grid-area: auto;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .startButton {
+    width: 240px;
   }
 
   .cornerA, .cornerB {
@@ -302,18 +464,65 @@
     padding: 12px 16px;
   }
 
-  .heroActions {
+  .heroMain {
+    padding: 20px 14px 60px;
+  }
+
+  .heroLower {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 24px;
     width: 100%;
+  }
+
+  .heroRight {
+    grid-area: auto;
+    width: 100%;
+    text-align: right;
+  }
+
+  .heroProfileBadge {
+    font-size: 11px;
+    padding: 6px 10px;
+    white-space: normal;
+    text-align: right;
+  }
+
+  .heroProfileName {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .heroProfileRole {
+    font-size: clamp(15px, 4.5vw, 20px);
+  }
+
+  .heroProfileBio {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .heroActions {
+    grid-area: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .startButton {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 14px;
   }
 
-  .heroDesc {
-    font-size: 14px;
+  .socialStrip {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .heroPixelBg {
+    -webkit-mask: url('/assets/retro/top-section.svg') right bottom / auto 55% no-repeat;
+    mask: url('/assets/retro/top-section.svg') right bottom / auto 55% no-repeat;
   }
 }

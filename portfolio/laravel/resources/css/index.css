@@ -20,54 +20,59 @@
 
 :root {
     /* Reference Colors */
-    --paper: #e9e5db;
-    --ink: #111410;
-    --olive: #a0a486;
-    --olive-dark: #20251b;
-    --teal: #d85110;
-    --red: #c9282b;
-    --lime: #c7ff00;
-    --line: #aaa99b;
+    --paper: #fdfdfd;
+    --ink: #23244a;
+    --olive: #6cb434;
+    --olive-dark: #23244a;
+    --teal: #3f8fd8;
+    --red: #b53498;
+    --lime: #6cb434;
+    --line: #d6d8ea;
 
-    /* Light Theme (Tactile Warm Paper Aesthetic) */
-    --bg-main: #e9e5db;
-    --bg-glass: rgba(233, 229, 219, 0.92);
-    --bg-card: #f2eee4;
-    --text-primary: #111410;
-    --text-secondary: #52564c;
-    --border-color: #111410;
-    --text-inverse: #111410;
+    /* Light theme: white page, navy text (reference palette) */
+    --page-bg: #fdfdfd;
+    --bg-main: #fdfdfd;
+    --bg-glass: rgba(253, 253, 253, 0.95);
+    --bg-card: #ffffff;
+    --text-primary: #23244a;
+    --text-secondary: #5b5d7e;
+    --border-color: #23244a;
+    --text-inverse: #23244a;
+    --band-gradient: linear-gradient(180deg, #4355ab 0%, #44469d 55%, #4b257a 100%);
 
     /* Brand Accents */
-    --accent-1: #d85110;
-    --accent-2: #c9282b;
-    --accent-3: #c7ff00;
-    --gradient-brand: linear-gradient(135deg, #008f92, #a0a486);
+    --accent-1: #3f8fd8;
+    --accent-2: #b53498;
+    --accent-3: #6cb434;
+    --gradient-brand: linear-gradient(135deg, #353677, #b53498);
 
-    --glow-shadow: 4px 4px 0 #111410;
-    --box-shadow: 5px 5px 0 #111410;
+    --glow-shadow: 4px 4px 0 #23244a;
+    --box-shadow: 5px 5px 0 #23244a;
     --font-ui: 'Vazirmatn', 'Inconsolata', monospace, sans-serif;
     --font-latin: 'Inconsolata', 'Courier New', monospace;
     --font-code: 'Inconsolata', 'Courier New', monospace;
 }
 
 [data-theme="dark"] {
-    /* Dark Retro Arcade (Deep Charcoal / Terminal Aesthetic) */
-    --bg-main: #10130f;
-    --bg-glass: rgba(16, 19, 15, 0.92);
-    --bg-card: #181d16;
-    --text-primary: #ebe4dc;
-    --text-secondary: #a0a486;
-    --border-color: #ebe4dc;
-    --text-inverse: #ebe4dc;
+    /* Keep the reference palette available when the user switches theme. */
+    --page-bg: #1b1a3a;
+    --bg-main: #1b1a3a;
+    --bg-glass: rgba(27, 26, 58, 0.95);
+    --bg-card: #26254e;
+    --text-primary: #f4f2ff;
+    --text-secondary: #b9b8dc;
+    --border-color: #f4f2ff;
+    --text-inverse: #f4f2ff;
+    --ink: #23244a;
+    --paper: #26254e;
 
-    --accent-1: #c7ff00;
-    --accent-2: #008f92;
-    --accent-3: #c9282b;
-    --gradient-brand: linear-gradient(135deg, #c7ff00, #008f92);
+    --accent-1: #6cb434;
+    --accent-2: #b53498;
+    --accent-3: #3f8fd8;
+    --gradient-brand: linear-gradient(135deg, #3f8fd8, #b53498);
 
-    --glow-shadow: 4px 4px 0 #c7ff00;
-    --box-shadow: 5px 5px 0 #c7ff00;
+    --glow-shadow: 4px 4px 0 #6cb434;
+    --box-shadow: 5px 5px 0 #6cb434;
 }
 
 /* =========================================
@@ -91,18 +96,8 @@ html, body, #app {
     transition: background-color 0.4s ease;
 }
 
-/* Subtle retro paper/texture background */
 body {
-    background: var(--bg-main) url('/assets/retro/main-background.jpg') center top/cover fixed;
-}
-body:before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: var(--bg-main);
-    opacity: 0.85;
-    pointer-events: none;
+    background-color: var(--page-bg);
 }
 
 button, input, textarea, select, a {
@@ -143,7 +138,64 @@ ul { list-style: none; }
     padding: 0 5%;
 }
 
-.section { padding: 100px 0; overflow: hidden; }
+.section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+/* Blue-purple gradient bands with pixel-stepped edges (section.svg), as in the reference */
+#projects,
+#publications {
+    padding: 150px 0;
+    background: var(--band-gradient);
+    --text-primary: #ffffff;
+    --text-secondary: #d9d8f5;
+    --border-color: #ffffff;
+    --bg-card: rgba(23, 20, 70, 0.55);
+    --box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
+    --teal: #8fc4ff;
+    --accent-2: #8fc4ff;
+    color: var(--text-primary);
+}
+
+#projects::before,
+#projects::after,
+#publications::before,
+#publications::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    background: var(--page-bg);
+    -webkit-mask-image: url('/assets/retro/bg_2_pixels_top.svg');
+    mask-image: url('/assets/retro/bg_2_pixels_top.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% auto;
+    mask-size: 100% auto;
+    -webkit-mask-position: top center;
+    mask-position: top center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#projects::after,
+#publications::after {
+    top: auto;
+    bottom: -1px;
+    height: 14vw;
+    min-height: 90px;
+    transform: rotate(180deg);
+    margin-top: -2px;
+}
+
+.section > .container {
+    position: relative;
+    z-index: 1;
+}
 
 .section-title {
     font-size: 3rem;

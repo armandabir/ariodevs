@@ -1,0 +1,16 @@
+.pixelBackgroundCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+[data-theme="dark"] .pixelBackgroundCanvas {
+  opacity: 0.65;
+}
