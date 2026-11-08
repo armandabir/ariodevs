@@ -270,6 +270,22 @@
   color: #f1eee5;
 }
 
+body:not([data-theme="dark"]) {
+  .heroProfileName {
+    color: var(--ink);
+  }
+  .heroProfileName span {
+    color: var(--teal);
+  }
+  .heroProfileRole {
+    color: var(--ink);
+  }
+  .heroProfileRole span {
+    color: var(--teal);
+  }
+}
+
+
 .heroProfileBio {
   max-width: 620px;
   margin: 0 0 70px;
