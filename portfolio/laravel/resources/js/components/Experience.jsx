@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../css/styles/Experience.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
 const experiences = [
     {
@@ -23,7 +24,7 @@ const experiences = [
     {
         date: '۲ سال تا امروز',
         title: 'توانایی زبان انگلیسی',
-        company: 'مطالعه آکادمیک ',
+        company: 'مطالعه آکادمیک',
         desc: 'با دو سال یادگیری زبان انگلیسی تا امروز، توانایی من در درک و استفاده از این زبان تقویت شده است.',
     },
     {
@@ -35,6 +36,7 @@ const experiences = [
 ];
 
 export default function Experience() {
+    const { t } = useLocale();
     return (
         <section id="experience" className="section timeline-section">
             <div className="container">
@@ -42,17 +44,17 @@ export default function Experience() {
                     <span>03 / ADVENTURE LOG</span>
                     <span>EXP POINTS</span>
                 </div>
-                <h2 className="section-title reveal">مسیر <span className="gradient-text">تکامل</span></h2>
+                <h2 className="section-title reveal">{t('مسیر')} <span className="gradient-text">{t('تکامل')}</span></h2>
 
                 <div className={styles.timeline}>
                     {experiences.map((item) => (
-                        <div className={`${styles.timelineItem} reveal`} key={item.title}>
+                        <div className={`${styles.timelineItem} reveal`} key={t(item.title)}>
                             <div className={styles.timelineDot}></div>
                             <div className={`${styles.timelineContent} glass-card`}>
-                                <span className={styles.timelineDate}>{item.date}</span>
-                                <h3 className={styles.timelineTitle}>{item.title}</h3>
-                                <h4 className={styles.timelineCompany}>{item.company}</h4>
-                                <p>{item.desc}</p>
+                                <span className={styles.timelineDate}>{t(item.date)}</span>
+                                <h3 className={styles.timelineTitle}>{t(item.title)}</h3>
+                                <h4 className={styles.timelineCompany}>{t(item.company)}</h4>
+                                <p>{t(item.desc)}</p>
                             </div>
                         </div>
                     ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../css/styles/Projects.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
 const projects = [
     {
@@ -45,6 +46,7 @@ const projects = [
 ];
 
 export default function Projects() {
+    const { t } = useLocale();
     return (
         <section id="projects" className="section projects-section">
             <div className="container">
@@ -52,21 +54,21 @@ export default function Projects() {
                     <span>02 / SELECT YOUR LEVEL</span>
                     <span>{projects.length} ITEMS FOUND</span>
                 </div>
-                <h2 className="section-title reveal">پروژه‌های  <span className="gradient-text">برگزیده</span></h2>
+                <h2 className="section-title reveal">{t('پروژه‌های')}  <span className="gradient-text">{t('برگزیده')}</span></h2>
 
                 <div className={styles.modernProjectsGrid}>
                     {projects.map((project) => (
-                        <div className={`${styles.modernProjectCard} reveal ${project.delay}`} key={project.name}>
+                        <div className={`${styles.modernProjectCard} reveal ${project.delay}`} key={t(project.name)}>
                             <div className={styles.projectImageBox}>
                                 <img src={project.image} alt={project.alt} />
                                 <div className={styles.projectOverlay}>
-                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.roundBtn} aria-label={project.name}><i className="fas fa-arrow-up-right-from-square"></i></a>
+                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.roundBtn} aria-label={t(project.name)}><i className="fas fa-arrow-up-right-from-square"></i></a>
                                 </div>
                             </div>
                             <div className={styles.projectDetails}>
-                                <div className={`en-text`} style={{ color: 'var(--accent-2)', fontSize: '0.875rem' }}>{project.category}</div>
-                                <h3 className={styles.projectName}>{project.name}</h3>
-                                <p className={styles.projectDesc}>{project.desc}</p>
+                                <div className={`en-text`} style={{ color: 'var(--accent-2)', fontSize: '0.875rem' }}>{t(project.category)}</div>
+                                <h3 className={styles.projectName}>{t(project.name)}</h3>
+                                <p className={styles.projectDesc}>{t(project.desc)}</p>
                                 <div className={styles.projectFooter}>
                                     {project.tech.map((t) => (
                                         <div className={`${styles.techPill} en-text`} key={t}>{t}</div>

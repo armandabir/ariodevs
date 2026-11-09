@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import styles from '../../css/styles/Header.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
-export default function Header({ theme, onToggleTheme }) {
+export default function Header({ theme, onToggleTheme, onToggleLocale }) {
+    const { locale, t } = useLocale();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const navItems = [
-        { href: '#home', num: '01', label: 'خانه' },
-        { href: '#about', num: '02', label: 'درباره من' },
-        { href: '#experience', num: '03', label: 'سوابق' },
-        { href: '#publications', num: '04', label: 'مقالات' },
-        { href: '#projects', num: '05', label: 'پروژه‌ها' },
+        { href: '#home', num: '01', label: t('خانه') },
+        { href: '#about', num: '02', label: t('درباره من') },
+        { href: '#experience', num: '03', label: t('سوابق') },
+        { href: '#publications', num: '04', label: t('مقالات') },
+        { href: '#projects', num: '05', label: t('پروژه‌ها') },
     ];
 
     const mobileNavItems = [
-        { href: '#home', num: '01', label: 'خانه' },
-        { href: '#about', num: '02', label: 'درباره من' },
-        { href: '#services', num: '03', label: 'خدمات' },
-        { href: '#skills', num: '04', label: 'مهارت‌ها' },
-        { href: '#experience', num: '05', label: 'سوابق' },
-        { href: '#publications', num: '06', label: 'مقالات' },
-        { href: '#projects', num: '07', label: 'پروژه‌ها' },
+        { href: '#home', num: '01', label: t('خانه') },
+        { href: '#about', num: '02', label: t('درباره من') },
+        { href: '#services', num: '03', label: t('خدمات') },
+        { href: '#skills', num: '04', label: t('مهارت‌ها') },
+        { href: '#experience', num: '05', label: t('سوابق') },
+        { href: '#publications', num: '06', label: t('مقالات') },
+        { href: '#projects', num: '07', label: t('پروژه‌ها') },
     ];
 
     const closeMenu = () => setMenuOpen(false);
@@ -33,7 +35,7 @@ export default function Header({ theme, onToggleTheme }) {
                 </button>
                 <div>
                     <a href="#" className={styles.logo} style={{ marginBottom: '1.5rem', display: 'block' }}>ARIO<span>DEVS</span><small>®</small></a>
-                    <ul className={styles.mobileNavLinks}>
+                    <ul className={styles.mobileNavLinks} dir={locale === 'en' ? 'ltr' : 'rtl'}>
                         {mobileNavItems.map((item) => (
                             <li key={item.href}>
                                 <a href={item.href} className={styles.mobileNavItem} onClick={closeMenu}>
@@ -52,7 +54,7 @@ export default function Header({ theme, onToggleTheme }) {
                 <div className={`container ${styles.navContainer}`}>
                     <a href="#" className={styles.brand}>ARIO<span>DEVS</span><small>®</small></a>
                     <nav className={styles.nav}>
-                        <ul className={styles.navLinks}>
+                        <ul className={styles.navLinks} dir={locale === 'en' ? 'ltr' : 'rtl'}>
                             {navItems.map((item) => (
                                 <li key={item.href}>
                                     <a href={item.href} className={styles.navItem}>
@@ -63,7 +65,10 @@ export default function Header({ theme, onToggleTheme }) {
                         </ul>
                     </nav>
                     <div className={styles.headerActions}>
-                        <button id="theme-toggle" className={styles.themeBtn} aria-label="تغییر تم" onClick={onToggleTheme}>
+                        <button id="locale-toggle" className={styles.themeBtn} aria-label={t('تغییر زبان')} onClick={onToggleLocale}>
+                            {locale === 'fa' ? 'EN' : 'FA'}
+                        </button>
+                        <button id="theme-toggle" className={styles.themeBtn} aria-label={t('تغییر تم')} onClick={onToggleTheme}>
                             <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>
                         </button>
                         <a href="#contact" className={`${styles.navButton} hidden-mobile`}>

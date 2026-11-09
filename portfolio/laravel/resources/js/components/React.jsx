@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import ParticleText from './ParticleText';
 import styles from '../../css/styles/React.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
 const particleColors = ['#4facfe', '#00f2fe', '#8b5cf6'];
 
@@ -18,13 +19,14 @@ const cardMotionProps = {
 };
 
 export default function React() {
+    const { t } = useLocale();
     return (
         <motion.div
             className={`bento-box bento-medium reveal ${styles.nnBox}`}
             {...cardMotionProps}
         >
             <div className={styles.nnHeader}>
-                <h3>توسعه دهندگان نرم افزار آریو</h3>
+                <h3>{t('توسعه دهندگان نرم افزار آریو')}</h3>
                 <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>Ario DEVS</p>
             </div>
             <div className={styles.canvasContainer}>

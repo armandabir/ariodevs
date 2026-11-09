@@ -101,6 +101,12 @@
   font-size: 0.95rem;
 }
 
+form[dir='ltr'] .inputContainer label {
+  left: 0;
+  right: auto;
+  text-align: left;
+}
+
 .formStatus {
   margin-bottom: 16px;
   padding: 10px 14px;
@@ -116,7 +122,7 @@
   color: var(--red);
 }
 
-.pubBtn {
+.pubBtn.pubBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +131,7 @@
   background: var(--olive);
   border: 2px solid var(--border-color);
   box-shadow: 4px 4px 0 var(--border-color);
-  color: var(--ink);
+  color: #23244a;
   font-weight: 800;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
@@ -134,7 +140,7 @@
     background: var(--lime);
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--border-color);
-    color: var(--ink);
+    color: #23244a;
   }
 
   &:disabled {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../css/styles/Testimonials.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
 const testimonials = [
     {
@@ -21,6 +22,7 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+    const { t } = useLocale();
     return (
         <section id="testimonials" className="section testimonials-section">
             <div className="container">
@@ -28,18 +30,18 @@ export default function Testimonials() {
                     <span>05 / HIGH SCORES & REPUTATION</span>
                     <span>CLIENT FEEDBACK</span>
                 </div>
-                <h2 className="section-title reveal">اعتماد <span className="gradient-text">همکاران</span></h2>
+                <h2 className="section-title reveal">{t('اعتماد')} <span className="gradient-text">{t('همکاران')}</span></h2>
 
                 <div className={styles.testimonialsGrid}>
                     {testimonials.map((item) => (
-                        <div className={`${styles.testimonialCard} glass-card reveal ${item.delay}`} key={item.name}>
+                        <div className={`${styles.testimonialCard} glass-card reveal ${item.delay}`} key={t(item.name)}>
                             <i className={`fas fa-quote-left ${styles.quoteIcon}`}></i>
-                            <p className={styles.testimonialText}>{item.text}</p>
+                            <p className={styles.testimonialText}>{t(item.text)}</p>
                             <div className={styles.clientInfo}>
                                 <i className="fas fa-user" aria-hidden="true"></i>
                                 <div>
-                                    <h4>{item.name}</h4>
-                                    <span className="text-gray-500">{item.role}</span>
+                                    <h4>{t(item.name)}</h4>
+                                    <span className="text-gray-500">{t(item.role)}</span>
                                 </div>
                             </div>
                         </div>

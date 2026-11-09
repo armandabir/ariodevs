@@ -8,8 +8,10 @@ import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 import useScrollEffects from '../lib/useScrollEffects';
+import { useLocale } from '../lib/LocaleContext';
 
 export default function Home() {
+    const { isLocale, setLocale } = useLocale();
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('modern-portfolio-theme') || 'light';
     });
@@ -27,6 +29,10 @@ export default function Home() {
         });
     }
 
+    function toggleLocale() {
+        setLocale(isLocale('fa') ? 'en' : 'fa');
+    }
+
     useScrollEffects();
 
     return (
@@ -36,14 +42,16 @@ export default function Home() {
             <div className="cursor-outline" id="cursor-outline"></div>
             <div className="noise-bg"></div>
 
-            <Header theme={theme} onToggleTheme={toggleTheme} />
+            <Header theme={theme} onToggleTheme={toggleTheme} onToggleLocale={toggleLocale} />
             <Hero />
-            <About />
-            <Projects />
-            <Experience />
-            <Publications />
-            <Testimonials />
-            <Footer />
+            <div dir={isLocale('en') ? 'ltr' : 'rtl'}>
+                <About />
+                <Projects />
+                <Experience />
+                <Publications />
+                <Testimonials />
+                <Footer />
+            </div>
         </>
     );
 }

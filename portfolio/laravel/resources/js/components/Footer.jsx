@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLocale } from '../lib/LocaleContext';
 import styles from '../../css/styles/Footer.module.scss';
 
 export default function Footer() {
+    const { t, isLocale } = useLocale();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState(null);
 
@@ -26,11 +28,11 @@ export default function Footer() {
                 },
             });
             form.reset();
-            setStatus({ type: 'success', message: 'پیام شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیرم.' });
+            setStatus({ type: 'success', message: t('پیام شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیرم.') });
         } catch (error) {
             const message = error.response?.status === 422
-                ? 'لطفاً نام، شماره تماس معتبر و پیام خود را بررسی کنید.'
-                : 'ارسال پیام انجام نشد. لطفاً دوباره تلاش کنید.';
+                ? t('لطفاً نام، شماره تماس معتبر و پیام خود را بررسی کنید.')
+                : t('ارسال پیام انجام نشد. لطفاً دوباره تلاش کنید.');
             setStatus({ type: 'error', message });
         } finally {
             setIsSubmitting(false);
@@ -46,39 +48,39 @@ export default function Footer() {
                 </div>
                 <div className={styles.footerGrid}>
                     <div className="footer-text reveal">
-                        <h2 className={styles.hugeText}>آماده خلق <br /><span className="gradient-text">آینده</span> هستید؟</h2>
-                        <p>برای مشاوره، پروژه‌های فریلنسری یا یک فنجان قهوه پیام دهید. من همیشه آماده شنیدن ایده‌های جدید هستم. معمولاً ظرف ۲۴ ساعت پاسخ می‌دهم.</p>
+                        <h2 className={styles.hugeText}>{t('آماده خلق')} <br /><span className="gradient-text">{t('آینده')}</span> {t('هستید؟')}</h2>
+                        <p>{t('برای مشاوره، پروژه‌های فریلنسری یا یک فنجان قهوه پیام دهید. من همیشه آماده شنیدن ایده‌های جدید هستم. معمولاً ظرف ۲۴ ساعت پاسخ می‌دهم.')}</p>
                         <a href="mailto:ario.dabir@gmail.com" className={`${styles.emailLink} en-text`}>ario.dabir@gmail.com</a>
                     </div>
 
                     <div className={`${styles.footerForm} glass-card reveal reveal-delay-1`}>
-                        <form id="contact-form" onSubmit={handleSubmit}>
+                        <form id="contact-form" dir={isLocale('en') ? 'ltr' : 'rtl'} onSubmit={handleSubmit}>
                             <div className={styles.inputContainer}>
                                 <input type="text" id="name" name="name" maxLength="120" required placeholder=" " />
-                                <label htmlFor="name">نام شما</label>
+                                <label htmlFor="name">{t('نام شما')}</label>
                             </div>
                             <div className={styles.inputContainer}>
                                 <input type="tel" id="phone" name="phone" maxLength="30" required placeholder=" " dir="ltr" inputMode="tel" autoComplete="tel" />
-                                <label htmlFor="phone">شماره تماس</label>
+                                <label htmlFor="phone">{t('شماره تماس')}</label>
                             </div>
                             <div className={styles.inputContainer}>
                                 <input type="email" id="email" name="email" maxLength="255" placeholder=" " />
-                                <label htmlFor="email">ایمیل شما (اختیاری)</label>
+                                <label htmlFor="email">{t('ایمیل شما (اختیاری)')}</label>
                             </div>
                             <div className={styles.inputContainer}>
                                 <textarea id="message" name="message" rows="4" maxLength="5000" required placeholder=" "></textarea>
-                                <label htmlFor="message">پروژه یا ایده شما...</label>
+                                <label htmlFor="message">{t('پروژه یا ایده شما...')}</label>
                             </div>
                             {status && <p className={`${styles.formStatus} ${status.type === 'error' ? styles.formStatusError : ''}`} role="status" aria-live="polite">{status.message}</p>}
                             <button type="submit" className={`btn bordered ${styles.pubBtn} w-100`} disabled={isSubmitting}>
-                                {isSubmitting ? 'در حال ارسال...' : 'ارسال درخواست'} <i className={`fas ${isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'} text-blue-500`}></i>
+                                {isSubmitting ? t('در حال ارسال...') : t('ارسال درخواست')} <i className={`fas ${isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'} text-blue-500`}></i>
                             </button>
                         </form>
                     </div>
                 </div>
 
                 <div className={styles.footerBottom}>
-                    <p>&copy;  2026 طراحی شده با ریکت و هوش مصنوعی | <span className="en-text">Ario.Devs</span></p>
+                    <p>&copy; 2026 {t('طراحی شده با ریکت و هوش مصنوعی')} | <span className="en-text">Ario.Devs</span></p>
                     <div className="social-hero">
                         <a href="#" className="social-icon"><i className="fab fa-telegram-plane"></i></a>
                         <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>

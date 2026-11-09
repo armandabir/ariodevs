@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../../css/styles/Hero.module.scss';
+import { useLocale } from '../lib/LocaleContext';
 
 const cardMotionProps = {
     whileHover: {
@@ -18,6 +19,7 @@ const cardMotionProps = {
 const roles = ['FULL-STACK DEVELOPER', 'AI & SOFTWARE ENGINEER', 'LARAVEL & REACT CRAFTSMAN'];
 
 export default function Hero() {
+    const { t } = useLocale();
     const typedTextRef = useRef(null);
 
     useEffect(() => {
@@ -126,13 +128,13 @@ export default function Hero() {
                 <div className={styles.heroLower}>
                     <div className={styles.heroRight}>
                         <div className={styles.heroProfileBadge}>
-                            در دسترس برای پروژه‌های فریلنسری <span className={styles.profilePulse}></span>
+                            {t('در دسترس برای پروژه‌های فریلنسری')} <span className={styles.profilePulse}></span>
                         </div>
                         <h2 className={styles.heroProfileName}>
-                            من <span>آرمان دبیرمقدم</span> هستم
+                            {t('من')} <span>{t('آرمان دبیرمقدم')}</span> {t('هستم')}
                         </h2>
                         <p className={styles.heroProfileRole}>
-                            یک <span>مهندس نرم‌افزار و توسعه‌دهنده فول‌استک</span>
+                            {t('یک')} <span>{t('مهندس نرم‌افزار و توسعه‌دهنده فول‌استک')}</span>
                         </p>
                         <p className={styles.heroProfileBio}>
                             <strong className={styles.laravelTag}>LARAVEL</strong>، <strong className={styles.reactTag}>REACT</strong>  <strong className={styles.aiTag}>AI</strong>
