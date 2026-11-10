@@ -31,4 +31,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'publication_import' => [
+        'token' => env('PUBLICATION_IMPORT_TOKEN'),
+    ],
+
+    'publications_admin' => [
+        'username' => env('PUBLICATIONS_ADMIN_USERNAME'),
+        'password_hash' => env('PUBLICATIONS_ADMIN_PASSWORD_HASH'),
+    ],
+
 ];

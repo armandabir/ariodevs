@@ -36,7 +36,7 @@ class ContactRequestController extends Controller
 
         $chart = $this->visitorsChart();
 
-        return view('admin.contact-requests', compact('requests', 'visitorsCount', 'chart'));
+        return view('users.contact-requests', compact('requests', 'visitorsCount', 'chart'));
     }
 
     public function destroy(ContactRequest $contactRequest): RedirectResponse

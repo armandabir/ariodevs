@@ -67,6 +67,75 @@
   color: #d6e0c8;
 }
 
+.heroInfoLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.visitorCounter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d6e0c8;
+  font-weight: 700;
+}
+
+.visitorLabel {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.flipRow {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.flipDigit {
+  position: relative;
+  width: 22px;
+  height: 30px;
+  border-radius: 3px;
+  background: #1c1f1a;
+  color: var(--lime);
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.flipTop,
+.flipBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  line-height: 30px;
+  text-align: center;
+}
+
+.flipTop {
+  top: 0;
+}
+
+.flipBottom {
+  bottom: 0;
+  line-height: 0;
+}
+
 .liveBadge {
   display: inline-flex;
   align-items: center;

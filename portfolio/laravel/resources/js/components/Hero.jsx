@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../../css/styles/Hero.module.scss';
 import { useLocale } from '../lib/LocaleContext';
@@ -21,6 +21,43 @@ const roles = ['FULL-STACK DEVELOPER', 'AI & SOFTWARE ENGINEER', 'LARAVEL & REAC
 export default function Hero() {
     const { t } = useLocale();
     const typedTextRef = useRef(null);
+    // The count is rendered server-side into window.__VISITOR_COUNT__ (no public endpoint).
+    const [visitorCount] = useState(() => window.__VISITOR_COUNT__ ?? null);
+    const [displayCount, setDisplayCount] = useState(null);
+
+    // Display-only ramp: on mount and every 15 seconds, the shown count climbs by a random 3–10.
+    // The stored visitor value is never changed.
+    useEffect(() => {
+        if (visitorCount === null) return;
+
+        const randomIncrement = () => Math.floor(Math.random() * 8) + 3;
+        let current = visitorCount;
+        let stopped = false;
+        let timeoutId;
+        setDisplayCount(current);
+
+        function rampBy(amount) {
+            const target = current + amount;
+
+            function step() {
+                if (stopped || current >= target) return;
+                current += 1;
+                setDisplayCount(current);
+                timeoutId = setTimeout(step, 180);
+            }
+
+            step();
+        }
+
+        rampBy(randomIncrement());
+        const intervalId = setInterval(() => rampBy(randomIncrement()), 15000);
+
+        return () => {
+            stopped = true;
+            clearInterval(intervalId);
+            clearTimeout(timeoutId);
+        };
+    }, [visitorCount]);
 
     useEffect(() => {
         const typedSpan = typedTextRef.current;
@@ -89,7 +126,20 @@ export default function Hero() {
 
             {/* Top meta strip */}
             <div className={styles.heroInfo}>
-                <span className={styles.metaLabel}>ARIODEVS / INDEPENDENT WEB DEVELOPER</span>
+                <div className={styles.heroInfoLeft}>
+                    <span className={styles.metaLabel}>ARIODEVS / INDEPENDENT WEB DEVELOPER</span>
+                    <div className={styles.visitorCounter} aria-live="polite" aria-label={`Visitors: ${displayCount ?? ''}`}>
+                        <span className={styles.visitorLabel}>VISITORS</span>
+                        <div className={styles.flipRow}>
+                            {(displayCount === null ? '----' : String(displayCount).padStart(4, '0')).split('').map((digit, index) => (
+                                <div className={styles.flipDigit} key={index}>
+                                    <span className={styles.flipTop}>{digit}</span>
+                                    <span className={styles.flipBottom}>{digit}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
                 <span className={styles.liveBadge}>
                     <i className={styles.liveDot}></i> OPEN TO SELECT PROJECTS
                 </span>

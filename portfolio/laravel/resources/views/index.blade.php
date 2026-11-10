@@ -16,6 +16,7 @@
 
     <body data-theme="light">
         <div id="app"></div>
+        <script>window.__VISITOR_COUNT__ = @json($visitorsCount);</script>
         <script>
             (function () {
                 try {

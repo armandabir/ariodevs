@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\ContactRequest;
+use App\Models\User;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -33,7 +34,7 @@ class ContactRequestTest extends TestCase
             'message' => '<script>alert("x")</script>',
         ]);
 
-        $inbox = $this->get('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16');
+        $inbox = $this->actingAs(User::factory()->make())->get('/dashboard/contact-requests');
 
         $inbox->assertOk()
             ->assertSee('Test Visitor')

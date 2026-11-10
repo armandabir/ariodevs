@@ -37,6 +37,9 @@
     </style>
 </head>
 <body>
+<div class="dash-layout">
+@include('users.partials.sidebar', ['active' => 'visitors'])
+<div class="dash-content">
 <main>
     <header>
         <div>
@@ -104,6 +107,8 @@
 
     <div class="pagination">{{ $requests->links() }}</div>
 </main>
+</div>
+</div>
 <script src="{{ asset('assets/js/chart.umd.min.js') }}"></script>
 <script>
     const series = @json($chart);

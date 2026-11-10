@@ -11,6 +11,13 @@ use Illuminate\Support\Str;
 
 class VisitorLocationController extends Controller
 {
+    public function count()
+    {
+        return response()->json([
+            'visitors' => Visitor::count(),
+        ])->header('Cache-Control', 'no-store');
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([

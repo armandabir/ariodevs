@@ -21,11 +21,43 @@ Route::post('/locale', function (\Illuminate\Http\Request $request) {
     $request->session()->put('locale', $locale);
     return response()->json(['locale' => $locale]);
 });
-Route::get('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16', [ContactRequestController::class, 'index']);
-Route::delete('/_private-inbox/d7f4a9c2e81b6d03a5f790ce42b18e6f9a0c5d73b2e84f16/{contactRequest}', [ContactRequestController::class, 'destroy'])
-    ->whereNumber('contactRequest')
-    ->name('contact-requests.destroy');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'show'])->name('login');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])
+    ->middleware('throttle:5,1')
+    ->name('login.submit');
+Route::post('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])
+        ->name('users.dashboard');
+    Route::get('/dashboard/visitor-count', [\App\Http\Controllers\VisitorLocationController::class, 'count'])
+        ->middleware('throttle:60,1')
+        ->name('users.dashboard.visitor-count');
+    Route::get('/dashboard/contact-requests', [ContactRequestController::class, 'index'])
+        ->name('users.dashboard.contact-requests');
+    Route::delete('/dashboard/contact-requests/{contactRequest}', [ContactRequestController::class, 'destroy'])
+        ->whereNumber('contactRequest')
+        ->name('contact-requests.destroy');
+});
+
+Route::prefix('/dashboard/publications')->group(function () {
+    Route::get('/login', fn () => redirect()->route('login'))->name('publications.admin.login');
+    Route::post('/login', fn () => redirect()->route('login'))->name('publications.admin.login.submit');
+    Route::post('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('publications.admin.logout');
+
+    Route::middleware('publications.admin')->group(function () {
+        Route::get('/', [\App\Http\Controllers\PublicationAdminController::class, 'index'])->name('publications.admin.index');
+        Route::get('/{publication}/edit', [\App\Http\Controllers\PublicationAdminController::class, 'edit'])
+            ->whereNumber('publication')
+            ->name('publications.admin.edit');
+        Route::put('/{publication}', [\App\Http\Controllers\PublicationAdminController::class, 'update'])
+            ->whereNumber('publication')
+            ->name('publications.admin.update');
+        Route::delete('/{publication}', [\App\Http\Controllers\PublicationAdminController::class, 'destroy'])
+            ->whereNumber('publication')
+            ->name('publications.admin.destroy');
+    });
+});
 
 Route::get('/{any}', function () {
-    return view('index');
+    return view('index', ['visitorsCount' => \App\Models\Visitor::count()]);
 })->where('any', '.*')->middleware(\App\Http\Middleware\CountUniqueVisitor::class);

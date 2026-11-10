@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styles from '../../css/styles/Publications.module.scss';
 import { useLocale } from '../lib/LocaleContext';
 
@@ -61,6 +62,25 @@ const publications = [
 
 export default function Publications() {
     const { t } = useLocale();
+    const [items, setItems] = useState(publications);
+
+    useEffect(() => {
+        let cancelled = false;
+        axios
+            .get('/api/publications')
+            .then(({ data }) => {
+                if (!cancelled && Array.isArray(data.data) && data.data.length > 0) {
+                    setItems(data.data);
+                }
+            })
+            .catch(() => {
+                // Keep the built-in list if the API is unavailable.
+            });
+        return () => {
+            cancelled = true;
+        };
+    }, []);
+
     return (
         <section id="publications" className="section publications-section">
             <div className="container">
@@ -72,7 +92,7 @@ export default function Publications() {
                 <p className="section-subtitle reveal">{t('منابع منتخب فارسی درباره توسعه وب، فرانت‌اند، بک‌اند و بهینه‌سازی سایت')}</p>
 
                 <div className={styles.publicationsList}>
-                    {publications.map((pub) => (
+                    {items.map((pub) => (
                         <div className={`${styles.publicationCard} reveal ${pub.delay}`} key={pub.url}>
                             <i className={`${pub.icon} ${styles.pubIcon}`} aria-hidden="true"></i>
                             <div className={styles.pubContent}>
