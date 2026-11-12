@@ -74,15 +74,18 @@ export default function Publications() {
                 }
             })
             .catch(() => {
-                // The built-in list is Persian-only, so show it only for fa.
                 if (!cancelled) {
-                    setItems(locale === 'fa' ? fallbackPublications : []);
+                    setItems([]);
                 }
             });
         return () => {
             cancelled = true;
         };
     }, [locale]);
+
+    // Built-in items are Persian keys translated via t(); API items are already localized.
+    const usingFallback = items.length === 0;
+    const text = (value) => (usingFallback ? t(value) : value);
 
     return (
         <section id="publications" className="section publications-section">
@@ -95,16 +98,16 @@ export default function Publications() {
                 <p className="section-subtitle reveal">{t('منابع منتخب فارسی درباره توسعه وب، فرانت‌اند، بک‌اند و بهینه‌سازی سایت')}</p>
 
                 <div className={styles.publicationsList}>
-                    {items.map((pub) => (
+                    {(items.length > 0 ? items : fallbackPublications).map((pub) => (
                         <div className={`${styles.publicationCard} reveal ${pub.delay}`} key={pub.url}>
                             <i className={`${pub.icon} ${styles.pubIcon}`} aria-hidden="true"></i>
                             <div className={styles.pubContent}>
-                                <h3 className={styles.pubTitle}>{pub.title}</h3>
+                                <h3 className={styles.pubTitle}>{text(pub.title)}</h3>
                                 <div className={styles.pubMeta}>
-                                    <span><i className="fas fa-globe" aria-hidden="true"></i> {pub.venue}</span>
-                                    <span><i className="fas fa-tag" aria-hidden="true"></i> {pub.category}</span>
+                                    <span><i className="fas fa-globe" aria-hidden="true"></i> {text(pub.venue)}</span>
+                                    <span><i className="fas fa-tag" aria-hidden="true"></i> {text(pub.category)}</span>
                                 </div>
-                                {pub.desc && <p className={styles.pubDesc}>{pub.desc}</p>}
+                                {pub.desc && <p className={styles.pubDesc}>{text(pub.desc)}</p>}
                                 <a href={pub.url} target="_blank" rel="noopener noreferrer" className={`btn btn-glow ${styles.pubBtn}`}>
                                     {t('مطالعه مقاله')} <i className="fas fa-arrow-up-right-from-square " aria-hidden="true"></i>
                                 </a>
