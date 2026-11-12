@@ -31,6 +31,10 @@
         .delete-btn:hover { background: #d64545; color: #fff; }
         .logout { font: inherit; padding: 6px 14px; border: 1px solid #56636e; border-radius: 5px; background: #fff; color: #56636e; cursor: pointer; }
         .status { margin-bottom: 16px; padding: 12px 16px; background: #e6f6f4; border: 1px solid #087f72; border-radius: 8px; color: #087f72; }
+        .badge, .toggle { display: inline-block; padding: 4px 10px; margin: 2px 4px 2px 0; border-radius: 999px; font: inherit; font-size: 12px; border: 1px solid #dce2e7; }
+        .badge.ok, .toggle.ok { background: #e6f6f4; border-color: #087f72; color: #087f72; }
+        .badge.off, .toggle.off { background: #fff; color: #64717d; }
+        .toggle { cursor: pointer; }
         .empty { padding: 36px; text-align: center; color: #64717d; }
         @media (max-width: 600px) { body { padding: 22px 12px; } header { align-items: start; flex-direction: column; } }
     </style>
@@ -67,6 +71,8 @@
                         <th>Venue</th>
                         <th>Category</th>
                         <th>URL</th>
+                        <th>Translations</th>
+                        <th>Published</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -77,6 +83,18 @@
                             <td>{{ $publication->venue }}</td>
                             <td>{{ $publication->category }}</td>
                             <td class="url">{{ $publication->url }}</td>
+                            <td>
+                                @foreach (['fa' => 'FA', 'en' => 'EN'] as $code => $label)
+                                    @php($tr = $publication->translations->firstWhere('locale', $code))
+                                    <span class="badge {{ $tr && $tr->status === 'approved' ? 'ok' : 'off' }}">{{ $label }}: {{ $tr ? $tr->status : 'missing' }}</span>
+                                @endforeach
+                            </td>
+                            <td>
+                                <form method="POST" action="{{ route('publications.admin.publish', $publication) }}">
+                                    @csrf
+                                    <button type="submit" class="toggle {{ $publication->is_published ? 'ok' : 'off' }}">{{ $publication->is_published ? 'Published' : 'Unpublished' }}</button>
+                                </form>
+                            </td>
                             <td>
                                 <div class="actions">
                                     <a class="edit-link" href="{{ route('publications.admin.edit', $publication) }}">Edit</a>

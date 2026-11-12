@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactRequest;
 use App\Models\Visitor;
+use App\Services\WhatsAppService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -23,7 +24,9 @@ class ContactRequestController extends Controller
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
-        ContactRequest::create($validated);
+        $contactRequest = ContactRequest::create($validated);
+
+        app(WhatsAppService::class)->sendContactNotifications($contactRequest);
 
         return response()->json(['message' => 'درخواست شما ثبت شد.'], 201);
     }

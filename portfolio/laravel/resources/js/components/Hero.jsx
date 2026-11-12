@@ -214,7 +214,7 @@ export default function Hero() {
                         <a href="https://github.com/armandabir" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
                             <i className="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/arman-d-moghadam-20aa1066" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
                             <i className="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:ario.dabir@gmail.com" className={styles.socialBtn} aria-label="Email">

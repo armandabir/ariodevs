@@ -29,7 +29,8 @@ export default function Header({ theme, onToggleTheme, onToggleLocale }) {
     return (
         <>
             <div className={`${styles.mobileMenuOverlay}${menuOpen ? ` ${styles.active}` : ''}`} id="mobile-overlay" onClick={closeMenu}></div>
-            <aside className={`${styles.mobileMenu}${menuOpen ? ` ${styles.active}` : ''}`} id="mobile-menu">
+            <aside className={`${styles.mobileMenu}${menuOpen ? `
+                 ${styles.active}` : ''}`} id="mobile-menu">
                 <button className={styles.closeMenuBtn} id="close-menu" onClick={closeMenu}>
                     <i className="fas fa-times"></i>
                 </button>

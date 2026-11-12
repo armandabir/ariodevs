@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publication;
+use App\Models\PublicationTranslation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -14,14 +15,25 @@ class PublicationController extends Controller
 {
     private const MAX_ITEMS = 4;
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
+        $locale = $request->query('locale', 'fa');
+        if (! in_array($locale, ['fa', 'en'], true)) {
+            return response()->json(['message' => 'Invalid locale.'], 422);
+        }
+
         $items = Publication::query()
+            ->where('is_published', true)
+            ->with(['translations' => fn ($query) => $query
+                ->where('locale', $locale)
+                ->where('status', 'approved')])
             ->orderByDesc('id')
-            ->limit(self::MAX_ITEMS)
             ->get()
+            ->filter(fn (Publication $pub) => $pub->translations->isNotEmpty())
+            ->take(self::MAX_ITEMS)
             ->values()
-            ->map(fn (Publication $pub, int $index) => $this->present($pub, $index));
+            ->map(fn (Publication $pub, int $index) => $this->present($pub, $index, $pub->translations->first()));
+
 
         return response()->json(['data' => $items])
             ->header('Cache-Control', 'no-store');
@@ -39,6 +51,11 @@ class PublicationController extends Controller
         ]);
         if ($validator->fails()) {
             return response()->json(['message' => 'Invalid URL.', 'errors' => $validator->errors()], 422);
+        }
+
+        $locale = $request->query('locale', 'fa');
+        if (! in_array($locale, ['fa', 'en'], true)) {
+            return response()->json(['message' => 'Invalid locale.'], 422);
         }
 
         $url = $target;
@@ -63,16 +80,25 @@ class PublicationController extends Controller
         $meta = $this->extractMeta($page->body(), $parts['host']);
 
         $hash = hash('sha256', $url);
-        $pub = DB::transaction(function () use ($url, $hash, $meta) {
-            $existing = Publication::where('url_hash', $hash)->first();
-            if ($existing) {
-                $existing->delete();
+        $pub = DB::transaction(function () use ($url, $hash, $meta, $locale) {
+            $pub = Publication::where('url_hash', $hash)->first();
+            if (! $pub) {
+                $pub = Publication::create(array_merge($meta, [
+                    'url' => $url,
+                    'url_hash' => $hash,
+                ]));
             }
 
-            $pub = Publication::create(array_merge($meta, [
-                'url' => $url,
-                'url_hash' => $hash,
-            ]));
+            $pub->translations()->updateOrCreate(
+                ['locale' => $locale],
+                [
+                    'title' => $meta['title'] ?? '',
+                    'venue' => $meta['venue'] ?? '',
+                    'category' => $meta['category'] ?? '',
+                    'description' => $meta['description'] ?? null,
+                    'status' => 'approved',
+                ]
+            );
 
             $staleIds = Publication::query()->orderByDesc('id')->pluck('id')->slice(self::MAX_ITEMS)->values();
             if ($staleIds->isNotEmpty()) {
@@ -82,17 +108,21 @@ class PublicationController extends Controller
             return $pub;
         });
 
-        return response()->json(['data' => $this->present($pub, 0)], 201);
+        $pub->load(['translations' => fn ($query) => $query
+            ->where('locale', $locale)
+            ->where('status', 'approved')]);
+
+        return response()->json(['data' => $this->present($pub, 0, $pub->translations->first())], 201);
     }
 
-    private function present(Publication $pub, int $index): array
+    private function present(Publication $pub, int $index, PublicationTranslation $translation): array
     {
         return [
             'icon' => $pub->icon,
-            'title' => $pub->title,
-            'venue' => $pub->venue,
-            'category' => $pub->category,
-            'desc' => $pub->description,
+            'title' => $translation->title,
+            'venue' => $translation->venue,
+            'category' => $translation->category,
+            'desc' => $translation->description,
             'url' => $pub->url,
             'delay' => $index === 0 ? '' : 'reveal-delay-' . ($index % 3),
         ];
@@ -107,6 +137,7 @@ class PublicationController extends Controller
         }
 
         $validated = $request->validate([
+            'locale' => ['nullable', 'in:fa,en'],
             'url' => ['required', 'url', 'max:2048'],
             'title' => ['nullable', 'string', 'max:500'],
             'venue' => ['nullable', 'string', 'max:255'],
@@ -144,9 +175,11 @@ class PublicationController extends Controller
         }
 
         $hash = hash('sha256', $validated['url']);
-        $pub = DB::transaction(function () use ($validated, $hash, $meta) {
-            Publication::where('url_hash', $hash)->delete();
-            $pub = Publication::create(array_merge([
+        $locale = $validated['locale'] ?? 'fa';
+        $pub = DB::transaction(function () use ($validated, $hash, $meta, $locale) {
+            $pub = Publication::where('url_hash', $hash)->first();
+            if (! $pub) {
+                $pub = Publication::create(array_merge([
                 'url' => $validated['url'],
                 'url_hash' => $hash,
                 'icon' => 'fas fa-newspaper',
@@ -154,6 +187,18 @@ class PublicationController extends Controller
                 'category' => '',
                 'description' => null,
             ], $meta));
+            }
+
+            $pub->translations()->updateOrCreate(
+                ['locale' => $locale],
+                [
+                    'title' => $meta['title'] ?? '',
+                    'venue' => $meta['venue'] ?? '',
+                    'category' => $meta['category'] ?? '',
+                    'description' => $meta['description'] ?? null,
+                    'status' => 'approved',
+                ]
+            );
 
             $staleIds = Publication::query()->orderByDesc('id')->pluck('id')->slice(self::MAX_ITEMS)->values();
             if ($staleIds->isNotEmpty()) {
@@ -163,7 +208,11 @@ class PublicationController extends Controller
             return $pub;
         });
 
-        return response()->json(['data' => $this->present($pub, 0)], 201);
+        $pub->load(['translations' => fn ($query) => $query
+            ->where('locale', $locale)
+            ->where('status', 'approved')]);
+
+        return response()->json(['data' => $this->present($pub, 0, $pub->translations->first())], 201);
     }
 
     private function extractMeta(string $html, string $host): array

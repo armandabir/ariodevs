@@ -31,6 +31,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'whatsapp' => [
+        'token' => env('WHATSAPP_TOKEN'),
+        'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
+        'owner_number' => env('WHATSAPP_OWNER_NUMBER'),
+        'greeting_template' => env('WHATSAPP_GREETING_TEMPLATE', 'ariodevs'),
+        'owner_template' => env('WHATSAPP_OWNER_TEMPLATE', 'ariodevs'),
+        'language' => env('WHATSAPP_TEMPLATE_LANGUAGE', 'en'),
+    ],
+
     'publication_import' => [
         'token' => env('PUBLICATION_IMPORT_TOKEN'),
     ],

@@ -43,6 +43,16 @@ const projects = [
         url: 'https://dietary.ariodevs.com',
         delay: 'reveal-delay-1',
     },
+    {
+        image: '/assets/images/ptsafety-dash.png',
+        alt: 'Patient Safety Admin Dashboard',
+        category: 'Admin Dashboard',
+        name: 'داشبورد مدیریت ایمنی بیمار',
+        desc: 'داشبورد مدیریت سامانه ایمنی بیمار با نمایش آمار، روند گزارش‌های خطا و مدیریت کاربران و محتوای آموزشی.',
+        tech: ['PHP', 'Bootstrap'],
+        url: 'https://ptsafety.ariodevs.com/admin/dashboard',
+        delay: '',
+    },
 ];
 
 export default function Projects() {

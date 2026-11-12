@@ -21,6 +21,9 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'username' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'max:255'],
+            'not_a_robot' => ['accepted'],
+        ], [
+            'not_a_robot.accepted' => 'Please confirm you are not a robot.',
         ]);
 
         $user = User::where('name', $credentials['username'])->first();

@@ -3,7 +3,7 @@ import axios from 'axios';
 import styles from '../../css/styles/Publications.module.scss';
 import { useLocale } from '../lib/LocaleContext';
 
-const publications = [
+const fallbackPublications = [
     {
         icon: 'fas fa-gauge-high',
         title: 'Core Web Vitals چیست؟ نحوه بهینه‌سازی و تأثیر آن بر سئو',
@@ -61,25 +61,28 @@ const publications = [
 ];
 
 export default function Publications() {
-    const { t } = useLocale();
-    const [items, setItems] = useState(publications);
+    const { t, locale } = useLocale();
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         let cancelled = false;
         axios
-            .get('/api/publications')
+            .get('/api/publications', { params: { locale } })
             .then(({ data }) => {
-                if (!cancelled && Array.isArray(data.data) && data.data.length > 0) {
+                if (!cancelled && Array.isArray(data.data)) {
                     setItems(data.data);
                 }
             })
             .catch(() => {
-                // Keep the built-in list if the API is unavailable.
+                // The built-in list is Persian-only, so show it only for fa.
+                if (!cancelled) {
+                    setItems(locale === 'fa' ? fallbackPublications : []);
+                }
             });
         return () => {
             cancelled = true;
         };
-    }, []);
+    }, [locale]);
 
     return (
         <section id="publications" className="section publications-section">
@@ -96,12 +99,12 @@ export default function Publications() {
                         <div className={`${styles.publicationCard} reveal ${pub.delay}`} key={pub.url}>
                             <i className={`${pub.icon} ${styles.pubIcon}`} aria-hidden="true"></i>
                             <div className={styles.pubContent}>
-                                <h3 className={styles.pubTitle}>{t(pub.title)}</h3>
+                                <h3 className={styles.pubTitle}>{pub.title}</h3>
                                 <div className={styles.pubMeta}>
-                                    <span><i className="fas fa-globe" aria-hidden="true"></i> {t(pub.venue)}</span>
-                                    <span><i className="fas fa-tag" aria-hidden="true"></i> {t(pub.category)}</span>
+                                    <span><i className="fas fa-globe" aria-hidden="true"></i> {pub.venue}</span>
+                                    <span><i className="fas fa-tag" aria-hidden="true"></i> {pub.category}</span>
                                 </div>
-                                <p className={styles.pubDesc}>{t(pub.desc)}</p>
+                                {pub.desc && <p className={styles.pubDesc}>{pub.desc}</p>}
                                 <a href={pub.url} target="_blank" rel="noopener noreferrer" className={`btn btn-glow ${styles.pubBtn}`}>
                                     {t('مطالعه مقاله')} <i className="fas fa-arrow-up-right-from-square " aria-hidden="true"></i>
                                 </a>

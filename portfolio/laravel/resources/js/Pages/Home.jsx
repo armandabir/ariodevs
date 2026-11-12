@@ -13,7 +13,7 @@ import { useLocale } from '../lib/LocaleContext';
 export default function Home() {
     const { isLocale, setLocale } = useLocale();
     const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('modern-portfolio-theme') || 'light';
+        return localStorage.getItem('modern-portfolio-theme') || 'dark';
     });
 
     useEffect(() => {

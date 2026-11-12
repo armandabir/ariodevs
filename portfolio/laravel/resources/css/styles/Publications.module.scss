@@ -73,7 +73,12 @@
 .pubDesc {
   font-size: 0.95rem;
   line-height: 1.7;
+  white-space: pre-line;
   color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .pubBtn.pubBtn {

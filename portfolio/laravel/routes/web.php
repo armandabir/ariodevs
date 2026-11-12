@@ -46,18 +46,30 @@ Route::prefix('/dashboard/publications')->group(function () {
 
     Route::middleware('publications.admin')->group(function () {
         Route::get('/', [\App\Http\Controllers\PublicationAdminController::class, 'index'])->name('publications.admin.index');
+        Route::get('/users', [\App\Http\Controllers\PublicationAdminController::class, 'users'])->name('publications.admin.users');
+        Route::post('/users', [\App\Http\Controllers\PublicationAdminController::class, 'storeUser'])->name('publications.admin.users.store');
         Route::get('/{publication}/edit', [\App\Http\Controllers\PublicationAdminController::class, 'edit'])
             ->whereNumber('publication')
             ->name('publications.admin.edit');
         Route::put('/{publication}', [\App\Http\Controllers\PublicationAdminController::class, 'update'])
             ->whereNumber('publication')
             ->name('publications.admin.update');
+        Route::post('/{publication}/publish', [\App\Http\Controllers\PublicationAdminController::class, 'togglePublish'])
+            ->whereNumber('publication')
+            ->name('publications.admin.publish');
+        Route::post('/{publication}/translations/{locale}/status', [\App\Http\Controllers\PublicationAdminController::class, 'toggleTranslation'])
+            ->whereNumber('publication')
+            ->whereIn('locale', ['fa', 'en'])
+            ->name('publications.admin.translation.status');
+        Route::put('/{publication}/translations/{locale}', [\App\Http\Controllers\PublicationAdminController::class, 'updateTranslation'])
+            ->whereNumber('publication')
+            ->whereIn('locale', ['fa', 'en'])
+            ->name('publications.admin.translation.update');
         Route::delete('/{publication}', [\App\Http\Controllers\PublicationAdminController::class, 'destroy'])
             ->whereNumber('publication')
             ->name('publications.admin.destroy');
     });
 });
-
 Route::get('/{any}', function () {
     return view('index', ['visitorsCount' => \App\Models\Visitor::count()]);
 })->where('any', '.*')->middleware(\App\Http\Middleware\CountUniqueVisitor::class);

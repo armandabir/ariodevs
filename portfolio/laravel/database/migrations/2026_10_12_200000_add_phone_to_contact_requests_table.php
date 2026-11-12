@@ -15,13 +15,18 @@ return new class extends Migration
         });
 
         // Raw statement avoids requiring doctrine/dbal for ->change().
-        DB::statement('ALTER TABLE contact_requests MODIFY email VARCHAR(255) NULL');
+        // MySQL-only raw statement; SQLite (used by tests) cannot ALTER COLUMN this way.
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('ALTER TABLE contact_requests MODIFY email VARCHAR(255) NULL');
+        }
     }
 
     public function down()
     {
         DB::table('contact_requests')->whereNull('email')->update(['email' => '']);
-        DB::statement('ALTER TABLE contact_requests MODIFY email VARCHAR(255) NOT NULL');
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('ALTER TABLE contact_requests MODIFY email VARCHAR(255) NOT NULL');
+        }
 
         Schema::table('contact_requests', function (Blueprint $table) {
             $table->dropColumn('phone');

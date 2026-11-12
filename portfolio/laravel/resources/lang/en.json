@@ -66,6 +66,8 @@
   "فروشگاه آنلاین شیرینی و کیک با دسته‌بندی محصولات، جستجو، سبد خرید و سیستم عضویت کاربران.": "Online pastry and cake shop with product categories, search, shopping cart, and user membership.",
   "سامانه مدیریت خطای پزشکی و ایمنی بیمار": "Medical Error and Patient Safety Management System",
   "سامانه ثبت و مدیریت گزارش خطاهای پزشکی برای ارتقای ایمنی بیمار، همراه با محتوای آموزشی و آمار رضایت مراجعین.": "System for recording and managing medical error reports to improve patient safety, with educational content and patient satisfaction statistics.",
+  "داشبورد مدیریت ایمنی بیمار": "Patient Safety Admin Dashboard",
+  "داشبورد مدیریت سامانه ایمنی بیمار با نمایش آمار، روند گزارش‌های خطا و مدیریت کاربران و محتوای آموزشی.": "Admin dashboard for the patient safety system, showing statistics, error report trends, and management of users and educational content.",
   "زنجبیل دایت": "Zanjebil Diet",
   "وب‌سایت کلینیک رژیم‌درمانی و تناسب اندام با پکیج‌های رژیم، فروشگاه، مقالات و پنل کاربری.": "Diet therapy and fitness clinic website with diet packages, a shop, articles, and a user dashboard.",
   "طراحی سایت": "on web design",
@@ -116,5 +118,10 @@
   "لطفاً نام، شماره تماس معتبر و پیام خود را بررسی کنید.": "Please check your name, valid phone number, and message.",
   "ارسال پیام انجام نشد. لطفاً دوباره تلاش کنید.": "The message could not be sent. Please try again.",
   "طراحی شده با ریکت و هوش مصنوعی": "Designed with React and AI",
-  "توسعه دهندگان نرم افزار آریو": "Ario software developers"
+  "توسعه دهندگان نرم افزار آریو": "Ario software developers",
+  "ناتوان در ربات بودن؟ بکشید": "Slide to verify you are not a robot",
+  "تأیید شد": "Verified",
+  "من ربات نیستم": "I'm not a robot",
+  "لطفاً تیک «من ربات نیستم» را بزنید.": "Please tick the \"I'm not a robot\" box.",
+  "تکرار": "Reset"
 }

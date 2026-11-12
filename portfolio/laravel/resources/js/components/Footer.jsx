@@ -7,6 +7,7 @@ export default function Footer() {
     const { t, isLocale } = useLocale();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState(null);
+    const [humanError, setHumanError] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -71,6 +72,19 @@ export default function Footer() {
                                 <textarea id="message" name="message" rows="4" maxLength="5000" required placeholder=" "></textarea>
                                 <label htmlFor="message">{t('پروژه یا ایده شما...')}</label>
                             </div>
+                            <label className={styles.humanCheck}>
+                                <input
+                                    type="checkbox"
+                                    name="not_robot"
+                                    required
+                                    aria-invalid={humanError}
+                                    onInvalid={(e) => { e.preventDefault(); setHumanError(true); }}
+                                    onChange={(e) => { if (e.target.checked) setHumanError(false); }}
+                                />
+                                <span className={styles.humanBox} aria-hidden="true"><i className="fas fa-check"></i></span>
+                                <span>{t('من ربات نیستم')}</span>
+                            </label>
+                            {humanError && <p className={styles.humanAlert} role="alert">{t('لطفاً تیک «من ربات نیستم» را بزنید.')}</p>}
                             {status && <p className={`${styles.formStatus} ${status.type === 'error' ? styles.formStatusError : ''}`} role="status" aria-live="polite">{status.message}</p>}
                             <button type="submit" className={`btn bordered ${styles.pubBtn} w-100`} disabled={isSubmitting}>
                                 {isSubmitting ? t('در حال ارسال...') : t('ارسال درخواست')} <i className={`fas ${isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'} text-blue-500`}></i>
@@ -82,9 +96,9 @@ export default function Footer() {
                 <div className={styles.footerBottom}>
                     <p>&copy; 2026 {t('طراحی شده با ریکت و هوش مصنوعی')} | <span className="en-text">Ario.Devs</span></p>
                     <div className="social-hero">
-                        <a href="#" className="social-icon"><i className="fab fa-telegram-plane"></i></a>
+                        <a href="https://t.me/ariodabir" className="social-icon"><i className="fab fa-telegram-plane"></i></a>
                         <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-                        <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/ario.devs" className="social-icon"><i className="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
